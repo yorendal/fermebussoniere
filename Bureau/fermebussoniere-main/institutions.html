@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Institutions — La Ferme Bus'onnière</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream: #f5f0e8;
+      --dark-green: #2d5a3d;
+      --mid-green: #3d7a52;
+      --teal: #4a8c6f;
+      --text-dark: #1a1a1a;
+      --text-body: #3a3a3a;
+      --text-muted: #666;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      background-color: var(--cream);
+      color: var(--text-body);
+      overflow-x: hidden;
+      padding-top: 86px;
+    }
+
+    /* ===== NAVBAR ===== */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: var(--cream);
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 40px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text-dark);
+    }
+
+    .nav-logo {
+      width: 60px;
+      height: 60px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .nav-brand-name {
+      font-family: 'Lato', sans-serif;
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--text-dark);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 6px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-dark);
+      font-size: 14px;
+      font-weight: 400;
+      padding: 8px 18px;
+      border-radius: 20px;
+      border: 1px solid #ccc;
+      transition: all 0.25s ease;
+      letter-spacing: 0.3px;
+    }
+
+    .nav-links a:hover, .nav-links a.active {
+      background: var(--dark-green);
+      color: white;
+      border-color: var(--dark-green);
+    }
+
+    /* ===== PAGE HEADER ===== */
+    .page-header {
+      padding: 60px 40px 40px;
+      text-align: center;
+      animation: fadeUp 0.7s ease both;
+    }
+
+    .breadcrumb {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .breadcrumb a {
+      color: var(--teal);
+      text-decoration: none;
+    }
+
+    .breadcrumb a:hover { text-decoration: underline; }
+
+    .page-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(36px, 5vw, 64px);
+      font-weight: 400;
+      color: var(--text-dark);
+      margin-bottom: 14px;
+    }
+
+    .page-subtitle {
+      font-size: 16px;
+      color: var(--teal);
+      font-style: italic;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ===== INSTITUTION BLOCKS ===== */
+    /*  Alternating layout: odd = image left / text right
+                            even = text left / image right        */
+
+    .institution-block {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 420px;
+      animation: fadeUp 0.7s ease both;
+    }
+
+    .institution-block:nth-child(even) .inst-image { order: 1; }
+    .institution-block:nth-child(even) .inst-content { order: 2; }
+
+    /* Image panel */
+    .inst-image {
+      position: relative;
+      overflow: hidden;
+      min-height: 380px;
+    }
+
+    .inst-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .institution-block:hover .inst-image img {
+      transform: scale(1.04);
+    }
+
+    /* Placeholder when no real image */
+    .inst-image-placeholder {
+      width: 100%;
+      height: 100%;
+      min-height: 380px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 80px;
+      opacity: 0.35;
+    }
+
+    /* Content panel */
+    .inst-content {
+      background: var(--cream);
+      padding: 60px 55px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .inst-badge {
+      display: inline-block;
+      background: var(--dark-green);
+      color: white;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 10px 24px;
+      border-radius: 30px;
+      letter-spacing: 0.4px;
+      align-self: flex-start;
+    }
+
+    .inst-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(26px, 3vw, 38px);
+      font-weight: 700;
+      color: var(--text-dark);
+      line-height: 1.2;
+    }
+
+    .inst-desc {
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--text-body);
+    }
+
+    .inst-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .inst-list li {
+      font-size: 14px;
+      color: var(--text-body);
+      padding-left: 20px;
+      position: relative;
+      line-height: 1.6;
+    }
+
+    .inst-list li::before {
+      content: "✦";
+      color: var(--teal);
+      font-size: 10px;
+      position: absolute;
+      left: 0;
+      top: 4px;
+    }
+
+    .inst-cta {
+      display: inline-block;
+      margin-top: 8px;
+      background: var(--dark-green);
+      color: white;
+      text-decoration: none;
+      padding: 12px 28px;
+      border-radius: 30px;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.25s ease, transform 0.2s ease;
+      align-self: flex-start;
+    }
+
+    .inst-cta:hover {
+      background: var(--mid-green);
+      transform: translateY(-2px);
+    }
+
+    /* Color variants per institution */
+    .block-alsh      .inst-content { background: #f0ece2; }
+    .block-ecole     .inst-content { background: #edf2ec; }
+    .block-ehpad     .inst-content { background: #f5f0e8; }
+    .block-medicosoc .inst-content { background: #eaf0ef; }
+
+    .block-alsh      .inst-badge { background: #2d5a3d; }
+    .block-ecole     .inst-badge { background: #3d7a52; }
+    .block-ehpad     .inst-badge { background: #4a8c6f; }
+    .block-medicosoc .inst-badge { background: #2d5a5a; }
+
+    /* Image backgrounds (colored placeholders) */
+    .bg-alsh      { background: linear-gradient(135deg, #b8d4c4 0%, #7aad90 100%); }
+    .bg-ecole     { background: linear-gradient(135deg, #c5d8e8 0%, #7aaac8 100%); }
+    .bg-ehpad     { background: linear-gradient(135deg, #d4c8b0 0%, #a89060 100%); }
+    .bg-medicosoc { background: linear-gradient(135deg, #c0d4d0 0%, #6a9e98 100%); }
+
+    /* ===== INTRO STRIP ===== */
+    .intro-strip {
+      background: var(--dark-green);
+      color: rgba(255,255,255,0.92);
+      text-align: center;
+      padding: 40px 40px;
+      margin-bottom: 0;
+    }
+
+    .intro-strip p {
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 16px;
+      line-height: 1.8;
+      font-style: italic;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--dark-green);
+      color: rgba(255,255,255,0.7);
+      text-align: center;
+      padding: 20px;
+      font-size: 12px;
+      margin-top: 0;
+    }
+
+    /* ===== MOBILE ===== */
+    @media (max-width: 768px) {
+      nav { padding: 10px 20px; }
+      .nav-links { display: none; }
+      .institution-block {
+        grid-template-columns: 1fr;
+      }
+      .institution-block:nth-child(even) .inst-image { order: unset; }
+      .institution-block:nth-child(even) .inst-content { order: unset; }
+      .inst-content { padding: 40px 24px; }
+      .inst-image, .inst-image-placeholder { min-height: 250px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-brand">
+      <div class="nav-logo"><img src="logoferme.png" alt="La Ferme Bus'onnière" style="width:100%;height:100%;object-fit:contain;border-radius:8px;"></div>
+      <span class="nav-brand-name">la ferme bus'onnière</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html#accueil" class="active">prestations</a></li>
+      <li><a href="index.html#nos-animaux">nos animaux</a></li>
+      <li><a href="index.html#qui-suis-je">qui suis-je</a></li>
+      <li><a href="index.html#temoignages">témoignages</a></li>
+      <li><a href="index.html#contact">contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <p class="breadcrumb"><a href="index.html">Accueil</a> › Prestations › <strong>Institutions</strong></p>
+    <h1 class="page-title">Nos Interventions en Institutions</h1>
+    <p class="page-subtitle">La ferme bus'onnière se déplace dans votre établissement pour offrir des moments de rencontre, de douceur et de pédagogie aux plus prés de nos animaux.</p>
+  </div>
+
+  <!-- INTRO STRIP -->
+  <div class="intro-strip">
+      <p>Chaque intervention est adaptée aux public et à vos objectifs. </p>
+      <p>Nous apportons calme, tendresse et bienveillance. </p>
+  </div>
+
+  <!-- ========== BLOCK 1 : LES ALSH ========== -->
+  <div class="institution-block block-alsh" id="alsh">
+
+    <div class="inst-image bg-alsh">
+   <img src="alsh.jpg" alt="ALSH"> -->
+    </div>
+
+    <div class="inst-content">
+      <span class="inst-badge">Les ALSH</span>
+      <h2 class="inst-title">Accueils de Loisirs Sans Hébergement</h2>
+      <p class="inst-desc">
+        La ferme bus'onnière intervient dans vos centres de loisirs pour offrir aux enfants une expérience unique de rencontre avec les animaux de la ferme. Ces moments favorisent le contact à l'animal, l'éveil à la nature, la responsabilité et la curiosité.
+      </p>
+      <ul class="inst-list">
+        <li>Découverte et contact des animaux en toute sécurité</li>
+        <li>Ateliers pédagogiques adaptés à l'âge des enfants</li>
+        <li>Sensibilisation au respect du vivant et de l'environnement</li>
+        <li>Activités sur une journée complète</li>
+      </ul>
+      <a href="index.html#contact" class="inst-cta">Nous contacter pour un devis</a>
+    </div>
+
+  </div>
+
+  <!-- ========== BLOCK 2 : LES ÉCOLES ========== -->
+  <div class="institution-block block-ecole" id="ecole">
+
+    <div class="inst-content">
+      <span class="inst-badge">Les Écoles</span>
+      <h2 class="inst-title">Maternelles, Primaires &amp; Collèges</h2>
+      <p class="inst-desc">
+        De la maternelle au collège, nos interventions s'inscrivent dans un cadre ludique et pédagogique. Nous travaillons en lien avec les enseignants pour créer des séances qui complètent les apprentissages scolaires autour de la nature et du vivant.
+      </p>
+      <ul class="inst-list">
+        <li>Séances calées sur les programmes scolaires (cycle 1, 2, 3)</li>
+        <li>Observation, identification et comportements des animaux</li>
+        <li>Développement de l'empathie et du respect du vivant</li>
+        <li>Intervention directement dans la cour d'école ou en salle</li>
+      </ul>
+      <a href="index.html#contact" class="inst-cta">Nous contacter pour un devis</a>
+    </div>
+
+    <div class="inst-image bg-ecole">
+    <img src="ecole.jpg" alt="École"> -->
+
+    </div>
+
+  </div>
+
+  <!-- ========== BLOCK 3 : LES EHPAD ========== -->
+  <div class="institution-block block-ehpad" id="ehpad">
+
+    <div class="inst-image bg-ehpad">
+    <img src="ehpad.jpg" alt="EHPAD"> -->
+    </div>
+
+    <div class="inst-content">
+      <span class="inst-badge">Les EHPAD</span>
+      <h2 class="inst-title">Établissements d'Hébergement pour Personnes Âgées</h2>
+      <p class="inst-desc">
+        Le contact avec les animaux apporte une douceur incomparable aux résidents . Nos visites favorisent la stimulation mémorielle, la communication et le bien-être émotionnel des personnes âgées, y compris celles atteintes de troubles cognitifs.
+      </p>
+      <ul class="inst-list">
+        <li>Séances de rencontre animal douce et bienveillante</li>
+        <li>Stimulation sensorielle et mémorielle par le contact </li>
+        <li>Animations adaptées aux résidents à mobilité réduite</li>
+        <li>Coordination avec l'équipe soignante et d'animations</li>
+      </ul>
+      <a href="index.html#contact" class="inst-cta">Nous contacter pour un devis</a>
+    </div>
+
+  </div>
+
+  <!-- ========== BLOCK 4 : ÉTABLISSEMENTS MÉDICO-SOCIAUX ========== -->
+  <div class="institution-block block-medicosoc" id="medico-social">
+
+    <div class="inst-content">
+      <span class="inst-badge">Établissements Médico-Sociaux</span>
+      <h2 class="inst-title">IME, ESAT, MAS, FAM &amp; autres structures</h2>
+      <p class="inst-desc">
+        Nos interventions en établissements médico-sociaux sont pensées pour s'adapter à chaque profil de bénéficiare. Le lien avec l'animal constitue une médiation puissante pour l'être humain. 
+      <p class="inst-desc">
+          La rencontre favorise l'expression, la confiance en soi et la relation à l'autre.
+      </p>
+      <ul class="inst-list">
+        <li>Rencontre animal adaptée à chaque situation.</li>
+        <li>Travail en partenariat avec les équipes éducatives et soignantes.</li>
+        <li>Objectifs définis ensemble (communication, motricité, lien social...).</li>
+        <li>Interventions régulières ou ponctuelles selon vos besoins.</li>
+      </ul>
+      <a href="index.html#contact" class="inst-cta">Nous contacter pour un devis</a>
+    </div>
+
+    <div class="inst-image bg-medicosoc">
+    <img src="ime.jpg" alt="Médico-social"> -->
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2024 La Ferme Bus'onnière &amp; Cie — <a href="index.html" style="color:rgba(255,255,255,0.5);text-decoration:none;">Retour à l'accueil</a></p>
+  </footer>
+
+</body>
+</html>
