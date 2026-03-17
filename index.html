@@ -168,11 +168,12 @@
       transform: translateY(-2px);
     }
 
-    .service-text {
+   .service-text {
       font-size: 16px;
-      line-height: 1.8;
+      line-height: 1.95; /* Espacement augmenté */
       color: var(--text-body);
       max-width: 380px;
+      text-align: justify; /* Texte justifié */
     }
 
     /* ===== SECTION DIVIDER ===== */
@@ -231,12 +232,13 @@
       margin-bottom: 20px;
     }
 
-    .section-desc {
+   .section-desc {
       font-size: 15px;
       color: var(--text-muted);
       max-width: 600px;
       margin: 0 auto 50px;
-      line-height: 1.7;
+      line-height: 1.95; /* Espacement augmenté */
+      text-align: justify; /* Texte justifié */
     }
 
     .animaux-grid {
@@ -498,12 +500,11 @@
 
     .fermier-body {
       font-size: 15px;
-      line-height: 1.85;
+      line-height: 1.95; /* Espacement augmenté */
       color: var(--text-body);
       margin-top: 16px;
       margin-bottom: 14px;
-      text-align: justify;
-    }
+      text-align: justify; /* Déjà présent, on le garde */}
 
     .fermier-body strong {
       font-weight: 700;
@@ -582,11 +583,13 @@
       font-style: italic;
     }
 
-    .testimonial-author {
-      font-size: 13px;
-      font-weight: 700;
-      color: var(--text-dark);
-      letter-spacing: 0.5px;
+  .testimonial-text {
+      font-size: 15px;
+      line-height: 1.95; /* Espacement augmenté */
+      color: var(--text-body);
+      margin-bottom: 20px;
+      font-style: italic;
+      text-align: justify; /* Texte justifié */
     }
 
     .temoignages-right {
@@ -1180,12 +1183,13 @@
   </section>
 
   <!-- QUI SUIS-JE -->
- <section id="qui-suis-je" style="background: var(--cream);">
+  <section id="qui-suis-je" style="background: var(--cream);">
     <div class="fermier-inner">
 
       <h2 class="fermier-title">le fermier bus'onnier</h2>
       <div class="fermier-divider"></div>
 
+      <!-- Photo gauche + citation droite -->
       <div class="fermier-intro">
         <div class="fermier-photo-wrap">
           <img src="cedric2.jpg" class="fermier-photo" alt="Cédric, le fermier bus'onnier">
@@ -1199,57 +1203,34 @@
         </div>
       </div>
 
-     <h3 class="fermier-section-title">Des racines paysannes à l'éducation spécialisée</h3>
-      <p class="fermier-body">Bercé dès l'enfance par le monde rural grâce à ma « deuxième famille », j'ai grandi au rythme des saisons, nourri par le travail de la terre et le soin aux animaux. Cet amour de la nature m'a mené vers un premier diplôme agricole en 1996. Mais très vite, mon parcours s'est enrichi d'une dimension humaine : devenu moniteur-éducateur dans le secteur médico-social, j'ai pu observer au quotidien la force du lien d'apaisement entre l'animal — particulièrement le cheval — et les personnes en situation de handicap.</p>
+      <!-- Corps du texte -->
+      <h3 class="fermier-section-title">Les racines et la vocation</h3>
+      <p class="fermier-body">Je ne suis pas issu du monde agricole, mais j'ai grandi à la campagne. Je garde un profond respect pour la nature, dont j'ai découvert les secrets grâce à ma « deuxième famille ». Dès mon plus jeune âge, ma nourrice et son mari m'ont transmis le goût du travail de la terre et du soin aux animaux. J'ai ramassé les œufs, récolté les pommes de terre en plein champ et arpenté les rangs de vigne. J'aime dire que j'ai été nourri au sein et aux légumes du jardin.</p>
 
-      <h3 class="fermier-section-title">La formation : unir l'animal et l'humain</h3>
-      <p class="fermier-body">Pour professionnaliser cette passion et lier définitivement le soin à la personne et l'animal, j'ai suivi en 2002 une formation spécialisée d'animateur de ferme pédagogique à la prestigieuse <strong>Bergerie Nationale de Rambouillet</strong>. Cette étape a été cruciale pour forger mon expertise.</p>
+      <h3 class="fermier-section-title">Formation et premières expériences</h3>
+      <p class="fermier-body">En 1996, j'obtiens un brevet de technicien agricole « Services en Milieu Rural » dans l'Indre (36). Diplôme en poche, je travaille d'abord dans le secteur de l'animation, puis je me dirige vers l'éducation spécialisée où j'occupe les fonctions de moniteur-éducateur.</p>
 
-      <div style="background: white; border-left: 4px solid var(--teal); padding: 20px 24px; border-radius: 6px; box-shadow: 0 4px 14px rgba(0,0,0,0.06); margin: 24px 0;">
-        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 14px;">
-          <h4 style="font-family: 'Playfair Display', serif; font-size: 19px; font-weight: 700; color: var(--text-dark); margin: 0;">Les sésames de l'itinérance</h4>
-        </div>
-        <ul style="list-style: none; padding: 0; margin: 0; font-size: 14px; color: var(--text-body); line-height: 1.8;">
-          <li style="position: relative; padding-left: 24px; margin-bottom: 8px;">
-            <span style="position: absolute; left: 0; color: var(--teal); font-weight: bold;">✓</span> 
-            <strong>2002</strong> — Expertise zootechnique à la Bergerie Nationale de Rambouillet.
-          </li>
-          <li style="position: relative; padding-left: 24px;">
-            <span style="position: absolute; left: 0; color: var(--teal); font-weight: bold;">✓</span> 
-            <strong>Mai 2004</strong> — Obtention du permis EB et du <strong>CAPTAV</strong> <em>(Certificat d'Aptitude au Transport d'Animaux Vivants)</em>, diplômes indispensables pour prendre la route et garantir le bien-être animal.
-          </li>
-        </ul>
-      </div>
+      <p class="fermier-body">En 1999, je postule pour travailler dans un CAT (aujourd'hui ESAT) qui projette de créer une ferme pédagogique. En 2000, j'effectue un stage d'Attelage Adapté à la Fédération Nationale Handi-Cheval à Parthenay (79) : « Encadrement des activités d'attelage auprès et avec des personnes en difficulté ». J'y rencontre Monsieur Yves Decavele, passionné d'attelage et ex-président de la fédération handi cheval : une rencontre marquante.</p>
 
-      <h3 class="fermier-section-title">Une rencontre éclairante</h3>
-      <p class="fermier-body">C'est lors de mes recherches documentaires que mon projet a pris tout son sens, grâce à une découverte humaine et littéraire majeure :</p>
+      <p class="fermier-body">En 2002, je décide de professionnaliser cette passion en suivant une formation d'animateur et gestionnaire de ferme pédagogique au Centre d'Enseignement Zootechnique de la Bergerie Nationale de Rambouillet (78).</p>
 
-      <div style="background: var(--dark-green); color: white; padding: 28px; border-radius: 8px; margin: 24px 0; box-shadow: 0 8px 24px rgba(45, 90, 61, 0.15); position: relative; overflow: hidden;">
-        <div style="position: absolute; top: -10px; right: 0px; font-size: 110px; opacity: 0.06; line-height: 1; pointer-events: none;">📖</div>
-        
-        <h4 style="font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; margin-bottom: 12px; position: relative; z-index: 1;">Karine Lou Matignon</h4>
-        <p style="font-size: 15px; line-height: 1.7; color: rgba(255,255,255,0.9); margin-bottom: 20px; position: relative; z-index: 1;">
-          Journaliste, écrivaine et scénariste spécialiste de la relation homme-animal, son travail a profondément résonné avec mes convictions. Son ouvrage <strong><em>« Enfants et animaux, des liens en partage »</em></strong> est encore aujourd'hui mon livre de chevet
-        </p>
-        <div style="border-left: 3px solid var(--teal); padding-left: 16px; position: relative; z-index: 1;">
-          <p style="font-size: 16px; font-style: italic; margin: 0; color: white; font-family: 'Playfair Display', serif;">
-            « Cette lecture m'a conforté dans mon besoin viscéral de créer des ponts entre le vivant et les publics fragiles. »
-          </p>
-        </div>
-      </div>
+      <h3 class="fermier-section-title">Le déclic et l'indépendance</h3>
+      <p class="fermier-body">De retour de ma formation à la Bergerie Nationale, je m'efforce de mettre en place une ferme dans le parc de mon établissement employeur. Si les moyens financiers sont présents, la direction n'est pas en phase avec mes propositions. Les besoins structurels et de fonctionnement essentiels à une telle activité ne sont pas pris en compte.</p>
 
-      <h3 class="fermier-section-title">L'envol de la Ferme Bus'onnière</h3>
-      <p class="fermier-body">Face aux lourdeurs institutionnelles qui compliquaient la création d'une structure fixe au sein des établissements classiques, une idée audacieuse s'est imposée : <strong>si le public ne peut pas toujours venir à la ferme, c'est la ferme qui viendra à lui</strong>. Après avoir été lauréat du prix « Défi Jeunes » en 2004, mon camion et ma bétaillère ont officiellement pris la route en 2005, marquant le début d'une aventure itinérante unique.</p>
+      <p class="fermier-body">C'est la mort dans l'âme que je décide de quitter mon emploi. Je suis alors très attaché à mon équipe et aux animaux, notamment aux chevaux, mes principaux alliés pour les bienfaits qu'ils apportent aux adultes porteurs de handicap.</p>
 
+      <h3 class="fermier-section-title">L'envol de la Ferme Bus'Onnière</h3>
+      <p class="fermier-body">L'opportunité m'est donnée de retourner à Rambouillet, non plus comme élève, mais comme responsable animalier au sein de l'équipe d'animation. En 2003, un bilan de compétences confirme mon besoin viscéral de lier l'animal et l'humain. Je décide alors de créer une ferme pédagogique itinérante, concept découvert lors de ma formation.</p>
+
+      <p class="fermier-body">Pour concrétiser ce projet, je réalise une étude de faisabilité approfondie. En mai 2004, j'obtiens le permis EB et le CAPTAV (Certificat d'Aptitude au Transport d'Animaux Vivants). En juin 2004, le projet reçoit le prix « Défi Jeunes » de la région Centre et du Loiret — une dotation de 4 000 € qui permet l'achat d'un camion, d'une bétaillère d'occasion et d'un ordinateur. <strong>En février 2005, l'entreprise est officiellement créée.</strong> À l'été 2010, l'exploitation s'installe à la Grange Théâtre de Vaugarni, à Pont-de-Ruan. En décembre 2015, fin de l'activité sous forme d'entreprise individuelle ; durant deux ans, l'activité est hébergée par l'association du théâtre.</p>
+
+      <!-- Encart conclusion 2017 -->
       <div class="fermier-conclusion">
         <div class="fermier-conclusion-year">2017</div>
         <p class="fermier-conclusion-text">Enseignants, directeurs de théâtre, aides-soignantes, animateurs — nous venons tous d'horizons différents, mais nous avons tous croisé la route de Cédric et de sa Ferme Bus'Onnière. Convaincus que cette formidable initiative pédagogique doit perdurer, nous nous mobilisons à ses côtés.<br><br><strong>L'association « La Ferme Bus'Onnière &amp; Cie » voit officiellement le jour.</strong></p>
       </div>
 
     </div>
-  </section>
-
-     
   </section>
 
   <!-- TÉMOIGNAGES -->
