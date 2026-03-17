@@ -551,7 +551,7 @@
     }
 
     .public-card--expandable.open .scolaire-expand {
-      max-height: 600px;
+      max-height: 800px;
       opacity: 1;
     }
 
@@ -799,10 +799,27 @@
 
     <div class="publics-grid">
 
-      <div class="public-card">
+     <div class="public-card public-card--expandable" onclick="toggleExpand(this)">
         <div class="public-icon">🍼</div>
         <h3 class="public-title">Petite enfance</h3>
         <p class="public-desc">Crèches, multi-accueils, RAM. Une approche douce et sensorielle idéale pour les tout-petits, en matinée pour respecter les rythmes de vie.</p>
+        <div class="expand-trigger">
+          <span>Voir les bienfaits</span>
+          <em class="expand-arrow">▾</em>
+        </div>
+        <div class="scolaire-expand">
+          <div class="scolaire-expand-inner">
+            <p>Pourquoi inviter la ferme dans votre structure ?  </p>
+            <p>La présence de l'animal en crèche offre aux tout-petits une parenthèse d'éveil sensoriel unique.  Véritable médiateur, l'animal favorise l'apaisement, aide à la gestion des émotions et encourage les premiers échanges sociaux. </p>
+            <ul>
+              <li><strong>Éveil des sens:</strong> Un contact direct (poils, plumes, bruits) pour stimuler la curiosité et la motricité. </li>
+              <li><strong>Sécurisation affective:</strong> L'animal apaise, réduit le stress et offre un réconfort sans jugement. </li>
+              <li><strong>Apprentissage de l'autre :</strong> Découvrir le respect du vivant et les besoins de l'animal dès le plus jeune âge. </li>
+              <li><strong>Sérénité collective:</strong> Une animation calme qui favorise une atmosphère paisible dans les sections.  </li>
+            </ul>
+            <p>Le format itinérant permet aux enfants de rester dans leur environnement sécurisant, ce qui décuple les bienfaits de la rencontre. </p>
+          </div>
+        </div>
       </div>
 
       <div class="public-card public-card--expandable" onclick="toggleExpand(this)">
@@ -818,10 +835,10 @@
             <p>Ateliers &amp; activités disponibles</p>
             <p>En complément de la rencontre animale, des ateliers pédagogiques peuvent être proposés pour enrichir la journée et s'inscrire dans vos projets de classe :</p>
             <ul>
-              <li>Produits laitiers — du lait au beurre</li>
-              <li>Céréales &amp; boulangerie — du grain au pain</li>
-              <li>L'œuf — de la poule à l'assiette</li>
-              <li>La laine — de la tonte au fil</li>
+              <li>de l'oeuf au poussin </li>
+              <li>du blé au pain</li>
+              <li>de l'herbe au lait</li>
+              <li>du mouton à la laine</li>
               <li>Thème sur mesure selon vos besoins</li>
             </ul>
             <p>Fiches explicatives et mallettes pédagogiques fournies. Contactez-nous pour construire votre programme.</p>
@@ -878,10 +895,25 @@
         </div>
       </div>
 
-      <div class="public-card">
+      <div class="public-card public-card--expandable" onclick="toggleExpand(this)">
         <div class="public-icon">♿</div>
         <h3 class="public-title">Structures médico-sociales</h3>
         <p class="public-desc">IME, ESAT, MAS. L'animal comme médiateur bienveillant pour favoriser le lien, l'expression et la sérénité de chacun.</p>
+        <div class="expand-trigger">
+          <span>Voir les bienfaits</span>
+          <em class="expand-arrow">▾</em>
+        </div>
+        <div class="scolaire-expand">
+          <div class="scolaire-expand-inner">
+            <p>La médiation par le cœur</p>
+            <p>Dans le secteur médico-social, l'animal agit comme un formidable catalyseur de communication et de mieux-être. Il offre un espace de liberté et de dignité, sans jugement ni attente de performance.</p>
+            <ul>
+              <li><strong>Expression et cognition :</strong> Il facilite l'expression des émotions et stimule les capacités cognitives et motrices de manière ludique.</li>
+              <li><strong>Lien social et valorisation :</strong> La médiation animale permet d'apaiser les tensions, de rompre l'isolement et de valoriser l'estime de soi à travers le soin apporté à l'autre.</li>
+              <li><strong>Sérénité partagée :</strong> Une véritable parenthèse sensorielle qui apporte joie et apaisement aux résidents comme aux soignants.</li>
+            </ul>
+          </div>
+        </div>
       </div>
 
       <div class="public-card">
