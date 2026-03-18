@@ -1004,30 +1004,62 @@
 
       function init() {
         const count = validSlides.length;
+
+        // Masquer les slides sans image valide
         slides.forEach(s => { if (!validSlides.includes(s)) s.style.display = 'none'; });
         if (count <= 1) { btnPrev.style.display = 'none'; btnNext.style.display = 'none'; return; }
 
+        // Positionner toutes les slides côte à côte via index (pas offsetLeft)
+        validSlides.forEach((slide, i) => {
+          slide.style.position = 'absolute';
+          slide.style.top = '0';
+          slide.style.left = (i * 100) + '%';
+          slide.style.width = '100%';
+          slide.style.height = '100%';
+        });
+        track.style.position = 'relative';
+
+        let current = 0;
+        let autoTimer = null;
+
+        // Créer les dots
         validSlides.forEach((_, i) => {
           const dot = document.createElement('button');
           dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
-          dot.addEventListener('click', () => goTo(i));
+          dot.addEventListener('click', () => { goTo(i); resetTimer(); });
           dotsContainer.appendChild(dot);
         });
 
-        let current = 0;
-
         function goTo(index) {
-          current = (index + count) % count;
-          const offset = validSlides[current].offsetLeft;
-          track.style.transform = `translateX(-${offset}px)`;
+          current = ((index % count) + count) % count;
+          track.style.transform = `translateX(-${current * 100}%)`;
           document.querySelectorAll('.carousel-dot').forEach((d, i) => {
             d.classList.toggle('active', i === current);
           });
         }
 
-        btnPrev.addEventListener('click', () => goTo(current - 1));
-        btnNext.addEventListener('click', () => goTo(current + 1));
-        setInterval(() => goTo(current + 1), 4000);
+        function nextSlide() {
+          goTo(current + 1);
+        }
+
+        function resetTimer() {
+          clearInterval(autoTimer);
+          autoTimer = setInterval(nextSlide, 5000);
+        }
+
+        btnPrev.addEventListener('click', () => { goTo(current - 1); resetTimer(); });
+        btnNext.addEventListener('click', () => { goTo(current + 1); resetTimer(); });
+
+        // Swipe tactile
+        let touchStartX = 0;
+        track.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; });
+        track.addEventListener('touchend', e => {
+          const diff = touchStartX - e.changedTouches[0].clientX;
+          if (Math.abs(diff) > 50) { goTo(current + (diff > 0 ? 1 : -1)); resetTimer(); }
+        });
+
+        // Démarrer l'autoplay
+        resetTimer();
       }
 
       slides.forEach(slide => {
