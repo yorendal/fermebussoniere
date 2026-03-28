@@ -169,7 +169,7 @@
     }
 
    .service-text {
-      font-size: 16px;
+      font-size: 17px;
       line-height: 1.95; /* Espacement augmenté */
       color: var(--text-body);
       max-width: 380px;
@@ -233,10 +233,7 @@
     }
 
    .section-desc {
-      font-size: 15px;
-      color: var(--text-muted);
-      max-width: 600px;
-      margin: 0 auto 50px;
+      font-size: 16px;
       line-height: 1.95; /* Espacement augmenté */
       text-align: justify; /* Texte justifié */
     }
@@ -426,12 +423,12 @@
     }
 
     .fermier-photo-wrap {
-      flex: 0 0 200px;
+      flex: 0 0 280px;
     }
 
     .fermier-photo {
-      width: 200px;
-      height: 260px;
+      width: 280px;
+      height: 360px;
       object-fit: cover;
       border-radius: 6px;
       display: block;
@@ -455,7 +452,7 @@
 
     .fermier-quote {
       color: var(--text-dark);
-      font-size: 17px;
+      font-size: 19px;
       font-family: 'Playfair Display', serif;
       font-style: italic;
       line-height: 1.75;
@@ -478,7 +475,7 @@
 
     .fermier-section-title {
       font-family: 'Playfair Display', serif;
-      font-size: 21px;
+      font-size: 24px;
       font-weight: 400;
       font-style: italic;
       color: var(--text-dark);
@@ -499,7 +496,7 @@
     }
 
     .fermier-body {
-      font-size: 15px;
+      font-size: 17px;
       line-height: 1.95; /* Espacement augmenté */
       color: var(--text-body);
       margin-top: 16px;
@@ -1312,7 +1309,7 @@ Plus besoin de vous déplacer, de réserver un bus ou de réunir un grand nombre
       <div class="contact-cell">
         <div class="contact-icon">✉️</div>
         <div class="contact-label">E-mail</div>
-        <div class="contact-value"><a href="mailto:lafermebusonniere@gmail.com">lafermebusonniere@gmail.com</a></div>
+        <div class="contact-value"><a href="/cdn-cgi/l/email-protection#325e535457405f575047415d5c5c5b57405772555f535b5e1c515d5f"><span class="__cf_email__" data-cfemail="9bf7fafdfee9f6fef9eee8f4f5f5f2fee9fedbfcf6faf2f7b5f8f4f6">[email&#160;protected]</span></a></div>
       </div>
       <div class="contact-cell">
         <div class="contact-label" style="margin-top:8px;">Nous suivre</div>
@@ -1330,7 +1327,7 @@ Plus besoin de vous déplacer, de réserver un bus ou de réunir un grand nombre
     <p>© 2024 La Ferme Bus'onnière &amp; [cie] — Association loi 1901</p>
   </footer>
 
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     function scrollToSection(id) {
       const el = document.getElementById(id);
       if (el) {
@@ -1442,15 +1439,4 @@ Plus besoin de vous déplacer, de réserver un bus ou de réunir un grand nombre
       });
     }
 
-    function moveTemoignage(dir) {
-      goToTemo(currentTemo + dir);
-      clearInterval(temoAutoplay);
-      temoAutoplay = setInterval(() => goToTemo(currentTemo + 1), 5000);
-    }
-
-    temoAutoplay = setInterval(() => goToTemo(currentTemo + 1), 5000);
-
-  </script>
-
-</body>
-</html>
+    function moveTemoignage
