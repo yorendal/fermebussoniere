@@ -9,14 +9,23 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --cream: #f5f0e8;
+      --cream: #f0ebe0;
       --dark-green: #2d5a3d;
       --mid-green: #3d7a52;
       --teal: #4a8c6f;
       --warm: #c8860a;
       --text-dark: #1a1a1a;
       --text-body: #3a3a3a;
-      --text-muted: #666;
+      --text-muted: #5a5a5a;
+      --bg-lavande:   #e4dff2;
+      --card-lavande: #f4f1fa;
+      --bg-vert:      #cfe8d4;
+      --card-vert:    #eaf6ed;
+      --bg-bleu:      #cce0f0;
+      --card-bleu:    #e8f3fb;
+      --accent-lavande: #9b85cc;
+      --accent-vert:    #4a8c6f;
+      --accent-bleu:    #4a86b8;
     }
 
     html { scroll-behavior: smooth; }
@@ -281,8 +290,7 @@
     /* ===== COMMENT ÇA SE PASSE ===== */
     .deroulement {
       padding: 80px 40px;
-      background: #edf4ee;
-      text-align: center;
+      background: var(--bg-lavande);
     }
 
     .deroulement-title {
@@ -310,13 +318,14 @@
     }
 
     .step-card {
-      background: white;
       border-radius: 14px;
       padding: 30px 20px;
       text-align: center;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.07);
       transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
+
+    .step-card { background: var(--card-lavande); border-top: 3px solid var(--accent-lavande); }
 
     .step-card:hover {
       transform: translateY(-5px);
@@ -479,15 +488,42 @@
     }
 
     .public-card {
-      background: white;
       border-radius: 14px;
       padding: 28px 22px;
       text-align: left;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+      box-shadow: 0 4px 14px rgba(0,0,0,0.07);
       transition: transform 0.25s ease, box-shadow 0.25s ease;
-      border-top: 3px solid var(--dark-green);
+      border-top: 4px solid;
       overflow: hidden;
+      position: relative;
     }
+
+    /* Grain texture via pseudo-element */
+    .public-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 14px;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.55;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='512' height='512' filter='url(%23g)' opacity='1'/%3E%3C/svg%3E");
+      background-size: 180px 180px;
+      mix-blend-mode: overlay;
+    }
+
+    /* S'assurer que le contenu passe au-dessus du grain */
+    .public-card > * { position: relative; z-index: 1; }
+
+    /* Pastel individuel par boîte — couleurs bien distinctes */
+    .public-card:nth-child(1) { background: #dfd0f0; border-color: #7a5fbb; } /* violet */
+    .public-card:nth-child(2) { background: #b8e8c8; border-color: #2d7a4f; } /* vert vif */
+    .public-card:nth-child(3) { background: #ffb8a0; border-color: #cc4a2a; } /* corail */
+    .public-card:nth-child(4) { background: #aed8f5; border-color: #2a6fa8; } /* bleu franc */
+    .public-card:nth-child(5) { background: #f5b8c8; border-color: #ad3050; } /* rose vif */
+    .public-card:nth-child(6) { background: #c8a8e8; border-color: #7030a8; } /* violet prune — distinct du lavande */
+    .public-card:nth-child(7) { background: #e8d060; border-color: #8a7000; } /* jaune moutarde pastel */
+    .public-card:nth-child(8) { background: #b8d8f0; border-color: #1e5a8a; } /* bleu ardoise */
 
     .public-card:hover {
       transform: translateY(-4px);
@@ -932,26 +968,26 @@
   </div>
 
   <!-- FICHE TECHNIQUE -->
-  <div class="fiche-section" style="padding: 80px 40px; background: #edf4ee;">
+  <div class="fiche-section" style="padding: 80px 40px; background: var(--bg-bleu);">
     <div style="max-width: 960px; margin: 0 auto;">
       <p style="font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:12px;">Informations pratiques</p>
       <h2 style="font-family:'Playfair Display',serif;font-size:clamp(26px,3vw,38px);font-weight:700;color:var(--text-dark);margin-bottom:40px;">Fiche technique</h2>
 
       <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;" class="fiche-grid">
 
-        <div style="background:white;border-radius:14px;padding:28px 24px;box-shadow:0 4px 14px rgba(0,0,0,0.06);border-top:3px solid var(--dark-green);">
+        <div style="background:var(--card-bleu);border-radius:14px;padding:28px 24px;box-shadow:0 4px 14px rgba(0,0,0,0.07);border-top:3px solid var(--accent-bleu);">
           <div style="font-size:28px;margin-bottom:12px;">📐</div>
           <h3 style="font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--text-dark);margin-bottom:10px;">Dimensions de l'enclos</h3>
           <p style="font-size:13px;line-height:1.7;color:var(--text-muted);">Largeur : 8,00 m<br>Profondeur : 4,00 m<br>Hauteur : 0,90 m<br><br>Un sol plan est requis. Prévoir un dégagement confortable tout autour pour la circulation du public.</p>
         </div>
 
-        <div style="background:white;border-radius:14px;padding:28px 24px;box-shadow:0 4px 14px rgba(0,0,0,0.06);border-top:3px solid var(--dark-green);">
+        <div style="background:var(--card-bleu);border-radius:14px;padding:28px 24px;box-shadow:0 4px 14px rgba(0,0,0,0.07);border-top:3px solid var(--accent-bleu);">
           <div style="font-size:28px;margin-bottom:12px;">🔧</div>
           <h3 style="font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--text-dark);margin-bottom:10px;">Matériel à prévoir</h3>
           <p style="font-size:13px;line-height:1.7;color:var(--text-muted);">— 4 à 5 bancs ou chaises pour le public<br>— 2 chaises pour l'intervenant<br>— Un barnum pour abriter animaux et public<br>— Un point d'eau pour abreuver les animaux<br>— De l'ombrage en été (2barnum 4×3 m minimum)</p>
         </div>
 
-        <div style="background:white;border-radius:14px;padding:28px 24px;box-shadow:0 4px 14px rgba(0,0,0,0.06);border-top:3px solid var(--dark-green);">
+        <div style="background:var(--card-bleu);border-radius:14px;padding:28px 24px;box-shadow:0 4px 14px rgba(0,0,0,0.07);border-top:3px solid var(--accent-bleu);">
           <div style="font-size:28px;margin-bottom:12px;">🚛</div>
           <h3 style="font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--text-dark);margin-bottom:10px;">Accès &amp; logistique</h3>
           <p style="font-size:13px;line-height:1.7;color:var(--text-muted);">— Accès libre au site : arrivée d'un camion + remorque<br>— Place de stationnement pour le camion et la bétaillère<br>— Itinéraire précis à communiquer<br>— Démontage des barrières "vigie pirate" si nécessaire<br><br>La prestation est <strong>autonome en son et lumière</strong>.</p>

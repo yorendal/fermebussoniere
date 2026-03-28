@@ -6,6 +6,16 @@
   <title>La Ferme Bus'onnière</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
   <style>
+    @font-face {
+      font-family: 'KGPerfectPenmanship';
+      src: url('font/KGPerfectPenmanship.woff2') format('woff2'),
+           url('font/KGPerfectPenmanship.woff') format('woff'),
+           url('font/KGPerfectPenmanship.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+  </style>
+  <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
@@ -101,7 +111,7 @@
     }
 
     .hero-title {
-      font-family: 'Playfair Display', serif;
+      font-family: 'KGPerfectPenmanship', 'Playfair Display', serif;
       font-size: clamp(42px, 7vw, 88px);
       font-weight: 400;
       color: var(--text-dark);
@@ -1439,4 +1449,12 @@ Plus besoin de vous déplacer, de réserver un bus ou de réunir un grand nombre
       });
     }
 
-    function moveTemoignage
+    function moveTemoignage(dir) {
+      goToTemo(currentTemo + dir);
+    }
+
+    temoAutoplay = setInterval(() => goToTemo(currentTemo + 1), 6000);
+
+  </script>-e 
+</body>
+</html>
