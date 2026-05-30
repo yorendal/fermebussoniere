@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>La Ferme Bus'onnière</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
+  <style>
+    @font-face {
+      font-family: 'KGPerfectPenmanship';
+      src: url('font/KGPerfectPenmanship.woff2') format('woff2'),
+           url('font/KGPerfectPenmanship.woff') format('woff'),
+           url('font/KGPerfectPenmanship.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream: #f5f0e8;
+      --dark-green: #905A22;
+      --mid-green: #3d7a52;
+      --teal: #4a8c6f;
+      --text-dark: #1a1a1a;
+      --text-body: #3a3a3a;
+      --text-muted: #666;
+      --accent-purple: #8b4c7e;
+    }
+
+    html { scroll-behavior: smooth; overflow-x: hidden; }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      background-color: var(--cream);
+      color: var(--text-body);
+      overflow-x: hidden;
+      padding-top: 86px;
+    }
+
+    /* ===== NAVBAR ===== */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: var(--cream);
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 40px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text-dark);
+    }
+
+    .nav-logo {
+      width: 60px;
+      height: 60px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .nav-brand-name {
+      font-family: 'Lato', sans-serif;
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--text-dark);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 6px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-dark);
+      font-size: 14px;
+      font-weight: 400;
+      padding: 8px 18px;
+      border-radius: 20px;
+      border: 1px solid #ccc;
+      transition: all 0.25s ease;
+      letter-spacing: 0.3px;
+    }
+
+    .nav-links a:hover, .nav-links a.active {
+      background: var(--dark-green);
+      color: white;
+      border-color: var(--dark-green);
+    }
+
+    /* ===== SECTION ACCUEIL & PRESTATIONS FUSIONNÉE ===== */
+    .hero-prestations {
+      /* Le dégradé se fait sur un seul grand bloc : Bleu -> Bleu clair -> Crème */
+      background: linear-gradient(to bottom, #87CEFA 0%, #cbeeff 65%, var(--cream) 100%);
+      padding: 130px 40px 90px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Les nuages du ciel global */
+    .hero-prestations::before,
+    .hero-prestations::after {
+      content: '';
+      position: absolute;
+      background: white;
+      border-radius: 50%;
+      filter: blur(14px);
+      z-index: 0;
+    }
+
+    .hero-prestations::before {
+      /* Nuages en haut à gauche */
+      width: 450px; height: 180px;
+      top: -30px; left: -80px;
+      opacity: 0.85;
+      box-shadow: 200px 40px 0 40px white, 380px -10px 0 -10px white;
+    }
+
+    .hero-prestations::after {
+      /* Nuages en bas à droite (derrière la grille) */
+      width: 550px; height: 220px;
+      bottom: 50px; right: -120px;
+      opacity: 0.9;
+      box-shadow: -250px -40px 0 30px white, -420px 20px 0 -20px white;
+    }
+
+    .hero-title {
+      font-family: 'KGPerfectPenmanship', 'Playfair Display', serif;
+      font-size: clamp(42px, 7vw, 88px);
+      font-weight: 400;
+      color: #1a365d;
+      line-height: 1.1;
+      letter-spacing: -1px;
+      margin-bottom: 70px;
+      position: relative;
+      z-index: 2; /* Pour que le titre passe au-dessus des nuages */
+      text-shadow: 0 4px 20px rgba(255, 255, 255, 0.9);
+      animation: fadeUp 0.8s ease both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ===== GRILLE UNIFIÉE 4 BLOCS ===== */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 50px 80px;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 40px 70px;
+      position: relative;
+      z-index: 2; 
+      animation: fadeUp 0.8s 0.2s ease both;
+    }
+
+    .service-card {
+      background: rgba(255, 255, 255, 0.65);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      padding: 40px 30px;
+      border-radius: 30px;
+      border: 2px solid rgba(255, 255, 255, 0.8);
+      box-shadow: 0 12px 32px rgba(0, 60, 120, 0.06);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      transition: transform 0.3s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .service-icon {
+      width: 240px;
+      height: 240px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 80px;
+    }
+
+    .service-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .service-badge {
+      display: inline-block;
+      background: var(--dark-green);
+      color: white;
+      font-size: 16px;
+      font-weight: 700;
+      padding: 13px 32px;
+      border-radius: 30px;
+      letter-spacing: 0.3px;
+      text-decoration: none;
+      transition: background 0.25s ease, transform 0.2s ease;
+    }
+
+    .service-badge:hover {
+      background: var(--mid-green);
+      transform: translateY(-2px);
+    }
+
+.service-text {
+      /* Le texte s'adapte : 16px sur mobile, grandit avec l'écran, et bloque à 20px sur ordi */
+      font-size: clamp(16px, 2vw, 20px);
+      line-height: 1.8; 
+      color: #2c3e50;
+      /* On élargit un peu la zone (de 380px à 440px) pour accueillir ce texte plus grand sans l'étriquer */
+      max-width: 440px;
+      text-align: justify; 
+    }
+    }
+
+    /* ===== NOS ANIMAUX ===== */
+    #nos-animaux {
+      padding: 80px 40px;
+      text-align: center;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(36px, 5vw, 60px);
+      font-weight: 400;
+      color: var(--text-dark);
+      margin-bottom: 10px;
+    }
+
+    .section-subtitle {
+      font-size: 16px;
+      color: var(--teal);
+      font-style: italic;
+      margin-bottom: 20px;
+    }
+
+    .section-desc {
+      font-size: 16px;
+      line-height: 1.95; 
+      text-align: justify; 
+    }
+
+    .patchwork-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(3, 220px);
+      gap: 18px;
+      max-width: 1000px;
+      margin: 0 auto 20px;
+      padding: 20px 10px 10px;
+    }
+
+    .patch {
+      overflow: visible;
+      border-radius: 4px;
+      background: #ddd;
+      position: relative;
+      box-shadow: 4px 6px 18px rgba(0,0,0,0.22), 0 1px 3px rgba(0,0,0,0.12);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .patch:nth-child(1) { transform: rotate(-1.5deg); }
+    .patch:nth-child(2) { transform: rotate(1.2deg); }
+    .patch:nth-child(3) { transform: rotate(-0.8deg); }
+    .patch:nth-child(4) { transform: rotate(1.8deg); }
+    .patch:nth-child(5) { transform: rotate(-1.2deg); }
+    .patch:nth-child(6) { transform: rotate(0.9deg); }
+    .patch:nth-child(7) { transform: rotate(-1.6deg); }
+    .patch:nth-child(8) { transform: rotate(1.1deg); }
+
+    .patch:hover {
+      transform: rotate(0deg) scale(1.03) !important;
+      box-shadow: 8px 14px 32px rgba(0,0,0,0.28), 0 2px 6px rgba(0,0,0,0.14);
+      z-index: 10;
+    }
+
+    .patch::before {
+      content: '';
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 35%, #e05a3a, #a02010);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.35), inset 0 1px 2px rgba(255,255,255,0.25);
+      z-index: 20;
+    }
+
+    .patch::after {
+      content: '';
+      position: absolute;
+      top: -8px;
+      left: calc(50% - 4px);
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.45);
+      z-index: 21;
+      pointer-events: none;
+    }
+
+    .patch--large { grid-column: span 2; grid-row: span 2; }
+    .patch--wide { grid-column: span 2; }
+    .patch img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 4px; }
+
+    /* ===== QUI SUIS-JE ===== */
+    #qui-suis-je {
+      padding: 80px 40px;
+    }
+
+    .fermier-inner {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .fermier-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 400;
+      font-style: italic;
+      text-align: center;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+    }
+
+    .fermier-divider {
+      width: 40px;
+      height: 2px;
+      background: var(--dark-green);
+      margin: 0 auto 48px;
+    }
+
+    .fermier-intro {
+      display: flex;
+      gap: 40px;
+      align-items: flex-start;
+      margin-bottom: 48px;
+    }
+
+    .fermier-photo-wrap { flex: 0 0 280px; }
+    .fermier-photo { width: 280px; height: 360px; object-fit: cover; border-radius: 6px; display: block; }
+    
+    .fermier-photo-caption {
+      font-size: 12px;
+      color: var(--text-muted);
+      text-align: center;
+      margin-top: 8px;
+      font-style: italic;
+    }
+
+    .fermier-quote-wrap {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-top: 4px;
+    }
+
+    .fermier-quote {
+      color: var(--text-dark);
+      font-size: 19px;
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      line-height: 1.75;
+      padding: 24px 28px;
+      background-color: rgba(74, 140, 111, 0.07);
+      border-left: 4px solid var(--teal);
+      border-radius: 0 8px 8px 0;
+    }
+
+    .fermier-quote strong {
+      display: block;
+      font-weight: 600;
+      font-family: 'Lato', sans-serif;
+      font-style: normal;
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 14px;
+      letter-spacing: 0.2px;
+    }
+.fermier-section-title {
+      font-family: 'Playfair Display', serif;
+      /* Passe de 24px fixe à une taille fluide (jusqu'à 32px sur grand écran) */
+      font-size: clamp(24px, 3vw, 32px);
+      font-weight: 400;
+      font-style: italic;
+      color: var(--text-dark);
+      margin: 50px 0 0; /* Un peu plus d'espace au-dessus du titre */
+      padding-bottom: 10px;
+      display: inline-block;
+      position: relative;
+    }
+
+    .fermier-section-title::after {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 2px;
+      background: var(--dark-green);
+      margin-top: 8px;
+      border-radius: 1px;
+    }
+
+    .fermier-body {
+      /* Le texte s'adapte : 17px mini sur mobile, jusqu'à 21px sur ordinateur */
+      font-size: clamp(17px, 1.8vw, 21px);
+      line-height: 1.85; 
+      color: var(--text-body);
+      margin-top: 20px;
+      margin-bottom: 24px; /* Plus d'espace entre les paragraphes pour faire respirer la lecture */
+      text-align: justify; 
+    }
+
+    .fermier-body strong { font-weight: 700; }
+
+    .fermier-conclusion {
+      margin-top: 52px;
+      background: var(--dark-green);
+      border-radius: 10px;
+      padding: 40px 48px;
+      text-align: center;
+    }
+
+    .fermier-conclusion-year {
+      font-family: 'Playfair Display', serif;
+      font-size: 52px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.2);
+      line-height: 1;
+      margin-bottom: 14px;
+    }
+
+    .fermier-conclusion-text {
+      font-size: 16px;
+      line-height: 1.85;
+      color: rgba(255,255,255,0.88);
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    .fermier-conclusion-text strong { color: #fff; font-weight: 700; }
+
+    /* ===== TÉMOIGNAGES ===== */
+    #temoignages {
+      padding: 80px 0;
+    }
+
+    .temoignages-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 400px;
+      max-width: 100%;
+      overflow: hidden;
+    }
+
+    .temoignages-left {
+      background: var(--cream);
+      padding: 60px 50px;
+    }
+
+    .temoignages-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 700;
+      line-height: 1.1;
+      color: var(--text-dark);
+      margin-bottom: 50px;
+    }
+
+    .testimonial-text {
+      font-size: 15px;
+      line-height: 1.95; 
+      color: var(--text-body);
+      margin-bottom: 20px;
+      font-style: italic;
+      text-align: justify; 
+    }
+
+    .temoignages-right {
+      background: var(--cream);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .temoignages-right img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    /* ===== CONTACT ===== */
+    #contact {
+      padding: 0;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid rgba(0,0,0,0.08);
+    }
+
+    .contact-cell {
+      padding: 50px 20px;
+      text-align: center;
+      border-right: 1px solid rgba(0,0,0,0.08);
+      background: var(--cream);
+    }
+
+    .contact-cell:last-child { border-right: none; }
+
+    .contact-icon {
+      font-size: 28px;
+      margin-bottom: 16px;
+      color: var(--dark-green);
+    }
+
+    .contact-label {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 12px;
+    }
+
+    .contact-value {
+      font-size: 14px;
+      color: var(--teal);
+      line-height: 1.6;
+    }
+
+    .contact-value a { color: var(--teal); text-decoration: none; }
+
+    .social-links {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      margin-top: 8px;
+    }
+
+    .social-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--text-dark);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      text-decoration: none;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .social-btn:hover { transform: scale(1.1); background: var(--dark-green); }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--dark-green);
+      color: rgba(255,255,255,0.7);
+      text-align: center;
+      padding: 20px;
+      font-size: 12px;
+    }
+
+    /* ===== CAROUSELS (Photo & Témoignages) ===== */
+    .temoignages-carousel { position: relative; overflow: hidden; }
+    .temoignages-track { display: flex; transition: transform 0.5s cubic-bezier(0.77, 0, 0.18, 1); }
+    .temoignage-slide { min-width: 100%; padding-right: 10px; }
+    .temoignage-slide blockquote { border-left: 3px solid var(--dark-green); padding-left: 20px; }
+    .temoignages-nav { display: flex; align-items: center; gap: 14px; margin-top: 30px; }
+    
+    .temo-btn {
+      background: none; border: 2px solid var(--dark-green); color: var(--dark-green);
+      width: 38px; height: 38px; border-radius: 50%; font-size: 16px; cursor: pointer;
+      transition: all 0.2s ease; flex-shrink: 0;
+    }
+    .temo-btn:hover { background: var(--dark-green); color: white; }
+    .temo-dots { display: flex; gap: 8px; align-items: center; }
+    .temo-dot { width: 9px; height: 9px; border-radius: 50%; background: #ccc; border: none; cursor: pointer; transition: all 0.3s ease; padding: 0; }
+    .temo-dot.active { background: var(--dark-green); transform: scale(1.3); }
+
+    .carousel-section { position: relative; width: 100%; max-width: 100%; background: #111; overflow: hidden; }
+    .carousel-main { position: relative; width: 100%; max-width: 100%; overflow: hidden; background: #111; }
+    .carousel-track { display: flex; transition: transform 0.7s cubic-bezier(0.77, 0, 0.18, 1); align-items: flex-start; width: 100%; }
+    .carousel-slide { min-width: 100%; max-width: 100%; position: relative; flex-shrink: 0; overflow: hidden; }
+    .carousel-slide img { width: 100%; height: auto; max-height: 85vh; object-fit: contain; display: block; }
+    .carousel-slide::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.1) 35%, transparent 60%); pointer-events: none; }
+    
+    .carousel-caption { position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); z-index: 5; text-align: center; width: 100%; padding: 0 40px; pointer-events: none; }
+    .carousel-caption h3 { font-family: 'Playfair Display', serif; font-size: clamp(22px, 3vw, 36px); font-style: italic; font-weight: 400; color: white; letter-spacing: 0.5px; text-shadow: 0 2px 12px rgba(0,0,0,0.4); margin-bottom: 8px; }
+    .carousel-caption p { font-size: 14px; color: rgba(255,255,255,0.75); letter-spacing: 1.5px; text-transform: uppercase; }
+    
+    .carousel-btn {
+      position: absolute; top: 40%; transform: translateY(-50%); z-index: 10;
+      background: rgba(255,255,255,0.12); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.3); color: white; width: 54px; height: 54px;
+      border-radius: 50%; font-size: 20px; cursor: pointer; transition: all 0.25s ease;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .carousel-btn:hover { background: rgba(255,255,255,0.28); border-color: rgba(255,255,255,0.6); transform: translateY(-50%) scale(1.08); }
+    .carousel-btn.prev { left: 28px; }
+    .carousel-btn.next { right: 28px; }
+    
+    .carousel-footer { display: flex; align-items: center; justify-content: center; gap: 20px; padding: 18px 0; background: var(--dark-green); }
+    .carousel-counter, .carousel-counter-end { font-size: 13px; color: rgba(255,255,255,0.6); font-family: 'Lato', sans-serif; letter-spacing: 1px; min-width: 40px; text-align: right; }
+    .carousel-counter-end { text-align: left; }
+    .carousel-progress { display: flex; gap: 6px; align-items: center; }
+    .carousel-dot { height: 3px; border-radius: 2px; background: rgba(255,255,255,0.3); border: none; cursor: pointer; transition: all 0.4s ease; padding: 0; width: 28px; }
+    .carousel-dot.active { background: white; width: 52px; }
+    
+    .carousel-thumbs { display: flex; gap: 0; overflow: hidden; }
+    .carousel-thumb { flex: 1; height: 80px; overflow: hidden; cursor: pointer; position: relative; transition: flex 0.4s ease; border: none; padding: 0; }
+    .carousel-thumb img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.5) saturate(0.6); transition: filter 0.3s ease; display: block; }
+    .carousel-thumb.active img, .carousel-thumb:hover img { filter: brightness(0.85) saturate(1); }
+    .carousel-thumb.active { flex: 1.6; }
+    .carousel-thumb::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: white; opacity: 0; transition: opacity 0.3s ease; }
+    .carousel-thumb.active::after { opacity: 1; }
+
+    /* ===== MOBILE ===== */
+    @media (max-width: 768px) {
+      nav { padding: 10px 20px; }
+      .nav-links { display: none; }
+      .hero-title { font-size: 36px; }
+      .services-grid { grid-template-columns: 1fr; padding: 0 20px 50px; }
+      .animaux-grid { grid-template-columns: repeat(2, 1fr); }
+      .temoignages-inner { grid-template-columns: 1fr; width: 100%; overflow: hidden; }
+      .temoignages-left { padding: 40px 24px; width: 100%; box-sizing: border-box; overflow: hidden; }
+      .temoignages-title { font-size: 28px; margin-bottom: 28px; }
+      .temoignage-slide { width: 100%; overflow: hidden; }
+      .temoignage-slide blockquote { padding-left: 14px; }
+      .testimonial-text { font-size: 14px; }
+      .temoignages-right { min-height: 260px; height: 260px; }
+      .temoignages-right img { object-fit: contain; }
+      .contact-grid { grid-template-columns: repeat(2, 1fr); }
+      #qui-suis-je, #nos-animaux, .hero-prestations { padding: 50px 20px; }
+      .carousel-slide img { max-height: 55vw; object-fit: cover; }
+      .carousel-btn { width: 40px; height: 40px; font-size: 16px; }
+      .carousel-btn.prev { left: 10px; }
+      .carousel-btn.next { right: 10px; }
+      .carousel-thumbs { display: none; }
+      .carousel-caption h3 { font-size: 16px; }
+      .carousel-caption p { font-size: 11px; }
+      .patchwork-grid { grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(5, 160px); gap: 14px; }
+      .patch--large { grid-column: span 2; grid-row: span 2; }
+      .patch--wide { grid-column: span 2; }
+      .fermier-intro { flex-direction: column; }
+      .fermier-photo-wrap { flex: unset; width: 100%; }
+      .fermier-photo { width: 100%; height: 240px; }
+      .fermier-conclusion { padding: 28px 24px; }
+      .fermier-conclusion-year { font-size: 36px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="#accueil" class="nav-brand">
+      <div class="nav-logo"><img src="logoferme.png" alt="La Ferme Bus'onnière" style="width:100%;height:100%;object-fit:contain;border-radius:8px;"></div>
+      <span class="nav-brand-name">la ferme bus'onnière & [cie]</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#accueil" onclick="scrollToSection('accueil'); return false;">prestations</a></li>
+      <li><a href="#nos-animaux" onclick="scrollToSection('nos-animaux'); return false;">nos animaux</a></li>
+      <li><a href="#qui-suis-je" onclick="scrollToSection('qui-suis-je'); return false;">qui suis-je</a></li>
+      <li><a href="#temoignages" onclick="scrollToSection('temoignages'); return false;">témoignages</a></li>
+      <li><a href="#contact" onclick="scrollToSection('contact'); return false;">contact</a></li>
+    </ul>
+  </nav>
+
+  <section id="accueil" class="hero-prestations">
+    
+    <h1 class="hero-title">La Ferme Bus'onnière & [Cie]<br>vient à votre rencontre</h1>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">
+          <img src="logoferme.png" alt="La Ferme Bus'onnière">
+        </div>
+        <a href="ferme-busonniere-presentation.html" class="service-badge">La Ferme Bus'Onnière</a>
+        <p class="service-text">
+          La Ferme Bus'Onnière & [cie] est une ferme itinérante qui parcourt la Touraine, l'Indre et Loire et la Région Centre. 
+          Plus besoin de vous déplacer, de réserver un bus ou de réunir un grand nombre d’accompagnateurs. C’est la ferme qui vient à vous !
+        </p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <img src="deambulo.png" alt="Le Déambul'O">
+        </div>
+        <a href="deambulo.html" class="service-badge">Le Déambulo</a>
+        <p class="service-text">
+          Notre intervenant se déplace dans votre établissement avec un chariot de déambulation pour proposer une rencontre animale unique. Une séance de 1h30 à 2h, en intérieur ou extérieur.
+        </p>
+      </div>
+    </div>
+
+  </section>
+
+  <div class="carousel-section">
+    <div class="carousel-main">
+      <div class="carousel-track" id="carouselTrack">
+          <div class="carousel-slide active">
+              <img src="caroussel1.jpg" alt="...">
+              <div class="carousel-caption">
+                  <h3>Nos animaux à votre rencontre</h3>
+                  <p>interventions en établissements</p>
+              </div>
+          </div>
+          <div class="carousel-slide">
+              <img src="carroussel2.jpg" alt="...">
+              <div class="carousel-caption">
+                  <h3>Des moments de douceur</h3>
+                  <p>crèches · ehpad · maisons de retraite</p>
+              </div>
+          </div>
+        <div class="carousel-slide">
+            <img src="caroussel3.jpg" alt="...">
+          <div class="carousel-caption">
+            <h3>Manifestations grand public</h3>
+            <p>marchés · fêtes médiévales · événements</p>
+          </div>
+        </div>
+        <div class="carousel-slide">
+            <img src="caroussel4.jpg" alt="...">
+          <div class="carousel-caption">
+            <h3>Événements privés inoubliables</h3>
+            <p>anniversaires · séminaires · particuliers</p>
+          </div>
+        </div>
+        <div class="carousel-slide">
+            <img src="caroussel5.jpg" alt="...">
+          <div class="carousel-caption">
+            <h3></h3>
+            <p></p>
+          </div>
+        </div>
+        <div class="carousel-slide">
+            <img src="caroussel6.jpg" alt="...">
+          <div class="carousel-caption">
+            <h3></h3>
+            <p></p>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-btn prev" onclick="moveCarousel(-1)">&#8592;</button>
+      <button class="carousel-btn next" onclick="moveCarousel(1)">&#8594;</button>
+    </div>
+    <div class="carousel-footer">
+      <span class="carousel-counter" id="carouselCounter">01</span>
+      <div class="carousel-progress" id="carouselDots"></div>
+      <span class="carousel-counter-end" id="carouselTotal">/ 04</span>
+    </div>
+    <div class="carousel-thumbs" id="carouselThumbs"></div>
+  </div>
+
+  <section id="nos-animaux">
+    <h2 class="section-title">Nos animaux</h2>
+    <p class="section-subtitle">Calme, tendresse et bienveillance</p>
+    <p class="section-desc">Une présentation de l'ensemble des animaux qui viennent à votre rencontre</p>
+    <div class="patchwork-grid">
+      <div class="patch patch--large"><img src="animal1.jpg" alt="Nos animaux"></div>
+      <div class="patch"><img src="animal2.jpg" alt="Nos animaux"></div>
+      <div class="patch"><img src="animal3.jpg" alt="Nos animaux"></div>
+      <div class="patch"><img src="animal4.jpg" alt="Nos animaux"></div>
+      <div class="patch"><img src="animal5.jpg" alt="Nos animaux"></div>
+      <div class="patch patch--wide"><img src="animal6.jpg" alt="Nos animaux"></div>
+      <div class="patch"><img src="animal7.jpg" alt="Nos animaux"></div>
+      <div class="patch"><img src="animal8.jpg" alt="Nos animaux"></div>
+    </div>
+  </section>
+
+  <section id="qui-suis-je">
+    <div class="fermier-inner">
+      <h2 class="fermier-title">Le fermier bus'onnier</h2>
+      <div class="fermier-divider"></div>
+      <div class="fermier-intro">
+        <div class="fermier-photo-wrap">
+          <img src="cedric2.jpg" class="fermier-photo" alt="Cédric, le fermier bus'onnier">
+          <p class="fermier-photo-caption">Cédric, fondateur</p>
+        </div>
+        <div class="fermier-quote-wrap">
+          <p class="fermier-quote">
+            « Dans une conjoncture sombre pour le monde agricole, un jeune homme a décidé de sortir la ferme de son enclos et d'aller à la rencontre du public. Un projet sinon fou, du moins original, sur lequel personne n'aurait osé parier un euro. Et pourtant, ça marche ! »
+            <strong>Le Magazine de la Touraine, par Sébastien Drouet — Hiver 2012/2013</strong>
+          </p>
+        </div>
+      </div>
+      <h3 class="fermier-section-title">Les racines et la vocation</h3>
+      <p class="fermier-body">Je ne suis pas issu du monde agricole, mais j'ai grandi à la campagne. Je garde un profond respect pour la nature, dont j'ai découvert les secrets grâce à ma « deuxième famille ». Dès mon plus jeune âge, ma nourrice et son mari m'ont transmis le goût du travail de la terre et du soin aux animaux. J'ai ramassé les œufs, récolté les pommes de terre en plein champ et arpenté les rangs de vigne. J'aime dire que j'ai été nourri au sein et aux légumes du jardin.</p>
+
+      <h3 class="fermier-section-title">Formation et premières expériences</h3>
+      <p class="fermier-body">En 1996, j'obtiens un brevet de technicien agricole « Services en Milieu Rural » dans l'Indre (36). Diplôme en poche, je travaille d'abord dans le secteur de l'animation, puis je me dirige vers l'éducation spécialisée où j'occupe les fonctions de moniteur-éducateur.</p>
+      <p class="fermier-body">En 1999, je postule pour travailler dans un CAT (aujourd'hui ESAT) qui projette de créer une ferme pédagogique. En 2000, j'effectue un stage d'Attelage Adapté à la Fédération Nationale Handi-Cheval à Parthenay (79) : « Encadrement des activités d'attelage auprès et avec des personnes en difficulté ». J'y rencontre Monsieur Yves Decavele, passionné d'attelage et ex-président de la fédération handi cheval : une rencontre marquante.</p>
+      <p class="fermier-body">En 2002, je décide de professionnaliser cette passion en suivant une formation d'animateur et gestionnaire de ferme pédagogique au Centre d'Enseignement Zootechnique de la Bergerie Nationale de Rambouillet (78).</p>
+      
+      <h3 class="fermier-section-title">Une rencontre éclairante</h3>
+      <p class="fermier-body">Au cours de mes recherches documentaires au centre de documentation et d'information de la Bergerie Nationale, j'ai rencontré Karine Lou Matignon — journaliste, écrivaine et scénariste en cours d'écriture d'un nouvel ouvrage. La thématique de la relation entre l'homme et l'animal est son cheval de bataille, mais elle s'intéresse également à l'enfance.</p>
+      <p class="fermier-body">Parmi ses ouvrages les plus importants : <em>Sans les animaux, le monde ne serait pas humain</em> (2000), <em>La Plus Belle Histoire des animaux</em> (2000) et <em>La Fabuleuse Aventure des hommes et des animaux</em> (2001). Mon livre de chevet est : <strong><em>Enfants et animaux, des liens en partage</em></strong>, Éditions de La Martinière, 2012.</p>
+
+      <h3 class="fermier-section-title">Le déclic et l'indépendance</h3>
+      <p class="fermier-body">De retour de ma formation à la Bergerie Nationale, je m'efforce de mettre en place une ferme dans le parc de mon établissement employeur. Si les moyens financiers sont présents, la direction n'est pas en phase avec mes propositions. Les besoins structurels et de fonctionnement essentiels à une telle activité ne sont pas pris en compte.</p>
+      <p class="fermier-body">C'est la mort dans l'âme que je décide de quitter mon emploi. Je suis alors très attaché à mon équipe et aux animaux, notamment aux chevaux, mes principaux alliés pour les bienfaits qu'ils apportent aux adultes porteurs de handicap.</p>
+
+      <h3 class="fermier-section-title">L'envol de la Ferme Bus'Onnière</h3>
+      <p class="fermier-body">L'opportunité m'est donnée de retourner à Rambouillet, non plus comme élève, mais comme responsable animalier au sein de l'équipe d'animation. En 2003, un bilan de compétences confirme mon besoin viscéral de lier l'animal et l'humain. Je décide alors de créer une ferme pédagogique itinérante, concept découvert lors de ma formation.</p>
+      <p class="fermier-body">Pour concrétiser ce projet, je réalise une étude de faisabilité approfondie. En mai 2004, j'obtiens le permis EB et le CAPTAV (Certificat d'Aptitude au Transport d'Animaux Vivants). En juin 2004, le projet reçoit le prix « Défi Jeunes » de la région Centre et du Loiret — une dotation de 4 000 € qui permet l'achat d'un camion, d'une bétaillère d'occasion et d'un ordinateur. <strong>En février 2005, l'entreprise est officiellement créée.</strong> À l'été 2010, l'exploitation s'installe à la Grange Théâtre de Vaugarni, à Pont-de-Ruan. En décembre 2015, fin de l'activité sous forme d'entreprise individuelle ; durant deux ans, l'activité est hébergée par l'association du théâtre.</p>
+
+      <div class="fermier-conclusion">
+        <div class="fermier-conclusion-year">2017</div>
+        <p class="fermier-conclusion-text">Enseignants, directeurs de théâtre, aides-soignantes, animateurs — nous venons tous d'horizons différents, mais nous avons tous croisé la route de Cédric et de sa Ferme Bus'Onnière. Convaincus que cette formidable initiative pédagogique doit perdurer, nous nous mobilisons à ses côtés.<br><br><strong>L'association « La Ferme Bus'Onnière &amp; [cie] » voit officiellement le jour.</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="temoignages">
+    <div class="temoignages-inner">
+      <div class="temoignages-left">
+        <h2 class="temoignages-title">Témoignages<br>Clients</h2>
+        <div class="temoignages-carousel">
+          <div class="temoignages-track" id="temoignagesTrack">
+            <div class="temoignage-slide">
+              <blockquote>
+                <p class="testimonial-text">La ferme bus'onnière a été une expérience incroyable pour notre groupe d'élèves. Les animaux étaient adorables et l'interaction a été bénéfique pour tous.</p>
+                <cite class="testimonial-author">École Sainte-Marie</cite>
+              </blockquote>
+            </div>
+            <div class="temoignage-slide">
+              <blockquote>
+                <p class="testimonial-text">Une animation qui a ravi petits et grands lors de notre fête de village. Le contact avec les animaux était doux et bien encadré.</p>
+                <cite class="testimonial-author">Mairie de Pont-de-Ruan</cite>
+              </blockquote>
+            </div>
+            <div class="temoignage-slide">
+              <blockquote>
+                <p class="testimonial-text">Nous avons fait appel à la ferme pour l'anniversaire de notre fils et ce fut un moment magique et inoubliable pour tous les enfants.</p>
+                <cite class="testimonial-author">Famille Martin</cite>
+              </blockquote>
+            </div>
+            <div class="temoignage-slide">
+              <blockquote>
+                <p class="testimonial-text">Une visite à l'EHPAD qui a ému tout le personnel. Les résidents ont retrouvé des souvenirs d'enfance grâce aux animaux. Un grand merci à toute l'équipe.</p>
+                <cite class="testimonial-author">EHPAD Les Glycines</cite>
+              </blockquote>
+            </div>
+          </div>
+          <div class="temoignages-nav">
+            <button class="temo-btn" onclick="moveTemoignage(-1)">&#8592;</button>
+            <div class="temo-dots" id="temoDots"></div>
+            <button class="temo-btn" onclick="moveTemoignage(1)">&#8594;</button>
+          </div>
+        </div>
+      </div>
+      <div class="temoignages-right">
+        <img src="temoignages.png" alt="La Ferme Bus'onnière">
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="contact-grid">
+      <div class="contact-cell">
+        <div class="contact-icon">📍</div>
+        <div class="contact-label">Adresse</div>
+        <div class="contact-value">Lieu-dit Vaugarni<br>37260 PONT DE RUAN</div>
+      </div>
+      <div class="contact-cell">
+        <div class="contact-icon">📞</div>
+        <div class="contact-label">Téléphone</div>
+        <div class="contact-value"><a href="tel:0662048142">06.62.04.81.42</a></div>
+      </div>
+      <div class="contact-cell">
+        <div class="contact-icon">✉️</div>
+        <div class="contact-label">E-mail</div>
+        <div class="contact-value"><a href="/cdn-cgi/l/email-protection#325e535457405f575047415d5c5c5b57405772555f535b5e1c515d5f"><span class="__cf_email__" data-cfemail="9bf7fafdfee9f6fef9eee8f4f5f5f2fee9fedbfcf6faf2f7b5f8f4f6">[email&#160;protected]</span></a></div>
+      </div>
+      <div class="contact-cell">
+        <div class="contact-label" style="margin-top:8px;">Nous suivre</div>
+        <div class="social-links">
+          <a href="https://www.facebook.com/lafermebusonniere" class="social-btn" title="Facebook" target="_blank" rel="noopener noreferrer">f</a>
+          <a href="https://www.instagram.com/la_ferme_bus_onniere_et_cie/" class="social-btn" title="Instagram" style="background:#333;" target="_blank" rel="noopener noreferrer">📷</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2024 La Ferme Bus'onnière &amp; [cie] — Association loi 1901</p>
+  </footer>
+
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+  <script>
+    // ===== SCROLL ET NAVIGATION =====
+    function scrollToSection(id) {
+      const el = document.getElementById(id);
+      if (el) {
+        const navHeight = document.querySelector('nav').offsetHeight;
+        const top = el.getBoundingClientRect().top + window.pageYOffset - navHeight - 8;
+        window.scrollTo({ top: top, behavior: 'smooth' });
+      }
+    }
+
+    const sections = ['accueil', 'nos-animaux', 'qui-suis-je', 'temoignages', 'contact'];
+    window.addEventListener('scroll', () => {
+      const navHeight = document.querySelector('nav').offsetHeight;
+      let current = '';
+      sections.forEach(id => {
+        const el = document.getElementById(id);
+        if (el && el.getBoundingClientRect().top <= navHeight + 40) current = id;
+      });
+      document.querySelectorAll('.nav-links a').forEach(a => {
+        a.classList.remove('active');
+        if (a.getAttribute('href') === '#' + current) a.classList.add('active');
+      });
+    });
+
+    // ===== CAROUSEL PHOTO =====
+    let currentSlide = 0;
+    const track = document.getElementById('carouselTrack');
+    const slides = track.querySelectorAll('.carousel-slide');
+    const dotsContainer = document.getElementById('carouselDots');
+    const thumbsContainer = document.getElementById('carouselThumbs');
+    const counter = document.getElementById('carouselCounter');
+    const total = document.getElementById('carouselTotal');
+    let autoplayInterval;
+
+    total.textContent = '/ ' + String(slides.length).padStart(2, '0');
+
+    slides.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.classList.add('carousel-dot');
+      if (i === 0) dot.classList.add('active');
+      dot.onclick = () => { goToSlide(i); resetAutoplay(); };
+      dotsContainer.appendChild(dot);
+
+      const thumb = document.createElement('button');
+      thumb.classList.add('carousel-thumb');
+      if (i === 0) thumb.classList.add('active');
+      thumb.innerHTML = slides[i].querySelector('div, img') 
+        ? slides[i].innerHTML.split('<div class="carousel-caption">')[0]
+        : '';
+      const slideContent = slides[i].children[0];
+      if(slideContent) {
+          const clone = slideContent.cloneNode(true);
+          clone.style.pointerEvents = 'none';
+          thumb.appendChild(clone);
+      }
+      thumb.onclick = () => { goToSlide(i); resetAutoplay(); };
+      thumbsContainer.appendChild(thumb);
+    });
+
+    function goToSlide(index) {
+      slides[currentSlide].classList.remove('active');
+      currentSlide = (index + slides.length) % slides.length;
+      slides[currentSlide].classList.add('active');
+      track.style.transform = `translateX(-${currentSlide * 100}%)`;
+      counter.textContent = String(currentSlide + 1).padStart(2, '0');
+      document.querySelectorAll('.carousel-dot').forEach((d, i) => d.classList.toggle('active', i === currentSlide));
+      document.querySelectorAll('.carousel-thumb').forEach((t, i) => t.classList.toggle('active', i === currentSlide));
+    }
+
+    function moveCarousel(dir) {
+      goToSlide(currentSlide + dir);
+      resetAutoplay();
+    }
+
+    function resetAutoplay() {
+      clearInterval(autoplayInterval);
+      autoplayInterval = setInterval(() => goToSlide(currentSlide + 1), 7000);
+    }
+
+    autoplayInterval = setInterval(() => goToSlide(currentSlide + 1), 7000);
+
+    let touchStartX = 0;
+    track.parentElement.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; });
+    track.parentElement.addEventListener('touchend', e => {
+      const diff = touchStartX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 50) { moveCarousel(diff > 0 ? 1 : -1); }
+    });
+
+    // ===== CAROUSEL TÉMOIGNAGES =====
+    let currentTemo = 0;
+    const temoTrack = document.getElementById('temoignagesTrack');
+    const temoSlides = temoTrack.querySelectorAll('.temoignage-slide');
+    const temoDots = document.getElementById('temoDots');
+    let temoAutoplay;
+
+    temoSlides.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.classList.add('temo-dot');
+      if (i === 0) dot.classList.add('active');
+      dot.onclick = () => goToTemo(i);
+      temoDots.appendChild(dot);
+    });
+
+    function goToTemo(index) {
+      currentTemo = (index + temoSlides.length) % temoSlides.length;
+      temoTrack.style.transform = `translateX(-${currentTemo * 100}%)`;
+      temoDots.querySelectorAll('.temo-dot').forEach((d, i) => {
+        d.classList.toggle('active', i === currentTemo);
+      });
+    }
+
+    function moveTemoignage(dir) {
+      goToTemo(currentTemo + dir);
+    }
+
+    temoAutoplay = setInterval(() => goToTemo(currentTemo + 1), 6000);
+
+  </script>
+</body>
+</html>
