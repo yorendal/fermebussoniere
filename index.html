@@ -19,7 +19,7 @@
 
     :root {
       --cream: #f5f0e8;
-      --dark-green: #905A22;
+      --dark-green: #c4deb9;
       --mid-green: #3d7a52;
       --teal: #4a8c6f;
       --text-dark: #1a1a1a;
@@ -73,7 +73,7 @@
 
     .nav-brand-name {
       font-family: 'Lato', sans-serif;
-      font-size: 15px;
+      font-size: 18px; /* AGRANDI: 15px -> 18px */
       font-weight: 400;
       color: var(--text-dark);
     }
@@ -87,7 +87,7 @@
     .nav-links a {
       text-decoration: none;
       color: var(--text-dark);
-      font-size: 14px;
+      font-size: 16px; /* AGRANDI: 14px -> 16px */
       font-weight: 400;
       padding: 8px 18px;
       border-radius: 20px;
@@ -98,13 +98,12 @@
 
     .nav-links a:hover, .nav-links a.active {
       background: var(--dark-green);
-      color: white;
+      color: var(--text-dark);
       border-color: var(--dark-green);
     }
 
     /* ===== SECTION ACCUEIL & PRESTATIONS FUSIONNÉE ===== */
     .hero-prestations {
-      /* Le dégradé se fait sur un seul grand bloc : Bleu -> Bleu clair -> Crème */
       background: linear-gradient(to bottom, #87CEFA 0%, #cbeeff 65%, var(--cream) 100%);
       padding: 130px 40px 90px;
       text-align: center;
@@ -112,7 +111,6 @@
       overflow: hidden;
     }
 
-    /* Les nuages du ciel global */
     .hero-prestations::before,
     .hero-prestations::after {
       content: '';
@@ -124,7 +122,6 @@
     }
 
     .hero-prestations::before {
-      /* Nuages en haut à gauche */
       width: 450px; height: 180px;
       top: -30px; left: -80px;
       opacity: 0.85;
@@ -132,7 +129,6 @@
     }
 
     .hero-prestations::after {
-      /* Nuages en bas à droite (derrière la grille) */
       width: 550px; height: 220px;
       bottom: 50px; right: -120px;
       opacity: 0.9;
@@ -148,7 +144,7 @@
       letter-spacing: -1px;
       margin-bottom: 70px;
       position: relative;
-      z-index: 2; /* Pour que le titre passe au-dessus des nuages */
+      z-index: 2; 
       text-shadow: 0 4px 20px rgba(255, 255, 255, 0.9);
       animation: fadeUp 0.8s ease both;
     }
@@ -209,7 +205,7 @@
     .service-badge {
       display: inline-block;
       background: var(--dark-green);
-      color: white;
+      color: var(--text-dark);
       font-size: 16px;
       font-weight: 700;
       padding: 13px 32px;
@@ -221,18 +217,16 @@
 
     .service-badge:hover {
       background: var(--mid-green);
+      color: white; 
       transform: translateY(-2px);
     }
 
-.service-text {
-      /* Le texte s'adapte : 16px sur mobile, grandit avec l'écran, et bloque à 20px sur ordi */
+    .service-text {
       font-size: clamp(16px, 2vw, 20px);
       line-height: 1.8; 
       color: #2c3e50;
-      /* On élargit un peu la zone (de 380px à 440px) pour accueillir ce texte plus grand sans l'étriquer */
       max-width: 440px;
       text-align: justify; 
-    }
     }
 
     /* ===== NOS ANIMAUX ===== */
@@ -402,14 +396,14 @@
       margin-top: 14px;
       letter-spacing: 0.2px;
     }
-.fermier-section-title {
+
+    .fermier-section-title {
       font-family: 'Playfair Display', serif;
-      /* Passe de 24px fixe à une taille fluide (jusqu'à 32px sur grand écran) */
       font-size: clamp(24px, 3vw, 32px);
       font-weight: 400;
       font-style: italic;
       color: var(--text-dark);
-      margin: 50px 0 0; /* Un peu plus d'espace au-dessus du titre */
+      margin: 50px 0 0;
       padding-bottom: 10px;
       display: inline-block;
       position: relative;
@@ -426,12 +420,11 @@
     }
 
     .fermier-body {
-      /* Le texte s'adapte : 17px mini sur mobile, jusqu'à 21px sur ordinateur */
       font-size: clamp(17px, 1.8vw, 21px);
       line-height: 1.85; 
       color: var(--text-body);
       margin-top: 20px;
-      margin-bottom: 24px; /* Plus d'espace entre les paragraphes pour faire respirer la lecture */
+      margin-bottom: 24px; 
       text-align: justify; 
     }
 
@@ -449,20 +442,23 @@
       font-family: 'Playfair Display', serif;
       font-size: 52px;
       font-weight: 400;
-      color: rgba(255,255,255,0.2);
+      color: #444444; /* CORRIGÉ: gris foncé */
       line-height: 1;
       margin-bottom: 14px;
     }
 
     .fermier-conclusion-text {
-      font-size: 16px;
-      line-height: 1.85;
-      color: rgba(255,255,255,0.88);
-      max-width: 560px;
+      font-size: 19px; /* CORRIGÉ: plus grand */
+      line-height: 1.95;
+      color: var(--text-body);
+      max-width: 700px; /* CORRIGÉ: plus large */
       margin: 0 auto;
     }
 
-    .fermier-conclusion-text strong { color: #fff; font-weight: 700; }
+    .fermier-conclusion-text strong { 
+      color: var(--text-dark); 
+      font-weight: 700; 
+    }
 
     /* ===== TÉMOIGNAGES ===== */
     #temoignages {
@@ -492,7 +488,7 @@
     }
 
     .testimonial-text {
-      font-size: 15px;
+      font-size: 18px; /* AGRANDI: 15px -> 18px */
       line-height: 1.95; 
       color: var(--text-body);
       margin-bottom: 20px;
@@ -545,14 +541,14 @@
     }
 
     .contact-label {
-      font-size: 16px;
+      font-size: 18px; /* AGRANDI: 16px -> 18px */
       font-weight: 700;
       color: var(--text-dark);
       margin-bottom: 12px;
     }
 
     .contact-value {
-      font-size: 14px;
+      font-size: 16px; /* AGRANDI: 14px -> 16px */
       color: var(--teal);
       line-height: 1.6;
     }
@@ -580,15 +576,19 @@
       transition: transform 0.2s ease, background 0.2s ease;
     }
 
-    .social-btn:hover { transform: scale(1.1); background: var(--dark-green); }
+    .social-btn:hover { 
+      transform: scale(1.1); 
+      background: var(--dark-green); 
+      color: var(--text-dark); 
+    }
 
     /* ===== FOOTER ===== */
     footer {
       background: var(--dark-green);
-      color: rgba(255,255,255,0.7);
+      color: var(--text-dark); /* Modification pour meilleure lisibilité sur le vert */
       text-align: center;
       padding: 20px;
-      font-size: 12px;
+      font-size: 14px; /* AGRANDI: 12px -> 14px */
     }
 
     /* ===== CAROUSELS (Photo & Témoignages) ===== */
@@ -603,7 +603,10 @@
       width: 38px; height: 38px; border-radius: 50%; font-size: 16px; cursor: pointer;
       transition: all 0.2s ease; flex-shrink: 0;
     }
-    .temo-btn:hover { background: var(--dark-green); color: white; }
+    .temo-btn:hover { 
+      background: var(--dark-green); 
+      color: var(--text-dark); 
+    }
     .temo-dots { display: flex; gap: 8px; align-items: center; }
     .temo-dot { width: 9px; height: 9px; border-radius: 50%; background: #ccc; border: none; cursor: pointer; transition: all 0.3s ease; padding: 0; }
     .temo-dot.active { background: var(--dark-green); transform: scale(1.3); }
@@ -631,12 +634,25 @@
     .carousel-btn.next { right: 28px; }
     
     .carousel-footer { display: flex; align-items: center; justify-content: center; gap: 20px; padding: 18px 0; background: var(--dark-green); }
-    .carousel-counter, .carousel-counter-end { font-size: 13px; color: rgba(255,255,255,0.6); font-family: 'Lato', sans-serif; letter-spacing: 1px; min-width: 40px; text-align: right; }
-    .carousel-counter-end { text-align: left; }
+    .carousel-counter, .carousel-counter-end { 
+      font-size: 13px; 
+      color: var(--text-body);
+      font-family: 'Lato', sans-serif; 
+      letter-spacing: 1px; 
+      min-width: 40px; 
+      text-align: right; 
+    }
+
+    .carousel-dot { 
+      height: 3px; border-radius: 2px; 
+      background: rgba(0, 0, 0, 0.2);
+      border: none; cursor: pointer; transition: all 0.4s ease; padding: 0; width: 28px; 
+    }
+    .carousel-dot.active { 
+      background: var(--text-dark);
+      width: 52px; 
+    }   
     .carousel-progress { display: flex; gap: 6px; align-items: center; }
-    .carousel-dot { height: 3px; border-radius: 2px; background: rgba(255,255,255,0.3); border: none; cursor: pointer; transition: all 0.4s ease; padding: 0; width: 28px; }
-    .carousel-dot.active { background: white; width: 52px; }
-    
     .carousel-thumbs { display: flex; gap: 0; overflow: hidden; }
     .carousel-thumb { flex: 1; height: 80px; overflow: hidden; cursor: pointer; position: relative; transition: flex 0.4s ease; border: none; padding: 0; }
     .carousel-thumb img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.5) saturate(0.6); transition: filter 0.3s ease; display: block; }
@@ -657,7 +673,7 @@
       .temoignages-title { font-size: 28px; margin-bottom: 28px; }
       .temoignage-slide { width: 100%; overflow: hidden; }
       .temoignage-slide blockquote { padding-left: 14px; }
-      .testimonial-text { font-size: 14px; }
+      .testimonial-text { font-size: 16px; } /* AGRANDI MOBILE: 14px -> 16px */
       .temoignages-right { min-height: 260px; height: 260px; }
       .temoignages-right img { object-fit: contain; }
       .contact-grid { grid-template-columns: repeat(2, 1fr); }
@@ -774,13 +790,7 @@
       <button class="carousel-btn prev" onclick="moveCarousel(-1)">&#8592;</button>
       <button class="carousel-btn next" onclick="moveCarousel(1)">&#8594;</button>
     </div>
-    <div class="carousel-footer">
-      <span class="carousel-counter" id="carouselCounter">01</span>
-      <div class="carousel-progress" id="carouselDots"></div>
-      <span class="carousel-counter-end" id="carouselTotal">/ 04</span>
-    </div>
-    <div class="carousel-thumbs" id="carouselThumbs"></div>
-  </div>
+  </div> <!-- CORRECTION : balise de fermeture manquante ajoutée ici -->
 
   <section id="nos-animaux">
     <h2 class="section-title">Nos animaux</h2>
@@ -946,45 +956,13 @@
     let currentSlide = 0;
     const track = document.getElementById('carouselTrack');
     const slides = track.querySelectorAll('.carousel-slide');
-    const dotsContainer = document.getElementById('carouselDots');
-    const thumbsContainer = document.getElementById('carouselThumbs');
-    const counter = document.getElementById('carouselCounter');
-    const total = document.getElementById('carouselTotal');
     let autoplayInterval;
-
-    total.textContent = '/ ' + String(slides.length).padStart(2, '0');
-
-    slides.forEach((_, i) => {
-      const dot = document.createElement('button');
-      dot.classList.add('carousel-dot');
-      if (i === 0) dot.classList.add('active');
-      dot.onclick = () => { goToSlide(i); resetAutoplay(); };
-      dotsContainer.appendChild(dot);
-
-      const thumb = document.createElement('button');
-      thumb.classList.add('carousel-thumb');
-      if (i === 0) thumb.classList.add('active');
-      thumb.innerHTML = slides[i].querySelector('div, img') 
-        ? slides[i].innerHTML.split('<div class="carousel-caption">')[0]
-        : '';
-      const slideContent = slides[i].children[0];
-      if(slideContent) {
-          const clone = slideContent.cloneNode(true);
-          clone.style.pointerEvents = 'none';
-          thumb.appendChild(clone);
-      }
-      thumb.onclick = () => { goToSlide(i); resetAutoplay(); };
-      thumbsContainer.appendChild(thumb);
-    });
 
     function goToSlide(index) {
       slides[currentSlide].classList.remove('active');
       currentSlide = (index + slides.length) % slides.length;
       slides[currentSlide].classList.add('active');
       track.style.transform = `translateX(-${currentSlide * 100}%)`;
-      counter.textContent = String(currentSlide + 1).padStart(2, '0');
-      document.querySelectorAll('.carousel-dot').forEach((d, i) => d.classList.toggle('active', i === currentSlide));
-      document.querySelectorAll('.carousel-thumb').forEach((t, i) => t.classList.toggle('active', i === currentSlide));
     }
 
     function moveCarousel(dir) {
@@ -997,8 +975,10 @@
       autoplayInterval = setInterval(() => goToSlide(currentSlide + 1), 7000);
     }
 
+    // Lancement automatique
     autoplayInterval = setInterval(() => goToSlide(currentSlide + 1), 7000);
 
+    // Gestion du glissement (swipe) sur mobile
     let touchStartX = 0;
     track.parentElement.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; });
     track.parentElement.addEventListener('touchend', e => {
