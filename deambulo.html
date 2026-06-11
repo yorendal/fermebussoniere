@@ -166,7 +166,7 @@
     .quick-value { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: #1a365d; line-height: 1.25; margin-bottom: 6px; }
     .quick-sub { font-size: 12px; color: var(--text-body); line-height: 1.4; }
 
-    /* ===== PRÉSENTATION (Agrandie de 20%) ===== */
+    /* ===== PRÉSENTATION ===== */
     .presentation-bloc {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -264,11 +264,11 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      gap: 22px; /* L'espacement a été un peu augmenté pour laisser respirer les gros textes */
+      gap: 22px;
     }
 
     .section-label {
-      font-size: 13px; /* +20% */
+      font-size: 13px; 
       letter-spacing: 2.5px;
       text-transform: uppercase;
       color: var(--mid-green);
@@ -277,123 +277,123 @@
 
     .section-title {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(29px, 3.6vw, 46px); /* +20% */
+      font-size: clamp(29px, 3.6vw, 46px); 
       font-weight: 700;
       color: var(--text-dark);
       line-height: 1.25;
     }
 
     .section-text {
-      font-size: 18px; /* +20% */
+      font-size: 18px; 
       line-height: 1.85;
       color: var(--text-body);
     }
 
     .citation-inline {
       font-family: 'Playfair Display', serif;
-      font-size: 19px; /* +20% */
+      font-size: 19px; 
       font-style: italic;
       color: var(--mid-green);
-      border-left: 4px solid var(--water-green); /* Bordure légèrement plus épaisse pour coller au texte */
+      border-left: 4px solid var(--water-green); 
       padding-left: 20px;
       line-height: 1.6;
     }
 
-    /* ===== BIENFAITS (Agrandis de 20%) ===== */
+    /* ===== BIENFAITS (BOITES ET TEXTES AGRANDIS) ===== */
     .bienfaits {
-      padding: 80px 40px;
+      padding: 90px 40px; /* Ajusté pour correspondre à l'autre structure */
       background: #edf4ee;
       text-align: center;
     }
 
     .bienfaits-title {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(34px, 4.2vw, 53px); 
-      font-weight: 700;
-      color: var(--text-dark);
-      margin-bottom: 10px;
-    }
-
-    .bienfaits-sub {
-      font-size: 18px; 
-      color: var(--mid-green);
-      font-style: italic;
-      margin-bottom: 50px;
-    }
-
-    .bienfaits-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .bienfait-card {
-      background: white;
-      border-radius: 14px;
-      padding: 34px 28px;
-      text-align: center;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-    }
-
-    .bienfait-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 28px rgba(0,0,0,0.1);
-    }
-
-    .bienfait-icon { font-size: 42px; margin-bottom: 16px; } 
-
-    .bienfait-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 20px; 
+      font-size: clamp(34px, 4.5vw, 54px); /* Agrandi */
       font-weight: 700;
       color: var(--text-dark);
       margin-bottom: 12px;
     }
 
+    .bienfaits-sub {
+      font-size: 19px; /* Agrandi de 18px à 19px */
+      color: var(--mid-green);
+      font-style: italic;
+      margin-bottom: 60px;
+    }
+
+    .bienfaits-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px; /* Écartement augmenté de 24px à 40px */
+      max-width: 1140px; /* Largeur maximale augmentée de 900px à 1140px */
+      margin: 0 auto;
+    }
+
+    .bienfait-card {
+      background: white;
+      border-radius: 16px; /* Ajusté de 14px à 16px */
+      padding: 45px 35px; /* Marges intérieures augmentées pour de plus grandes boîtes */
+      text-align: center;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .bienfait-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 14px 32px rgba(0,0,0,0.1);
+    }
+
+    .bienfait-icon { font-size: 38px; margin-bottom: 14px; } /* Aligné sur 38px */
+
+    .bienfait-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px; /* Agrandi de 20px à 24px */
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 14px;
+    }
+
     .bienfait-desc {
-      font-size: 16px; 
-      line-height: 1.7;
+      font-size: 17px; /* Agrandi de 16px à 17px */
+      line-height: 1.8; /* Hauteur de ligne plus aérée */
       color: var(--text-muted);
     }
 
-    /* ===== PUBLICS (Agrandis de 20%) ===== */
+    /* ===== PUBLICS (BOITES ET TEXTES AGRANDIS) ===== */
     .publics-section {
-      padding: 80px 40px;
+      padding: 90px 40px;
       text-align: center;
       background: var(--cream);
     }
 
     .publics-title {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(34px, 3.6vw, 50px); 
+      font-size: clamp(34px, 4.5vw, 54px); /* Agrandi et harmonisé */
       font-weight: 700;
       color: var(--text-dark);
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
 
     .publics-subtitle {
-      font-size: 18px; 
+      font-size: 19px; /* Agrandi de 18px à 19px */
       color: var(--mid-green);
       font-style: italic;
-      margin-bottom: 50px;
+      margin-bottom: 60px;
     }
 
     .publics-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      max-width: 1050px; 
+      gap: 40px; /* Écartement augmenté de 20px à 40px */
+      max-width: 1140px; /* Largeur maximale augmentée de 1050px à 1140px */
       margin: 0 auto;
     }
 
     .public-card {
-      border-radius: 14px;
-      padding: 32px 26px;
+      border-radius: 16px; /* Ajusté de 14px à 16px */
+      padding: 45px 35px; /* Marges intérieures augmentées pour de plus grandes boîtes */
       text-align: left;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.07);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.06);
       transition: transform 0.25s ease, box-shadow 0.25s ease;
       border-top: 4px solid;
       overflow: hidden;
@@ -404,7 +404,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      border-radius: 14px;
+      border-radius: 16px;
       pointer-events: none;
       z-index: 0;
       opacity: 0.55;
@@ -423,27 +423,27 @@
     .public-card:nth-child(6) { background: #e8d060; border-color: #8a7000; } 
 
     .public-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 26px rgba(0,0,0,0.1);
+      transform: translateY(-5px);
+      box-shadow: 0 14px 32px rgba(0,0,0,0.1);
     }
 
-    .public-icon { font-size: 40px; margin-bottom: 14px; } 
+    .public-icon { font-size: 38px; margin-bottom: 14px; } /* Aligné sur 38px */
 
     .public-title {
       font-family: 'Playfair Display', serif;
-      font-size: 20px; 
+      font-size: 24px; /* Agrandi de 20px à 24px */
       font-weight: 700;
       color: var(--text-dark);
-      margin-bottom: 10px;
+      margin-bottom: 14px;
     }
 
     .public-desc {
-      font-size: 16px; 
-      line-height: 1.7;
+      font-size: 17px; /* Agrandi de 16px à 17px */
+      line-height: 1.8; /* Hauteur de ligne plus aérée */
       color: var(--text-muted);
     }
 
-    /* ===== MODALITÉS (Agrandis de 20%) ===== */
+    /* ===== MODALITÉS ===== */
     .modalites-bloc {
       background: var(--cream);
     }
@@ -559,7 +559,7 @@
 
     .cta-btn:hover {
       background: var(--mid-green);
-    COLOR: WHITE;
+      COLOR: WHITE;
       transform: translateY(-3px);
       box-shadow: 0 8px 24px rgba(0,0,0,0.15);
     }
@@ -594,8 +594,8 @@
       .pres-content { padding: 40px 24px; }
       .modalites-left { padding: 40px 24px; grid-template-columns: 1fr; }
       .pres-image { min-height: 260px; }
-      .bienfaits-grid { grid-template-columns: 1fr; }
-      .publics-grid { grid-template-columns: 1fr; }
+      .bienfaits-grid { grid-template-columns: 1fr; gap: 24px; } /* Écartement adapté sur mobile */
+      .publics-grid { grid-template-columns: 1fr; gap: 24px; } /* Écartement adapté sur mobile */
       .bienfaits, .publics-section { padding: 50px 20px; }
       .hero-logo-right { display: none; }
     }
@@ -777,7 +777,7 @@
       </div>
 
       <div class="modalite-item">
-        <div class="modalite-icon">🔇</div>
+        <div class="modalite-icon">🔧</div>
         <div class="modalite-text">
           <h4>Confort acoustique</h4>
           <p>Un environnement calme est recommandé pour le bien-être des animaux et la qualité de la rencontre.</p>
