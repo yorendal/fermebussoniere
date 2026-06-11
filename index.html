@@ -202,11 +202,10 @@
       object-fit: contain;
     }
 
-    /* BADGE MODIFIÉ : Fond vert clair de la navbar et texte bleu nuit */
     .service-badge {
       display: inline-block;
-      background: #c4deb9; /* Même vert clair que la barre de navigation */
-      color: #1a365d; /* Texte sombre pour un contraste optimal */
+      background: #c4deb9;
+      color: #1a365d;
       font-size: 22px;
       font-weight: 700;
       padding: 14px 36px;
@@ -219,7 +218,7 @@
     }
 
     .service-badge:hover {
-      background: #b2d2a5; /* Teinte légèrement plus prononcée au survol */
+      background: #b2d2a5;
       transform: translateY(-2px);
       box-shadow: 0 6px 16px rgba(0,0,0,0.1);
     }
@@ -644,19 +643,23 @@
       width: 44px;
       height: 44px;
       border-radius: 50%;
-      background: var(--text-dark);
-      color: white;
+      background: #c4deb9;
+      color: #1a365d;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 20px;
       text-decoration: none;
-      transition: transform 0.2s ease, background 0.2s ease;
+      border: 2px solid transparent;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
     }
 
     .social-btn:hover {
       transform: scale(1.1);
-      background: var(--dark-green);
+      background: var(--cream);
+      color: #1a365d;
+      border-color: rgba(0,0,0,0.08);
     }
 
     /* ===== FOOTER ===== */
@@ -1086,7 +1089,7 @@
         </div>
         <div class="fermier-quote-wrap">
           <p class="fermier-quote">
-            « Dans une conjoncture sombre for le monde agricole, un jeune homme a décidé de sortir la ferme de son enclos et d'aller à la rencontre du public. Un projet sinon fou, du moins original, sur lequel personne n'aurait osé parier un euro. Et pourtant, ça marche ! »
+            « Dans une conjoncture sombre pour le monde agricole, un jeune homme a décidé de sortir la ferme de son enclos et d'aller à la rencontre du public. Un projet sinon fou, du moins original, sur lequel personne n'aurait osé parier un euro. Et pourtant, ça marche ! »
             <strong>Le Magazine de la Touraine, par Sébastien Drouet — Hiver 2012/2013</strong>
           </p>
         </div>
@@ -1193,13 +1196,15 @@
       <div class="contact-cell">
         <div class="contact-icon">✉️</div>
         <div class="contact-label">E-mail</div>
-        <div class="contact-value"><a href="/cdn-cgi/l/email-protection#325e535457405f575047415d5c5c5b57405772555f535b5e1c515d5f"><span class="__cf_email__" data-cfemail="9bf7fafdfee9f6fef9eee8f4f5f5f2fee9fedbfcf6faf2f7b5f8f4f6">[email&#160;protected]</span></a></div>
+        <div class="contact-value">
+          <a href="mailto:lafermebusonniere@gmail.com">lafermebusonniere@gmail.com</a>
+        </div>
       </div>
       <div class="contact-cell">
         <div class="contact-label" style="margin-top:8px;">Nous suivre</div>
         <div class="social-links">
           <a href="https://www.facebook.com/lafermebusonniere" class="social-btn" title="Facebook" target="_blank" rel="noopener noreferrer">f</a>
-          <a href="https://www.instagram.com/la_ferme_bus_onniere_et_cie/" class="social-btn" title="Instagram" style="background:#333;" target="_blank" rel="noopener noreferrer">📷</a>
+          <a href="https://www.instagram.com/la_ferme_bus_onniere_et_cie/" class="social-btn" title="Instagram" target="_blank" rel="noopener noreferrer">📷</a>
         </div>
       </div>
     </div>
@@ -1209,7 +1214,6 @@
     <p>© 2024 La Ferme Bus'onnière &amp; [cie] — Association loi 1901</p>
   </footer>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
   <script>
     function scrollToSection(id) {
       const el = document.getElementById(id);
