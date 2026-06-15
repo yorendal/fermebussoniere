@@ -42,14 +42,14 @@
       to   { opacity: 1; transform: translateY(0); }
     }
 
-    /* ===== NAVBAR (HARMONISÉE AVEC DÉAMBUL'O) ===== */
+    /* ===== NAVBAR ===== */
     nav {
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
       z-index: 1000;
-      background: #f5f0e8; /* Harmonisé sur la couleur de Déambul'O */
+      background: #f5f0e8;
       border-bottom: 1px solid rgba(0,0,0,0.08);
       display: flex;
       align-items: center;
@@ -59,12 +59,12 @@
     }
     .nav-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: #1a1a1a; }
     .nav-logo { width: 60px; height: 60px; border-radius: 8px; display: flex; align-items: center; justify-content: center; }
-    .nav-brand-name { font-family: 'Lato', sans-serif; font-size: 18px; font-weight: 400; color: #1a1a1a; } /* Taille Déambul'O */
+    .nav-brand-name { font-family: 'Lato', sans-serif; font-size: 18px; font-weight: 400; color: #1a1a1a; }
     .nav-links { display: flex; gap: 6px; list-style: none; }
-    .nav-links a { text-decoration: none; color: #1a1a1a; font-size: 16px; font-weight: 400; padding: 8px 18px; border-radius: 20px; border: 1px solid #ccc; transition: all 0.25s ease; letter-spacing: 0.3px; } /* Taille Déambul'O */
-    .nav-links a:hover, .nav-links a.active { background: #c4deb9; color: #1a1a1a; border-color: #c4deb9; } /* Couleurs Déambul'O */
+    .nav-links a { text-decoration: none; color: #1a1a1a; font-size: 16px; font-weight: 400; padding: 8px 18px; border-radius: 20px; border: 1px solid #ccc; transition: all 0.25s ease; letter-spacing: 0.3px; }
+    .nav-links a:hover, .nav-links a.active { background: #c4deb9; color: #1a1a1a; border-color: #c4deb9; }
 
-    /* ===== HERO (CIEL ET NUAGES) ===== */
+    /* ===== HERO ===== */
     .hero {
       background: linear-gradient(to bottom, #87CEFA 0%, #cbeeff 65%, var(--cream) 100%);
       padding: 130px 4% 90px;
@@ -109,7 +109,7 @@
       display: inline-block;
       background: #ffffff;
       color: var(--dark-green);
-      font-size: 12px;
+      font-size: 16px; /* Augmenté de 14px */
       font-weight: 700;
       letter-spacing: 2px;
       text-transform: uppercase;
@@ -122,7 +122,7 @@
 
     .hero h1 {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(36px, 6vw, 72px);
+      font-size: clamp(48px, 8vw, 96px); /* Augmenté */
       font-weight: 700;
       color: #1a365d;
       line-height: 1.1;
@@ -132,7 +132,7 @@
 
     .hero h2 {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(20px, 3vw, 36px);
+      font-size: clamp(28px, 4vw, 48px); /* Augmenté */
       font-weight: 400;
       font-style: italic;
       color: #2c3e50;
@@ -140,9 +140,9 @@
     }
 
     .hero-sub {
-      font-size: 17px;
+      font-size: 24px; /* Augmenté de 21px */
       color: #1a365d;
-      max-width: 600px;
+      max-width: 850px;
       margin: 0 auto 30px;
       line-height: 1.75;
       font-style: italic;
@@ -160,13 +160,13 @@
       background: rgba(255, 255, 255, 0.75);
       color: #1a365d;
       border: 1px solid rgba(0, 0, 0, 0.05);
-      padding: 7px 18px;
+      padding: 10px 26px;
       border-radius: 20px;
-      font-size: 13px;
+      font-size: 18px; /* Augmenté de 16px */
       box-shadow: 0 2px 6px rgba(0,0,0,0.04);
     }
 
-    /* ===== INFOS RAPIDES (BANDEAU FUSIONNÉ STYLE VERRE DÉPOLI) ===== */
+    /* ===== INFOS RAPIDES ===== */
     .quick-info {
       display: flex;
       flex-wrap: wrap;
@@ -182,15 +182,15 @@
 
     .quick-cell {
       flex: 1 1 240px;
-      padding: 30px 20px;
+      padding: 35px 25px;
       text-align: center;
       border-right: 1px solid rgba(0,0,0,0.08);
     }
     .quick-cell:last-child { border-right: none; }
-    .quick-icon { font-size: 30px; margin-bottom: 10px; }
-    .quick-label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 6px; font-weight: 700; }
-    .quick-value { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: #1a365d; line-height: 1.3; }
-    .quick-sub { font-size: 12px; color: var(--text-body); margin-top: 5px; line-height: 1.4; }
+    .quick-icon { font-size: 42px; margin-bottom: 10px; } /* Augmenté de 36px */
+    .quick-label { font-size: 15px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 6px; font-weight: 700; } /* Augmenté de 13px */
+    .quick-value { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; color: #1a365d; line-height: 1.3; } /* Augmenté de 24px */
+    .quick-sub { font-size: 17px; color: var(--text-body); margin-top: 5px; line-height: 1.4; } /* Augmenté de 15px */
 
     /* ===== SECTION PRÉSENTATION ===== */
     .presentation-bloc {
@@ -202,7 +202,7 @@
 
     .pres-image {
       position: relative;
-      height: 500px;
+      height: 550px;
       overflow: hidden;
       background: #2d4a2d;
     }
@@ -239,10 +239,10 @@
       background: rgba(255,255,255,0.85);
       border: none;
       border-radius: 50%;
-      width: 40px;
-      height: 40px;
+      width: 44px;
+      height: 44px;
       cursor: pointer;
-      font-size: 16px;
+      font-size: 18px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -267,8 +267,8 @@
     }
 
     .carousel-dot {
-      width: 8px;
-      height: 8px;
+      width: 10px;
+      height: 10px;
       border-radius: 50%;
       background: rgba(255,255,255,0.5);
       cursor: pointer;
@@ -286,11 +286,11 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      gap: 18px;
+      gap: 22px;
     }
 
     .section-label {
-      font-size: 11px;
+      font-size: 16px; /* Augmenté de 14px */
       letter-spacing: 2.5px;
       text-transform: uppercase;
       color: var(--teal);
@@ -299,44 +299,44 @@
 
     .section-title {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(24px, 3vw, 38px);
+      font-size: clamp(34px, 4vw, 52px); /* Augmenté de 30px-46px */
       font-weight: 700;
       color: var(--text-dark);
       line-height: 1.25;
     }
 
     .section-text {
-      font-size: 15px;
+      font-size: 22px; /* Augmenté de 19px */
       line-height: 1.85;
       color: var(--text-body);
     }
 
     .citation-inline {
       font-family: 'Playfair Display', serif;
-      font-size: 17px;
+      font-size: 24px; /* Augmenté de 21px */
       font-style: italic;
       color: var(--teal);
-      border-left: 3px solid var(--teal);
+      border-left: 4px solid var(--teal);
       padding-left: 18px;
       line-height: 1.6;
     }
 
-    /* ===== COMMENT ÇA SE PASSE (FOND EN HARMONIE) ===== */
+    /* ===== COMMENT ÇA SE PASSE ===== */
     .deroulement {
       padding: 90px 40px;
-      background: var(--cream); /* Changé de var(--bg-lavande) pour harmoniser */
+      background: var(--cream);
     }
 
     .deroulement-title {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(34px, 4.5vw, 54px);
+      font-size: clamp(38px, 5vw, 62px); /* Augmenté */
       font-weight: 700;
       color: var(--text-dark);
       margin-bottom: 12px;
     }
 
     .deroulement-sub {
-      font-size: 19px;
+      font-size: 22px; /* Augmenté de 19px */
       color: var(--teal);
       font-style: italic;
       margin-bottom: 60px;
@@ -375,23 +375,23 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 18px;
+      font-size: 21px; /* Augmenté de 18px */
       font-weight: 700;
       margin: 0 auto 18px;
     }
 
-    .step-icon { font-size: 38px; margin-bottom: 14px; }
+    .step-icon { font-size: 44px; margin-bottom: 14px; } /* Augmenté de 38px */
 
     .step-title {
       font-family: 'Playfair Display', serif;
-      font-size: 24px;
+      font-size: 28px; /* Augmenté de 24px */
       font-weight: 700;
       color: var(--text-dark);
       margin-bottom: 14px;
     }
 
     .step-desc {
-      font-size: 17px;
+      font-size: 20px; /* Augmenté de 17px */
       line-height: 1.8;
       color: var(--text-muted);
     }
@@ -409,19 +409,19 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      gap: 20px;
+      gap: 24px;
     }
 
     .ateliers-title {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(26px, 3vw, 38px);
+      font-size: clamp(36px, 4vw, 52px); /* Augmenté de 32px-46px */
       font-weight: 700;
       color: white;
       line-height: 1.2;
     }
 
     .ateliers-desc {
-      font-size: 15px;
+      font-size: 22px; /* Augmenté de 19px */
       color: rgba(255,255,255,0.85);
       line-height: 1.8;
     }
@@ -430,13 +430,13 @@
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 12px;
     }
 
     .ateliers-list li {
-      font-size: 14px;
+      font-size: 21px; /* Augmenté de 18px */
       color: rgba(255,255,255,0.9);
-      padding-left: 22px;
+      padding-left: 24px;
       position: relative;
       line-height: 1.6;
     }
@@ -444,7 +444,7 @@
     .ateliers-list li::before {
       content: "✦";
       color: rgba(255,255,255,0.5);
-      font-size: 10px;
+      font-size: 14px; /* Augmenté */
       position: absolute;
       left: 0;
       top: 4px;
@@ -456,36 +456,36 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      gap: 20px;
+      gap: 24px;
     }
 
     .atelier-item {
       display: flex;
-      gap: 16px;
+      gap: 20px;
       align-items: flex-start;
     }
 
     .atelier-icon {
-      width: 44px;
-      height: 44px;
+      width: 60px; /* Augmenté de 54px */
+      height: 60px; /* Augmenté de 54px */
       background: #edf4ee;
-      border-radius: 10px;
+      border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 22px;
+      font-size: 30px; /* Augmenté de 26px */
       flex-shrink: 0;
     }
 
     .atelier-text h4 {
-      font-size: 15px;
+      font-size: 22px; /* Augmenté de 19px */
       font-weight: 700;
       color: var(--text-dark);
-      margin-bottom: 4px;
+      margin-bottom: 6px;
     }
 
     .atelier-text p {
-      font-size: 13px;
+      font-size: 19px; /* Augmenté de 16px */
       line-height: 1.6;
       color: var(--text-muted);
     }
@@ -499,14 +499,14 @@
 
     .publics-title {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(34px, 4.5vw, 54px);
+      font-size: clamp(38px, 5vw, 62px); /* Augmenté */
       font-weight: 700;
       color: var(--text-dark);
       margin-bottom: 12px;
     }
 
     .publics-subtitle {
-      font-size: 19px;
+      font-size: 22px; /* Augmenté de 19px */
       color: var(--teal);
       font-style: italic;
       margin-bottom: 60px;
@@ -561,18 +561,18 @@
       box-shadow: 0 14px 32px rgba(0,0,0,0.1);
     }
 
-    .public-icon { font-size: 38px; margin-bottom: 14px; }
+    .public-icon { font-size: 44px; margin-bottom: 14px; } /* Augmenté de 38px */
 
     .public-title {
       font-family: 'Playfair Display', serif;
-      font-size: 24px;
+      font-size: 28px; /* Augmenté de 24px */
       font-weight: 700;
       color: var(--text-dark);
       margin-bottom: 14px;
     }
 
     .public-desc {
-      font-size: 17px;
+      font-size: 20px; /* Augmenté de 17px */
       line-height: 1.8;
       color: var(--text-muted);
     }
@@ -587,7 +587,7 @@
       align-items: center;
       gap: 6px;
       margin-top: 18px;
-      font-size: 13px;
+      font-size: 17px; /* Augmenté de 15px */
       font-weight: 700;
       color: var(--teal);
       letter-spacing: 0.5px;
@@ -617,7 +617,7 @@
     }
 
     .public-card--expandable.open .scolaire-expand {
-      max-height: 1000px;
+      max-height: 1500px; /* Élargi */
       opacity: 1;
     }
 
@@ -629,53 +629,117 @@
     }
 
     .scolaire-expand-inner p:first-child {
-      font-size: 18px !important;
+      font-size: 25px !important; /* Augmenté de 22px */
       font-weight: 700 !important;
       color: var(--dark-green) !important;
       margin-bottom: 12px !important;
     }
 
     .scolaire-expand-inner p:nth-child(2) {
-      font-size: 16px !important;
+      font-size: 22px !important; /* Augmenté de 19px */
       line-height: 1.8 !important;
       color: var(--text-body) !important;
       margin-bottom: 16px !important;
     }
 
     .scolaire-expand-inner ul {
-      font-size: 16px !important;
+      font-size: 22px !important; /* Augmenté de 19px */
       line-height: 2 !important;
       color: var(--text-body) !important;
-      padding-left: 20px !important;
+      padding-left: 24px !important;
       margin-bottom: 16px !important;
     }
 
     .scolaire-expand-inner p:last-child {
-      font-size: 15px !important;
+      font-size: 21px !important; /* Augmenté de 18px */
       font-style: italic !important;
       color: var(--teal) !important;
       line-height: 1.7 !important;
     }
 
+    /* ===== FICHE TECHNIQUE ===== */
+    .fiche-section {
+      padding: 90px 40px;
+      background: var(--cream);
+    }
+    
+    .fiche-section p:first-child {
+      font-size: 16px !important; /* Augmenté de 14px */
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--teal);
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    
+    .fiche-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(34px, 4vw, 52px); /* Augmenté de 32px-46px */
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 40px;
+    }
+
+    .fiche-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+    }
+
+    .fiche-card-item {
+      background: var(--card-bleu);
+      border-radius: 14px;
+      padding: 34px 28px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.07);
+      border-top: 3px solid var(--accent-bleu);
+    }
+
+    .fiche-card-item div {
+      font-size: 40px !important; /* Augmenté de 34px */
+      margin-bottom: 14px !important;
+    }
+
+    .fiche-card-item h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 23px !important; /* Augmenté de 20px */
+      font-weight: 700 !important;
+      color: var(--text-dark) !important;
+      margin-bottom: 12px !important;
+    }
+
+    .fiche-card-item p {
+      font-size: 19px !important; /* Augmenté de 16px */
+      line-height: 1.75 !important;
+      color: var(--text-muted) !important;
+    }
+
+    .fiche-footer-text {
+      margin-top: 34px;
+      font-size: 19px !important; /* Augmenté de 16px */
+      color: var(--text-muted);
+      text-align: center;
+      font-style: italic;
+    }
+
     /* ===== CITATION ===== */
     .citation-bloc {
       background: var(--dark-green);
-      padding: 70px 40px;
+      padding: 85px 40px;
       text-align: center;
     }
 
     .citation-text {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(18px, 2.5vw, 28px);
+      font-size: clamp(26px, 3.5vw, 40px); /* Augmenté de 22px-34px */
       font-style: italic;
       color: white;
-      max-width: 760px;
-      margin: 0 auto 20px;
+      max-width: 950px; /* Élargi */
+      margin: 0 auto 24px;
       line-height: 1.6;
     }
 
     .citation-author {
-      font-size: 13px;
+      font-size: 19px; /* Augmenté de 16px */
       color: rgba(255,255,255,0.6);
       letter-spacing: 1px;
       font-weight: 700;
@@ -685,24 +749,25 @@
     /* ===== CTA ===== */
     .cta-bloc {
       background: var(--cream);
-      padding: 70px 40px;
+      padding: 85px 40px;
       text-align: center;
     }
 
     .cta-title {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(24px, 3vw, 40px);
+      font-size: clamp(34px, 4vw, 56px); /* Augmenté de 30px-48px */
       color: var(--text-dark);
-      margin-bottom: 14px;
+      margin-bottom: 18px;
     }
 
     .cta-sub {
       color: var(--text-muted);
-      font-size: 15px;
-      margin-bottom: 30px;
-      max-width: 500px;
+      font-size: 22px; /* Augmenté de 19px */
+      margin-bottom: 35px;
+      max-width: 750px; /* Élargi */
       margin-left: auto;
       margin-right: auto;
+      line-height: 1.6;
     }
 
     .cta-btn {
@@ -710,9 +775,9 @@
       background: var(--dark-green);
       color: white;
       text-decoration: none;
-      padding: 14px 38px;
-      border-radius: 30px;
-      font-size: 15px;
+      padding: 18px 52px; /* Augmenté */
+      border-radius: 35px;
+      font-size: 21px; /* Augmenté de 18px */
       font-weight: 700;
       transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
     }
@@ -728,8 +793,8 @@
       background: var(--dark-green);
       color: rgba(255,255,255,0.7);
       text-align: center;
-      padding: 20px;
-      font-size: 12px;
+      padding: 24px;
+      font-size: 18px; /* Augmenté de 15px */
     }
 
     /* ===== MOBILE ===== */
@@ -760,7 +825,7 @@
       <li><a href="index.html#accueil" class="active">prestations</a></li>
       <li><a href="index.html#nos-animaux">nos animaux</a></li>
       <li><a href="index.html#qui-suis-je">qui suis-je</a></li>
-      <li><a href="index.html#temoignages">témoignages</a></li>
+      <li><a href="index.html#temoignages">temoignages</a></li>
       <li><a href="index.html#contact">contact</a></li>
     </ul>
   </nav>
@@ -771,6 +836,7 @@
       <h1>La Ferme Bus'onnière</h1>
       <h2>Une ferme pédagogique itinérante</h2>
       <p class="hero-sub"> Institution, organisateur ou particulier : la ferme se déplace et s'installe directement au cœur de votre structure, sur votre site, dans votre jardin..</p>
+      
       <div class="quick-info">
         <div class="quick-cell">
           <div class="quick-icon">📍</div>
@@ -872,7 +938,7 @@ L'installation se fait idéalement sur un espace herbeux et ombragé. Un barnum 
               <li><strong>Éveil des sens:</strong> Un contact direct (poils, plumes, bruits) pour stimuler la curiosité et la motricité. </li>
               <li><strong>Sécurisation affective:</strong> L'animal apaise, réduit le stress et offre un réconfort sans jugement. </li>
               <li><strong>Apprentissage de l'autre :</strong> Découvrir le respect du vivant et les besoins de l'animal dès le plus jeune âge. </li>
-              <li><strong>Sérénité collective:</strong> Une animation calme qui favorise une atmosphère paisible dans les sections.  </li>
+              <li><strong>Sérénité collective:</strong> Une animation calme qui favorise une atmosphère paixible dans les sections.  </li>
             </ul>
             <p>Le format itinérant permet aux enfants de rester dans leur environnement sécurisant, ce qui décuple les bienfaits de la rencontre. </p>
           </div>
@@ -990,33 +1056,34 @@ L'installation se fait idéalement sur un espace herbeux et ombragé. Un barnum 
     </div>
   </div>
 
-  <div class="fiche-section" style="padding: 80px 40px; background: var(--cream);"> <div style="max-width: 1140px; margin: 0 auto;">
-      <p style="font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:12px;">Informations pratiques</p>
-      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(26px,3vw,38px);font-weight:700;color:var(--text-dark);margin-bottom:40px;">Fiche technique</h2>
+  <div class="fiche-section"> 
+    <div style="max-width: 1140px; margin: 0 auto;">
+      <p>Informations pratiques</p>
+      <h2>Fiche technique</h2>
 
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:40px;" class="fiche-grid">
+      <div class="fiche-grid">
 
-        <div style="background:var(--card-bleu);border-radius:14px;padding:28px 24px;box-shadow:0 4px 14px rgba(0,0,0,0.07);border-top:3px solid var(--accent-bleu);">
-          <div style="font-size:28px;margin-bottom:12px;">📐</div>
-          <h3 style="font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--text-dark);margin-bottom:10px;">Dimensions de l'enclos</h3>
-          <p style="font-size:13px;line-height:1.7;color:var(--text-muted);">Largeur : 8,00 m<br>Profondeur : 4,00 m<br>Hauteur : 0,90 m<br><br>Un sol plan est requis. Prévoir un dégagement confortable tout autour pour la circulation du public.</p>
+        <div class="fiche-card-item">
+          <div>📐</div>
+          <h3>Dimensions de l'enclos</h3>
+          <p>Largeur : 8,00 m<br>Profondeur : 4,00 m<br>Hauteur : 0,90 m<br><br>Un sol plan est requis. Prévoir un dégagement confortable tout autour pour la circulation du public.</p>
         </div>
 
-        <div style="background:var(--card-bleu);border-radius:14px;padding:28px 24px;box-shadow:0 4px 14px rgba(0,0,0,0.07);border-top:3px solid var(--accent-bleu);">
-          <div style="font-size:28px;margin-bottom:12px;">🔧</div>
-          <h3 style="font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--text-dark);margin-bottom:10px;">Matériel à prévoir</h3>
-          <p style="font-size:13px;line-height:1.7;color:var(--text-muted);">— 4 à 5 bancs ou chaises pour le public<br>— 2 chaises pour l'intervenant<br>— Un barnum pour abriter animaux et public<br>— Un point d'eau pour abreuver les animaux<br>— De l'ombrage en été (2barnum 4×3 m minimum)</p>
+        <div class="fiche-card-item">
+          <div>🔧</div>
+          <h3>Matériel à prévoir</h3>
+          <p>— 4 à 5 bancs ou chaises pour le public<br>— 2 chaises pour l'intervenant<br>— Un barnum pour abriter animaux et public<br>— Un point d'eau pour abreuver les animaux<br>— De l'ombrage en été (2barnum 4×3 m minimum)</p>
         </div>
 
-        <div style="background:var(--card-bleu);border-radius:14px;padding:28px 24px;box-shadow:0 4px 14px rgba(0,0,0,0.07);border-top:3px solid var(--accent-bleu);">
-          <div style="font-size:28px;margin-bottom:12px;">🚛</div>
-          <h3 style="font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--text-dark);margin-bottom:10px;">Accès &amp; logistique</h3>
-          <p style="font-size:13px;line-height:1.7;color:var(--text-muted);">— Accès libre au site : arrivée d'un camion + remorque<br>— Place de stationnement pour le camion et la bétaillère<br>— Itinéraire précis à communiquer<br>— Démontage des barrières "vigie pirate" si nécessaire<br><br>La prestation est <strong>autonome en son et lumière</strong>.</p>
+        <div class="fiche-card-item">
+          <div>🚛</div>
+          <h3>Accès &amp; logistique</h3>
+          <p>— Accès libre au site : arrivée d'un camion + remorque<br>— Place de stationnement pour le camion et la bétaillère<br>— Itinéraire précis à communiquer<br>— Démontage des barrières "vigie pirate" si nécessaire<br><br>La prestation est <strong>autonome en son et lumière</strong>.</p>
         </div>
 
       </div>
 
-      <p style="margin-top:28px;font-size:13px;color:var(--text-muted);text-align:center;font-style:italic;">En cas d'intempérie, une salle de repli est à prévoir par l'organisateur (salle de motricité, préau, barnum ou salle des fêtes). Les conditions d'annulation sont définies contractuellement entre les deux parties.</p>
+      <p class="fiche-footer-text">En cas d'intempérie, une salle de repli est à prévoir par l'organisateur (salle de motricité, préau, barnum ou salle des fêtes). Les conditions d'annulation sont définies contractuellement entre les deux parties.</p>
     </div>
   </div>
 
