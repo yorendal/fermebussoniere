@@ -103,7 +103,7 @@
       border-color: #c4deb9;
     }
 
-    /* ===== HERO FUSIONNÉ AVEC LE FOND CIEL ET NUAGES ===== */
+    /* ===== HERO FUSIONNÉ ===== */
     .hero-prestation-mix {
       background: linear-gradient(to bottom, #87CEFA 0%, #cbeeff 65%, var(--cream) 100%);
       padding: 120px 4% 80px;
@@ -155,7 +155,6 @@
       animation: fadeUp 0.8s ease both;
     }
 
-    /* GRILLE PRESTATIONS FUSIONNÉE STYLE VERRE GIVRÉ */
     .services-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -231,14 +230,13 @@
       text-align: justify;
     }
 
-    /* ===== OPTION 2 : SECTION SAISONNALITÉ (VAGUE CHRONOLOGIQUE) ===== */
+    /* ===== SECTION SAISONNALITÉ MODIFIÉE ===== */
     #saisonnalite {
       padding: 60px 40px 90px;
       text-align: center;
       background: var(--cream);
     }
 
-    /* Frise chronologique avec la vague de 3 couleurs */
     .timeline-container {
       max-width: 1140px;
       margin: 60px auto 40px;
@@ -246,13 +244,12 @@
       padding: 20px 0;
     }
 
-    /* Liste horizontale des 12 mois */
     .timeline-months {
       display: flex;
       justify-content: space-between;
       list-style: none;
       padding: 0 10px;
-      margin-bottom: 10px;
+      margin-bottom: 15px;
     }
 
     .timeline-months li {
@@ -265,25 +262,23 @@
       text-align: center;
     }
 
-    /* La vague tricolore stylisée en CSS linéaire */
     .saison-wave {
       height: 16px;
       width: 100%;
       border-radius: 30px;
-      /* Dégradé : Bleu (Hiver) -> Violet (Transition) -> Rouge (Ferme) -> Violet (Transition) -> Bleu (Hiver) */
       background: linear-gradient(to right, 
-        #aed8f5 0%, #aed8f5 22%,    /* Janvier à Mars : Bleu */
-        #c8a8e8 25%, #c8a8e8 31%,   /* Avril : Violet (Superposé) */
-        #ffb8a0 34%, #ffb8a0 72%,   /* Mai à Septembre : Rouge Corail */
-        #c8a8e8 75%, #c8a8e8 81%,   /* Octobre : Violet (Superposé) */
-        #aed8f5 84%, #aed8f5 100%   /* Novembre à Décembre : Bleu */
+        #aed8f5 0%, #aed8f5 22%,    
+        #c8a8e8 25%, #c8a8e8 31%,   
+        #ffb8a0 34%, #ffb8a0 72%,   
+        #c8a8e8 75%, #c8a8e8 81%,   
+        #aed8f5 84%, #aed8f5 100%   
       );
       box-shadow: inset 0 2px 4px rgba(0,0,0,0.06), 0 2px 10px rgba(0,0,0,0.02);
       position: relative;
-      margin-bottom: 50px;
+      margin-bottom: 40px;
     }
 
-    /* Indicateurs textuels colorés posés directement sous la vague */
+    /* Ajustement flex pour l'alignement des légendes sur grand écran */
     .wave-markers {
       display: flex;
       justify-content: space-between;
@@ -295,14 +290,12 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 1px;
-      padding: 4px 14px;
+      padding: 6px 16px;
       border-radius: 12px;
+      white-space: nowrap;
     }
-    .marker-label--blue { background: #e3f2fd; color: #2a6fa8; }
     .marker-label--purple { background: #f3e5f5; color: #7030a8; }
-    .marker-label--red { background: #ffebe3; color: #cc4a2a; }
 
-    /* Blocs descriptifs sous la frise */
     .saison-details-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -342,14 +335,9 @@
     .saison-card--hiver .saison-months-text { color: #2a6fa8; }
 
     .saison-card p {
-      font-size: 21px; /* Agrandissement harmonisé d'1/3 */
+      font-size: 21px; 
       line-height: 1.7;
       color: var(--text-body);
-    }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
     }
 
     /* ===== SECTION DIVIDER ===== */
@@ -794,9 +782,34 @@
       .hero-title { font-size: 36px; }
       .services-grid { grid-template-columns: 1fr; padding: 0 20px 50px; }
       .services-grid { gap: 30px; }
-      .timeline-months { display: none; } /* On cache les 12 mois individuels sur mobile pour aérer */
-      .saison-wave { margin-top: 20px; }
-      .wave-markers { flex-direction: column; gap: 10px; align-items: center; }
+      
+      /* Solution mobile : on affiche 4 mois clés de repère pour que la frise respire */
+      .timeline-months { display: flex; padding: 0 5px; }
+      .timeline-months li { display: none; font-size: 12px; width: auto; }
+      .timeline-months li:nth-child(1),  /* Janv */
+      .timeline-months li:nth-child(4),  /* Avr */
+      .timeline-months li:nth-child(7),  /* Juil */
+      .timeline-months li:nth-child(10) { /* Oct */
+        display: block;
+      }
+
+      .saison-wave { margin-top: 10px; width: 100%; }
+      
+      /* Transformation des badges en liste verticale sur mobile pour éviter la superposition */
+      .wave-markers { 
+        flex-direction: column; 
+        gap: 12px; 
+        align-items: center; 
+        padding: 0;
+      }
+      .marker-label {
+        width: 100%;
+        max-width: 290px;
+        text-align: center;
+        font-size: 13px;
+        padding: 8px 12px;
+      }
+
       .saison-details-grid { grid-template-columns: 1fr; gap: 24px; }
       .animaux-grid { grid-template-columns: repeat(2, 1fr); }
       .temoignages-inner { grid-template-columns: 1fr; width: 100%; overflow: hidden; }
@@ -1138,9 +1151,7 @@
 
       <div class="wave-markers">
         <span class="marker-label marker-label--purple">🔄 Période de relais (Les deux activités)</span>
-
         <span class="marker-label marker-label--purple">🔄 Période de relais (Les deux activités)</span>
-
       </div>
     </div>
 
@@ -1305,7 +1316,7 @@
 
             <div class="temoignage-slide">
               <blockquote style="border-left: 4px solid var(--dark-green); padding-left: 20px;">
-                <p class="testimonial-text">La ferme bus'onnière a été une expérience incroyable pour notre groupe d'élèves. Les animaux étaient adorables et l'interaction a été bénéfique pour tous.</p>
+                <p class="testimonial-text">La ferme bus'onnière a été une expérience incroyable pour notre groupe d'élèves. Les animaux étaient adorables and l'interaction a été bénéfique pour tous.</p>
                 <cite class="testimonial-author">École Sainte-Marie</cite>
               </blockquote>
             </div>
