@@ -230,7 +230,7 @@
       text-align: justify;
     }
 
-    /* ===== SECTION SAISONNALITÉ MODIFIÉE ===== */
+    /* ===== OPTION 2 UNIQUE ET CORRIGÉE : SECTION SAISONNALITÉ ===== */
     #saisonnalite {
       padding: 60px 40px 90px;
       text-align: center;
@@ -239,9 +239,9 @@
 
     .timeline-container {
       max-width: 1140px;
-      margin: 60px auto 40px;
+      margin: 40px auto 40px;
       position: relative;
-      padding: 20px 0;
+      padding: 10px 0;
     }
 
     .timeline-months {
@@ -275,33 +275,50 @@
       );
       box-shadow: inset 0 2px 4px rgba(0,0,0,0.06), 0 2px 10px rgba(0,0,0,0.02);
       position: relative;
-      margin-bottom: 40px;
+      margin-bottom: 35px;
     }
 
-    /* Ajustement flex pour l'alignement des légendes sur grand écran */
-    .wave-markers {
+    /* LÉGENDE UNIFIÉE : Parfaitement fluide sur PC et responsive sur mobile */
+    .wave-legend-bar {
+      display: inline-flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 24px;
+      background: white;
+      padding: 14px 28px;
+      border-radius: 30px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.03);
+      border: 1px solid rgba(0,0,0,0.04);
+      margin: 0 auto;
+    }
+
+    .legend-item {
       display: flex;
-      justify-content: space-between;
-      padding: 0 4%;
-    }
-
-    .marker-label {
+      align-items: center;
+      gap: 10px;
       font-size: 15px;
       font-weight: 700;
+      color: var(--text-body);
       text-transform: uppercase;
-      letter-spacing: 1px;
-      padding: 6px 16px;
-      border-radius: 12px;
-      white-space: nowrap;
+      letter-spacing: 0.5px;
     }
-    .marker-label--purple { background: #f3e5f5; color: #7030a8; }
+
+    .legend-dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+    .legend-dot--blue { background-color: #aed8f5; }
+    .legend-dot--purple { background-color: #c8a8e8; }
+    .legend-dot--red { background-color: #ffb8a0; }
 
     .saison-details-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 50px;
       max-width: 1140px;
-      margin: 20px auto 0;
+      margin: 30px auto 0;
     }
 
     .saison-card {
@@ -329,10 +346,21 @@
       font-weight: 700;
       letter-spacing: 1px;
       text-transform: uppercase;
-      margin-bottom: 15px;
+      margin-bottom: 6px;
     }
     .saison-card--ete .saison-months-text { color: #cc4a2a; }
     .saison-card--hiver .saison-months-text { color: #2a6fa8; }
+
+    .saison-relay-subtext {
+      display: block;
+      font-size: 14px;
+      font-weight: 700;
+      font-style: italic;
+      color: #7030a8;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
 
     .saison-card p {
       font-size: 21px; 
@@ -783,31 +811,32 @@
       .services-grid { grid-template-columns: 1fr; padding: 0 20px 50px; }
       .services-grid { gap: 30px; }
       
-      /* Solution mobile : on affiche 4 mois clés de repère pour que la frise respire */
+      /* Version mobile épurée : 4 mois de repères pour laisser respirer la ligne */
       .timeline-months { display: flex; padding: 0 5px; }
       .timeline-months li { display: none; font-size: 12px; width: auto; }
-      .timeline-months li:nth-child(1),  /* Janv */
-      .timeline-months li:nth-child(4),  /* Avr */
-      .timeline-months li:nth-child(7),  /* Juil */
-      .timeline-months li:nth-child(10) { /* Oct */
+      .timeline-months li:nth-child(1),  
+      .timeline-months li:nth-child(4),  
+      .timeline-months li:nth-child(7),  
+      .timeline-months li:nth-child(10) { 
         display: block;
       }
 
       .saison-wave { margin-top: 10px; width: 100%; }
       
-      /* Transformation des badges en liste verticale sur mobile pour éviter la superposition */
-      .wave-markers { 
+      /* Légende réorganisée verticalement sur mobile pour éliminer la superposition */
+      .wave-legend-bar { 
         flex-direction: column; 
         gap: 12px; 
         align-items: center; 
-        padding: 0;
-      }
-      .marker-label {
+        padding: 16px 20px;
         width: 100%;
-        max-width: 290px;
-        text-align: center;
+        max-width: 320px;
+        border-radius: 18px;
+      }
+      .legend-item {
+        width: 100%;
+        justify-content: flex-start;
         font-size: 13px;
-        padding: 8px 12px;
       }
 
       .saison-details-grid { grid-template-columns: 1fr; gap: 24px; }
@@ -1149,9 +1178,10 @@
 
       <div class="saison-wave"></div>
 
-      <div class="wave-markers">
-        <span class="marker-label marker-label--purple">🔄 Période de relais (Les deux activités)</span>
-        <span class="marker-label marker-label--purple">🔄 Période de relais (Les deux activités)</span>
+      <div class="wave-legend-bar">
+        <div class="legend-item"><span class="legend-dot legend-dot--blue"></span> Déambul'O</div>
+        <div class="legend-item"><span class="legend-dot legend-dot--purple"></span> Périodes de Relais</div>
+        <div class="legend-item"><span class="legend-dot legend-dot--red"></span> Ferme Bus'onnière</div>
       </div>
     </div>
 
@@ -1159,12 +1189,14 @@
       
       <div class="saison-card saison-card--ete">
         <span class="saison-months-text">Avril à Octobre</span>
+        <span class="saison-relay-subtext">🔄 Mois de transition : Avril &amp; Octobre</span>
         <h3>☀️ La Ferme Bus'Onnière</h3>
         <p>La saison idéale pour installer les grands parcs extérieurs sur vos pelouses ou cours ombragées. Les animaux profitent du grand air pour aller à la rencontre de tous vos publics.</p>
       </div>
 
       <div class="saison-card saison-card--hiver">
         <span class="saison-months-text">Octobre à Avril</span>
+        <span class="saison-relay-subtext">🔄 Mois de transition : Avril &amp; Octobre</span>
         <h3>🍂 Le Déambul'O</h3>
         <p>Dès le retour du froid, le chariot se déplace en intérieur, au plus près des chambres, des classes et des pièces de vie. Une bulle de douceur chaleureuse et cocooning au cœur de l'hiver.</p>
       </div>
@@ -1316,7 +1348,7 @@
 
             <div class="temoignage-slide">
               <blockquote style="border-left: 4px solid var(--dark-green); padding-left: 20px;">
-                <p class="testimonial-text">La ferme bus'onnière a été une expérience incroyable pour notre groupe d'élèves. Les animaux étaient adorables and l'interaction a été bénéfique pour tous.</p>
+                <p class="testimonial-text">La ferme bus'onnière a été une expérience incroyable pour notre groupe d'élèves. Les animaux étaient adorables et l'interaction a été bénéfique pour tous.</p>
                 <cite class="testimonial-author">École Sainte-Marie</cite>
               </blockquote>
             </div>
