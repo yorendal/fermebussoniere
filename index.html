@@ -155,6 +155,7 @@
       animation: fadeUp 0.8s ease both;
     }
 
+    /* GRILLE PRESTATIONS */
     .services-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -230,7 +231,7 @@
       text-align: justify;
     }
 
-    /* ===== OPTION 2 UNIQUE ET CORRIGÉE : SECTION SAISONNALITÉ ===== */
+    /* ===== SECTION SAISONNALITÉ ===== */
     #saisonnalite {
       padding: 60px 40px 90px;
       text-align: center;
@@ -278,7 +279,6 @@
       margin-bottom: 35px;
     }
 
-    /* LÉGENDE UNIFIÉE : Parfaitement fluide sur PC et responsive sur mobile */
     .wave-legend-bar {
       display: inline-flex;
       flex-wrap: wrap;
@@ -626,27 +626,30 @@
       font-weight: 700;
     }
 
+    /* ENCADRÉ 2017 MODIFIÉ EN STYLE MENTHE À L'EAU */
+    /* ===== ENCADRÉ "DEPUIS 2017" MODIFIÉ ===== */
     .fermier-conclusion {
       margin-top: 60px;
-      background: var(--dark-green);
+      background: #e2f0d9; /* Fond vert menthe pastel très clair */
       border-radius: 12px;
       padding: 50px 60px;
       text-align: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.02);
     }
 
     .fermier-conclusion-year {
       font-family: 'Playfair Display', serif;
-      font-size: 64px;
-      font-weight: 400;
-      color: rgba(255,255,255,0.2);
+      font-size: 48px; /* Taille ajustée pour intégrer le texte */
+      font-weight: 700;
+      color: #0f2547; /* Bleu nuit profond pour une visibilité totale */
       line-height: 1;
-      margin-bottom: 18px;
+      margin-bottom: 20px;
     }
 
     .fermier-conclusion-text {
       font-size: 22px;
       line-height: 1.75;
-      color: rgba(255,255,255,0.88);
+      color: #0f2547; /* Typographie bleu nuit royal */
       max-width: 760px;
       margin: 0 auto;
     }
@@ -811,7 +814,6 @@
       .services-grid { grid-template-columns: 1fr; padding: 0 20px 50px; }
       .services-grid { gap: 30px; }
       
-      /* Version mobile épurée : 4 mois de repères pour laisser respirer la ligne */
       .timeline-months { display: flex; padding: 0 5px; }
       .timeline-months li { display: none; font-size: 12px; width: auto; }
       .timeline-months li:nth-child(1),  
@@ -823,7 +825,6 @@
 
       .saison-wave { margin-top: 10px; width: 100%; }
       
-      /* Légende réorganisée verticalement sur mobile pour éliminer la superposition */
       .wave-legend-bar { 
         flex-direction: column; 
         gap: 12px; 
@@ -1118,11 +1119,11 @@
       <span class="nav-brand-name">la ferme bus'onnière&amp;[cie]</span>
     </a>
     <ul class="nav-links">
-      <li><a href="#accueil" onclick="scrollToSection('accueil'); return false;">prestations</a></li>
-      <li><a href="#nos-animaux" onclick="scrollToSection('nos-animaux'); return false;">nos animaux</a></li>
-      <li><a href="#qui-suis-je" onclick="scrollToSection('qui-suis-je'); return false;">qui suis-je</a></li>
-      <li><a href="#temoignages" onclick="scrollToSection('temoignages'); return false;">témoignages</a></li>
-      <li><a href="#contact" onclick="scrollToSection('contact'); return false;">contact</a></li>
+      <li><a href="#accueil" onclick="scrollToSection('accueil'); return false;">Prestations</a></li>
+      <li><a href="#nos-animaux" onclick="scrollToSection('nos-animaux'); return false;">Nos animaux</a></li>
+      <li><a href="#qui-suis-je" onclick="scrollToSection('qui-suis-je'); return false;">Qui suis-je</a></li>
+      <li><a href="#temoignages" onclick="scrollToSection('temoignages'); return false;">Témoignages</a></li>
+      <li><a href="#contact" onclick="scrollToSection('contact'); return false;">Contact</a></li>
     </ul>
   </nav>
 
@@ -1299,7 +1300,7 @@
         </div>
         <div class="fermier-quote-wrap">
           <p class="fermier-quote">
-            « Dans une conjoncture sombre pour le monde agricole, un jeune homme a décidé de sortir la ferme de son enclos et d'aller à la rencontre du public. Un projet sinon fou, du moins original, sur lequel personne n'aurait osé parier un euro. Et pourtant, ça marche ! »
+            « Dans une conjoncture sombre pour le monde agricole, un young homme a décidé de sortir la ferme de son enclos et d'aller à la rencontre du public. Un projet sinon fou, du moins original, sur lequel personne n'aurait osé parier un euro. Et pourtant, ça marche ! »
             <strong>Le Magazine de la Touraine, par Sébastien Drouet — Hiver 2012/2013</strong>
           </p>
         </div>
@@ -1331,7 +1332,7 @@
       <p class="fermier-body">Pour concrétiser ce projet, je réalise une étude de faisabilité approfondie. En mai 2004, j'obtiens le permis EB et le CAPTAV (Certificat d'Aptitude au Transport d'Animaux Vivants). En juin 2004, le projet reçoit le prix « Défi Jeunes » de la région Centre et du Loiret — une dotation de 4 000 € qui permet l'achat d'un camion, d'une bétaillère d'occasion et d'un ordinateur. <strong>En février 2005, l'entreprise est officiellement créée.</strong> À l'été 2010, l'exploitation s'installe à la Grange Théâtre de Vaugarni, à Pont-de-Ruan. En décembre 2015, fin de l'activité sous forme d'entreprise individuelle ; durant deux ans, l'activité est hébergée par l'association du théâtre.</p>
 
       <div class="fermier-conclusion">
-        <div class="fermier-conclusion-year">2017</div>
+        <div class="fermier-conclusion-year">Depuis 2017</div>
         <p class="fermier-conclusion-text">Enseignants, directeurs de théâtre, aides-soignantes, animateurs — nous venons tous d'horizons différents, mais nous avons tous croisé la route de Cédric et de sa Ferme Bus'Onnière. Convaincus que cette formidable initiative pédagogique doit perdurer, nous nous mobilisons à ses côtés.<br><br><strong>L'association « La Ferme Bus'Onnière &amp; [cie] » voit officiellement le jour.</strong></p>
       </div>
 
@@ -1529,3 +1530,5 @@
   </script>
 </body>
 </html>
+
+}

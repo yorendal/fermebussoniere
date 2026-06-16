@@ -6,7 +6,7 @@
   <title>Le Déambul'O — La Ferme Bus'onnière</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
       --cream: #f5f0e8;
@@ -25,7 +25,7 @@
       background-color: var(--cream);
       color: var(--text-body);
       overflow-x: hidden;
-      padding-top: 86px;
+      padding-top: 80px;
     }
 
     @keyframes fadeUp {
@@ -50,15 +50,15 @@
     }
     .nav-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--text-dark); }
     .nav-logo { width: 60px; height: 60px; border-radius: 8px; display: flex; align-items: center; justify-content: center; }
-    .nav-brand-name { font-family: 'Lato', sans-serif; font-size: 18px; font-weight: 400; color: var(--text-dark); }
+    .nav-brand-name { font-family: 'Lato', sans-serif; font-size: 16px; font-weight: 400; color: var(--text-dark); }
     .nav-links { display: flex; gap: 6px; list-style: none; }
-    .nav-links a { text-decoration: none; color: var(--text-dark); font-size: 16px; font-weight: 400; padding: 8px 18px; border-radius: 20px; border: 1px solid #ccc; transition: all 0.25s ease; letter-spacing: 0.3px; }
+    .nav-links a { text-decoration: none; color: var(--text-dark); font-size: 15px; font-weight: 400; padding: 8px 18px; border-radius: 20px; border: 1px solid #ccc; transition: all 0.25s ease; letter-spacing: 0.3px; }
     .nav-links a:hover, .nav-links a.active { background: var(--dark-green); color: var(--text-dark); border-color: var(--dark-green); }
 
     /* ===== HERO (CIEL ET NUAGES) ===== */
     .hero {
       background: linear-gradient(to bottom, #87CEFA 0%, #cbeeff 65%, var(--cream) 100%);
-      padding: 130px 4% 90px; 
+      padding: 120px 4% 80px; 
       text-align: center;
       position: relative;
       overflow: hidden;
@@ -100,7 +100,7 @@
       display: inline-block;
       background: #ffffff; 
       color: var(--mid-green); 
-      font-size: 15px; 
+      font-size: 14px; 
       font-weight: 700;
       letter-spacing: 2px;
       text-transform: uppercase;
@@ -113,7 +113,7 @@
 
     .hero h1 {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(40px, 7vw, 90px); 
+      font-size: clamp(43px, 7.2vw, 86px); 
       font-weight: 700;
       color: #1a365d;
       line-height: 1.1;
@@ -123,7 +123,7 @@
 
     .hero h2 {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(22px, 3.5vw, 40px);
+      font-size: clamp(25px, 3.6vw, 43px);
       font-weight: 400;
       font-style: italic;
       color: #2c3e50; 
@@ -131,7 +131,7 @@
     }
 
     .hero-sub {
-      font-size: 20px; 
+      font-size: 22px; 
       color: #1a365d; 
       max-width: 1100px; 
       margin: 0 auto 40px; 
@@ -161,22 +161,22 @@
     
     .quick-cell:last-child { border-right: none; }
 
-    .quick-icon { font-size: 30px; margin-bottom: 10px; color: var(--mid-green); }
-    .quick-label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 6px; font-weight: 700;}
-    .quick-value { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: #1a365d; line-height: 1.25; margin-bottom: 6px; }
-    .quick-sub { font-size: 12px; color: var(--text-body); line-height: 1.4; }
+    .quick-icon { font-size: 38px; margin-bottom: 10px; color: var(--mid-green); }
+    .quick-label { font-size: 14px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 6px; font-weight: 700;}
+    .quick-value { font-family: 'Playfair Display', serif; font-size: 25px; font-weight: 700; color: #1a365d; line-height: 1.25; margin-bottom: 6px; }
+    .quick-sub { font-size: 15px; color: var(--text-body); line-height: 1.4; }
 
     /* ===== PRÉSENTATION ===== */
     .presentation-bloc {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      min-height: 440px;
+      min-height: 400px;
       animation: fadeUp 0.7s 0.1s ease both;
     }
 
     .pres-image {
       position: relative;
-      min-height: 400px;
+      min-height: 380px;
       overflow: hidden;
       background: var(--dark-green);
     }
@@ -185,27 +185,27 @@
       position: relative;
       width: 100%;
       height: 100%;
-      min-height: 400px;
+      min-height: 380px;
     }
 
     .carousel-track {
       display: flex;
       height: 100%;
-      min-height: 400px;
+      min-height: 380px;
       transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .carousel-slide {
       min-width: 100%;
       height: 100%;
-      min-height: 400px;
+      min-height: 380px;
       overflow: hidden;
     }
 
     .carousel-slide img {
       width: 100%;
       height: 100%;
-      min-height: 400px;
+      min-height: 380px;
       object-fit: cover;
       display: block;
     }
@@ -217,8 +217,8 @@
       background: rgba(255,255,255,0.85);
       border: none;
       border-radius: 50%;
-      width: 40px;
-      height: 40px;
+      width: 36px;
+      height: 36px;
       cursor: pointer;
       font-size: 16px;
       display: flex;
@@ -260,15 +260,15 @@
     }
 
     .pres-content {
-      padding: 60px 55px;
+      padding: 55px 50px;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      gap: 22px;
+      gap: 20px;
     }
 
     .section-label {
-      font-size: 13px; 
+      font-size: 15px; 
       letter-spacing: 2.5px;
       text-transform: uppercase;
       color: var(--mid-green);
@@ -277,62 +277,62 @@
 
     .section-title {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(29px, 3.6vw, 46px); 
+      font-size: clamp(31px, 3.6vw, 47px); 
       font-weight: 700;
       color: var(--text-dark);
       line-height: 1.25;
     }
 
     .section-text {
-      font-size: 18px; 
-      line-height: 1.85;
+      font-size: 20px; 
+      line-height: 1.8;
       color: var(--text-body);
     }
 
     .citation-inline {
       font-family: 'Playfair Display', serif;
-      font-size: 19px; 
+      font-size: 22px; 
       font-style: italic;
       color: var(--mid-green);
       border-left: 4px solid var(--water-green); 
-      padding-left: 20px;
+      padding-left: 18px;
       line-height: 1.6;
     }
 
-    /* ===== BIENFAITS (BOITES ET TEXTES AGRANDIS) ===== */
+    /* ===== BIENFAITS ===== */
     .bienfaits {
-      padding: 90px 40px; /* Ajusté pour correspondre à l'autre structure */
+      padding: 80px 40px; 
       background: #edf4ee;
       text-align: center;
     }
 
     .bienfaits-title {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(34px, 4.5vw, 54px); /* Agrandi */
+      font-size: clamp(34px, 4.5vw, 56px); 
       font-weight: 700;
       color: var(--text-dark);
       margin-bottom: 12px;
     }
 
     .bienfaits-sub {
-      font-size: 19px; /* Agrandi de 18px à 19px */
+      font-size: 20px; 
       color: var(--mid-green);
       font-style: italic;
-      margin-bottom: 60px;
+      margin-bottom: 50px;
     }
 
     .bienfaits-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 40px; /* Écartement augmenté de 24px à 40px */
-      max-width: 1140px; /* Largeur maximale augmentée de 900px à 1140px */
+      gap: 36px; 
+      max-width: 1140px; 
       margin: 0 auto;
     }
 
     .bienfait-card {
       background: white;
-      border-radius: 16px; /* Ajusté de 14px à 16px */
-      padding: 45px 35px; /* Marges intérieures augmentées pour de plus grandes boîtes */
+      border-radius: 16px; 
+      padding: 40px 30px; 
       text-align: center;
       box-shadow: 0 6px 20px rgba(0,0,0,0.06);
       transition: transform 0.25s ease, box-shadow 0.25s ease;
@@ -343,55 +343,55 @@
       box-shadow: 0 14px 32px rgba(0,0,0,0.1);
     }
 
-    .bienfait-icon { font-size: 38px; margin-bottom: 14px; } /* Aligné sur 38px */
+    .bienfait-icon { font-size: 40px; margin-bottom: 14px; } 
 
     .bienfait-title {
       font-family: 'Playfair Display', serif;
-      font-size: 24px; /* Agrandi de 20px à 24px */
+      font-size: 25px; 
       font-weight: 700;
       color: var(--text-dark);
       margin-bottom: 14px;
     }
 
     .bienfait-desc {
-      font-size: 17px; /* Agrandi de 16px à 17px */
-      line-height: 1.8; /* Hauteur de ligne plus aérée */
+      font-size: 18px; 
+      line-height: 1.7; 
       color: var(--text-muted);
     }
 
-    /* ===== PUBLICS (BOITES ET TEXTES AGRANDIS) ===== */
+    /* ===== PUBLICS ===== */
     .publics-section {
-      padding: 90px 40px;
+      padding: 80px 40px;
       text-align: center;
       background: var(--cream);
     }
 
     .publics-title {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(34px, 4.5vw, 54px); /* Agrandi et harmonisé */
+      font-size: clamp(34px, 4.5vw, 56px); 
       font-weight: 700;
       color: var(--text-dark);
       margin-bottom: 12px;
     }
 
     .publics-subtitle {
-      font-size: 19px; /* Agrandi de 18px à 19px */
+      font-size: 20px; 
       color: var(--mid-green);
       font-style: italic;
-      margin-bottom: 60px;
+      margin-bottom: 50px;
     }
 
     .publics-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 40px; /* Écartement augmenté de 20px à 40px */
-      max-width: 1140px; /* Largeur maximale augmentée de 1050px à 1140px */
+      gap: 36px; 
+      max-width: 1140px; 
       margin: 0 auto;
     }
 
     .public-card {
-      border-radius: 16px; /* Ajusté de 14px à 16px */
-      padding: 45px 35px; /* Marges intérieures augmentées pour de plus grandes boîtes */
+      border-radius: 16px; 
+      padding: 40px 30px; 
       text-align: left;
       box-shadow: 0 6px 20px rgba(0,0,0,0.06);
       transition: transform 0.25s ease, box-shadow 0.25s ease;
@@ -427,19 +427,19 @@
       box-shadow: 0 14px 32px rgba(0,0,0,0.1);
     }
 
-    .public-icon { font-size: 38px; margin-bottom: 14px; } /* Aligné sur 38px */
+    .public-icon { font-size: 40px; margin-bottom: 14px; } 
 
     .public-title {
       font-family: 'Playfair Display', serif;
-      font-size: 24px; /* Agrandi de 20px à 24px */
+      font-size: 25px; 
       font-weight: 700;
       color: var(--text-dark);
       margin-bottom: 14px;
     }
 
     .public-desc {
-      font-size: 17px; /* Agrandi de 16px à 17px */
-      line-height: 1.8; /* Hauteur de ligne plus aérée */
+      font-size: 18px; 
+      line-height: 1.7; 
       color: var(--text-muted);
     }
 
@@ -449,7 +449,7 @@
     }
 
     .modalites-left {
-      padding: 60px 55px;
+      padding: 60px 50px;
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 34px 46px; 
@@ -460,64 +460,66 @@
     .modalites-title {
       grid-column: 1 / -1;
       font-family: 'Playfair Display', serif;
-      font-size: clamp(31px, 3.6vw, 46px); 
+      font-size: clamp(31px, 3.6vw, 47px); 
       font-weight: 700;
       color: var(--text-dark);
     }
 
     .modalite-item {
       display: flex;
-      gap: 20px;
+      gap: 18px;
       align-items: flex-start;
     }
 
     .modalite-icon {
-      width: 54px; 
-      height: 54px; 
+      width: 48px; 
+      height: 48px; 
       background: var(--dark-green);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 24px; 
+      font-size: 22px; 
       flex-shrink: 0;
       color: white;
     }
 
     .modalite-text h4 {
-      font-size: 18px; 
+      font-size: 20px; 
       font-weight: 700;
       color: var(--text-dark);
       margin-bottom: 6px;
     }
 
     .modalite-text p {
-      font-size: 16px; 
-      line-height: 1.7;
+      font-size: 17px; 
+      line-height: 1.6;
       color: var(--text-muted);
     }
 
-    /* ===== CITATION ===== */
+    /* ===== CITATION OPTION MENTHE À L'EAU ===== */
     .citation-bloc {
-      background: var(--dark-green);
-      padding: 70px 40px;
+      background: #e2f0d9;
+      padding: 80px 40px;
       text-align: center;
+      margin-bottom: 30px;
     }
 
     .citation-text {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(18px, 2.5vw, 28px);
+      font-size: clamp(23px, 3.1vw, 36px);
       font-style: italic;
-      color: var(--text-dark);
-      max-width: 760px;
+      color: #0f2547;
+      max-width: 850px;
       margin: 0 auto 20px;
       line-height: 1.6;
     }
 
     .citation-author {
-      font-size: 13px;
-      color: rgba(0,0,0,0.6);
-      letter-spacing: 1px;
+      font-size: 17px;
+      font-family: 'Lato', sans-serif;
+      color: #1c365d;
+      letter-spacing: 1.5px;
       font-weight: 700;
       text-transform: uppercase;
     }
@@ -531,35 +533,36 @@
 
     .cta-title {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(24px, 3vw, 40px);
+      font-size: clamp(31px, 3.6vw, 50px);
       color: var(--text-dark);
-      margin-bottom: 14px;
+      margin-bottom: 16px;
     }
 
     .cta-sub {
       color: var(--text-muted);
-      font-size: 15px;
+      font-size: 20px;
       margin-bottom: 30px;
-      max-width: 500px;
+      max-width: 650px;
       margin-left: auto;
       margin-right: auto;
+      line-height: 1.6;
     }
 
     .cta-btn {
       display: inline-block;
       background: var(--dark-green);
-      color: black;
+      color: #1a365d;
       text-decoration: none;
-      padding: 14px 38px;
-      border-radius: 30px;
-      font-size: 15px;
+      padding: 16px 48px;
+      border-radius: 35px;
+      font-size: 19px;
       font-weight: 700;
       transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
     }
 
     .cta-btn:hover {
       background: var(--mid-green);
-      COLOR: WHITE;
+      color: white;
       transform: translateY(-3px);
       box-shadow: 0 8px 24px rgba(0,0,0,0.15);
     }
@@ -570,7 +573,7 @@
       color: var(--text-dark);
       text-align: center;
       padding: 20px;
-      font-size: 14px;
+      font-size: 16px;
     }
 
     footer a {
@@ -594,12 +597,12 @@
       .pres-content { padding: 40px 24px; }
       .modalites-left { padding: 40px 24px; grid-template-columns: 1fr; }
       .pres-image { min-height: 260px; }
-      .bienfaits-grid { grid-template-columns: 1fr; gap: 24px; } /* Écartement adapté sur mobile */
-      .publics-grid { grid-template-columns: 1fr; gap: 24px; } /* Écartement adapté sur mobile */
+      .bienfaits-grid { grid-template-columns: 1fr; gap: 24px; } 
+      .publics-grid { grid-template-columns: 1fr; gap: 24px; } 
       .bienfaits, .publics-section { padding: 50px 20px; }
       .hero-logo-right { display: none; }
     }
-  </style>
+</style>
 </head>
 <body>
 
@@ -609,11 +612,11 @@
       <span class="nav-brand-name">la ferme bus'onnière &amp; [cie]</span>
     </a>
     <ul class="nav-links">
-      <li><a href="index.html#accueil" class="active">prestations</a></li>
-      <li><a href="index.html#nos-animaux">nos animaux</a></li>
-      <li><a href="index.html#qui-suis-je">qui suis-je</a></li>
-      <li><a href="index.html#temoignages">témoignages</a></li>
-      <li><a href="index.html#contact">contact</a></li>
+      <li><a href="index.html#accueil" class="active">Prestations</a></li>
+      <li><a href="index.html#nos-animaux">Nos animaux</a></li>
+      <li><a href="index.html#qui-suis-je">Qui suis-je</a></li>
+      <li><a href="index.html#temoignages">Témoignages</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
     </ul>
   </nav>
 
