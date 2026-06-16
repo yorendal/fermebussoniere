@@ -223,14 +223,13 @@
       box-shadow: 0 6px 16px rgba(0,0,0,0.1);
     }
 
-   .service-text {
+.service-text {
       font-size: 23px;
       line-height: 1.8;
       color: #1a365d;
       max-width: 440px;
-      text-align: justify;
+      text-align: center; /* <-- C'est ici que l'on remplace 'justify' par 'center' */
     }
-
     /* ===== SECTION SAISONNALITÉ ===== */
     #saisonnalite {
       padding: 60px 40px 90px;
@@ -405,17 +404,19 @@
       margin-bottom: 10px;
     }
 
-    .section-subtitle {
-      font-size: 16px;
+  .section-subtitle {
+      font-size: 24px; /* Texte agrandi */
       color: var(--teal);
       font-style: italic;
       margin-bottom: 20px;
     }
 
    .section-desc {
-      font-size: 16px;
-      line-height: 1.95;
-      text-align: justify;
+      font-size: 22px; /* Texte agrandi */
+      line-height: 1.8;
+      text-align: center; /* Changé de 'justify' à 'center' */
+      max-width: 800px; /* Permet au texte de ne pas être trop étiré sur grand écran */
+      margin: 0 auto 30px; /* Centre le bloc et ajoute un espace avant les photos */
     }
 
     .patchwork-grid {
