@@ -1,0 +1,1060 @@
+html
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Le Déambul'O — La Ferme Bus'onnière</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
+  <style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream: #f5f0e8;
+      --water-green: #3CB371; 
+      --dark-green: #c4deb9; /* Ce vert est utilisé pour le footer et les bandeaux */
+      --mid-green: #2E7D32;
+      --warm: #c8860a;
+      --text-dark: #1a1a1a;
+      --text-body: #3a3a3a;
+      --text-muted: #666;
+    }
+
+    html { scroll-behavior: smooth; overflow-x: hidden; }
+    body {
+      font-family: 'Lato', sans-serif;
+      background-color: var(--cream);
+      color: var(--text-body);
+      overflow-x: hidden;
+      padding-top: 80px;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ===== NAVBAR ===== */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: var(--cream);
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 40px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .nav-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--text-dark); }
+    .nav-logo { width: 60px; height: 60px; border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+    .nav-brand-name { font-family: 'Lato', sans-serif; font-size: 16px; font-weight: 400; color: var(--text-dark); }
+    .nav-links { display: flex; gap: 6px; list-style: none; }
+    .nav-links a { text-decoration: none; color: var(--text-dark); font-size: 15px; font-weight: 400; padding: 8px 18px; border-radius: 20px; border: 1px solid #ccc; transition: all 0.25s ease; letter-spacing: 0.3px; }
+    .nav-links a:hover, .nav-links a.active { background: var(--dark-green); color: var(--text-dark); border-color: var(--dark-green); }
+
+    /* ===== HERO (CIEL ET NUAGES) ===== */
+    .hero {
+      background: linear-gradient(to bottom, #87CEFA 0%, #cbeeff 65%, var(--cream) 100%);
+      padding: 120px 4% 80px; 
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      animation: fadeUp 0.7s ease both;
+    }
+
+    .hero::before,
+    .hero::after {
+      content: '';
+      position: absolute;
+      background: white;
+      border-radius: 50%;
+      filter: blur(14px);
+      z-index: 0;
+    }
+
+    .hero::before {
+      width: 450px; height: 180px;
+      top: -30px; left: -80px;
+      opacity: 0.85;
+      box-shadow: 200px 40px 0 40px white, 380px -10px 0 -10px white;
+    }
+
+    .hero::after {
+      width: 550px; height: 220px;
+      bottom: 50px; right: -120px;
+      opacity: 0.9;
+      box-shadow: -250px -40px 0 30px white, -420px 20px 0 -20px white;
+    }
+
+    .hero-content-wrapper {
+      position: relative;
+      z-index: 2;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: #ffffff; 
+      color: var(--mid-green); 
+      font-size: 14px; 
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 10px 24px;
+      border-radius: 30px;
+      border: none;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1); 
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(43px, 7.2vw, 86px); 
+      font-weight: 700;
+      color: #1a365d;
+      line-height: 1.1;
+      margin-bottom: 10px;
+      text-shadow: 0 4px 20px rgba(255, 255, 255, 0.9); 
+    }
+
+    .hero h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(25px, 3.6vw, 43px);
+      font-weight: 400;
+      font-style: italic;
+      color: #2c3e50; 
+      margin-bottom: 24px;
+    }
+
+    .hero-sub {
+      font-size: 22px; 
+      color: #1a365d; 
+      max-width: 1100px; 
+      margin: 0 auto 40px; 
+      line-height: 1.6;
+      font-style: italic;
+    }
+
+    /* ===== INFOS RAPIDES (BANDEAU VERRE DÉPOLI) ===== */
+    .quick-info {
+      display: flex;
+      flex-wrap: wrap; 
+      background: rgba(255, 255, 255, 0.65);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 2px solid rgba(255, 255, 255, 0.8);
+      box-shadow: 0 12px 32px rgba(0, 60, 120, 0.06);
+      border-radius: 24px;
+      margin: 0 auto;
+    }
+
+    .quick-cell {
+      flex: 1 1 180px; 
+      padding: 30px 15px;
+      text-align: center;
+      border-right: 1px solid rgba(0,0,0,0.08);
+    }
+    
+    .quick-cell:last-child { border-right: none; }
+
+    .quick-icon { font-size: 38px; margin-bottom: 10px; color: var(--mid-green); }
+    .quick-label { font-size: 14px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 6px; font-weight: 700;}
+    .quick-value { font-family: 'Playfair Display', serif; font-size: 25px; font-weight: 700; color: #1a365d; line-height: 1.25; margin-bottom: 6px; }
+    .quick-sub { font-size: 15px; color: var(--text-body); line-height: 1.4; }
+
+    /* ===== PRÉSENTATION ===== */
+    .presentation-bloc {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 400px;
+      animation: fadeUp 0.7s 0.1s ease both;
+    }
+
+    .pres-image {
+      position: relative;
+      min-height: 380px;
+      overflow: hidden;
+      background: var(--dark-green);
+    }
+
+    .carousel {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      min-height: 380px;
+    }
+
+    .carousel-track {
+      display: flex;
+      height: 100%;
+      min-height: 380px;
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .carousel-slide {
+      min-width: 100%;
+      height: 100%;
+      min-height: 380px;
+      overflow: hidden;
+    }
+
+    .carousel-slide img {
+      width: 100%;
+      height: 100%;
+      min-height: 380px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255,255,255,0.85);
+      border: none;
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      cursor: pointer;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      transition: background 0.2s, opacity 0.2s;
+      opacity: 0.85;
+    }
+
+    .carousel-btn:hover { background: white; opacity: 1; }
+    .carousel-btn.prev { left: 12px; }
+    .carousel-btn.next { right: 12px; }
+
+    .carousel-dots {
+      position: absolute;
+      bottom: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 7px;
+      z-index: 10;
+    }
+
+    .carousel-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.5);
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      border: none;
+    }
+
+    .carousel-dot.active {
+      background: white;
+      transform: scale(1.25);
+    }
+
+    .pres-content {
+      padding: 55px 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .section-label {
+      font-size: 15px; 
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--mid-green);
+      font-weight: 700;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(31px, 3.6vw, 47px); 
+      font-weight: 700;
+      color: var(--text-dark);
+      line-height: 1.25;
+    }
+
+    .section-text {
+      font-size: 20px; 
+      line-height: 1.8;
+      color: var(--text-body);
+    }
+
+    .citation-inline {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px; 
+      font-style: italic;
+      color: var(--mid-green);
+      border-left: 4px solid var(--water-green); 
+      padding-left: 18px;
+      line-height: 1.6;
+    }
+
+    /* ===== BIENFAITS ===== */
+    .bienfaits {
+      padding: 80px 40px; 
+      background: #edf4ee;
+      text-align: center;
+    }
+
+    .bienfaits-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(34px, 4.5vw, 56px); 
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 12px;
+    }
+
+    .bienfaits-sub {
+      font-size: 20px; 
+      color: var(--mid-green);
+      font-style: italic;
+      margin-bottom: 50px;
+    }
+
+    .bienfaits-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 36px; 
+      max-width: 1140px; 
+      margin: 0 auto;
+    }
+
+    .bienfait-card {
+      background: white;
+      border-radius: 16px; 
+      padding: 40px 30px; 
+      text-align: center;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .bienfait-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 14px 32px rgba(0,0,0,0.1);
+    }
+
+    .bienfait-icon { font-size: 40px; margin-bottom: 14px; } 
+
+    .bienfait-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 25px; 
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 14px;
+    }
+
+    .bienfait-desc {
+      font-size: 18px; 
+      line-height: 1.7; 
+      color: var(--text-muted);
+    }
+
+    /* ===== PUBLICS ===== */
+    .publics-section {
+      padding: 90px 40px;
+      text-align: center;
+      background: var(--cream);
+    }
+
+    .publics-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(34px, 4.5vw, 56px);
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 12px;
+    }
+
+    .publics-subtitle {
+      font-size: 20px;
+      color: var(--mid-green);
+      font-style: italic;
+      margin-bottom: 60px;
+    }
+
+    .publics-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px; 
+      max-width: 1140px; 
+      margin: 0 auto;
+      align-items: start;
+    }
+
+    .public-card {
+      border-radius: 16px; 
+      padding: 45px 35px; 
+      text-align: left;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      border-top: 4px solid;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .public-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 16px;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.55;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='512' height='512' filter='url(%23g)' opacity='1'/%3E%3C/svg%3E");
+      background-size: 180px 180px;
+      mix-blend-mode: overlay;
+    }
+
+    .public-card > * { position: relative; z-index: 1; }
+
+    .public-card:nth-child(1) { background: #dfd0f0; border-color: #7a5fbb; } 
+    .public-card:nth-child(2) { background: #b8e8c8; border-color: var(--mid-green); } 
+    .public-card:nth-child(3) { background: #aed8f5; border-color: #2a6fa8; } 
+    .public-card:nth-child(4) { background: #ffb8a0; border-color: #cc4a2a; } 
+    .public-card:nth-child(5) { background: #f5b8c8; border-color: #ad3050; } 
+    .public-card:nth-child(6) { background: #e8d060; border-color: #8a7000; } 
+
+    .public-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 14px 32px rgba(0,0,0,0.1);
+    }
+
+    .public-icon { font-size: 40px; margin-bottom: 14px; } 
+
+    .public-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 25px; 
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 14px;
+    }
+
+    .public-desc {
+      font-size: 18px; 
+      line-height: 1.8; 
+      color: var(--text-muted);
+    }
+
+    /* ===== EXPAND / ACCORDION ===== */
+    .public-card--expandable {
+      cursor: pointer;
+    }
+
+    .expand-trigger {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 18px;
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--mid-green);
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      user-select: none;
+    }
+
+    .expand-arrow {
+      display: inline-block;
+      transition: transform 0.3s ease;
+      font-style: normal;
+    }
+
+    .public-card--expandable.open .expand-arrow {
+      transform: rotate(180deg);
+    }
+
+    .public-card--expandable.open {
+      border-top-color: var(--mid-green);
+    }
+
+    .scolaire-expand {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.45s ease, opacity 0.3s ease;
+    }
+
+    .public-card--expandable.open .scolaire-expand {
+      max-height: 1500px;
+      opacity: 1;
+    }
+
+    .scolaire-expand-inner {
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(0,0,0,0.08);
+      text-align: left;
+    }
+
+    .scolaire-expand-inner p:first-child {
+      font-size: 21px !important;
+      font-weight: 700 !important;
+      color: var(--text-dark) !important;
+      margin-bottom: 12px !important;
+    }
+
+    .scolaire-expand-inner p:nth-child(2) {
+      font-size: 18px !important;
+      line-height: 1.8 !important;
+      color: var(--text-body) !important;
+      margin-bottom: 16px !important;
+    }
+
+    .scolaire-expand-inner ul {
+      font-size: 18px !important;
+      line-height: 2 !important;
+      color: var(--text-body) !important;
+      padding-left: 24px !important;
+      margin-bottom: 16px !important;
+    }
+
+    .scolaire-expand-inner p:last-child {
+      font-size: 17px !important;
+      font-style: italic !important;
+      color: var(--mid-green) !important;
+      line-height: 1.7 !important;
+    }
+
+    /* ===== MODALITÉS NOUVEAU DESIGN ===== */
+    .modalites-bloc {
+      background: var(--cream);
+      padding: 90px 40px;
+    }
+
+    .modalites-left {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px; 
+      max-width: 1140px;
+      margin: 0 auto;
+    }
+
+    .modalites-title {
+      grid-column: 1 / -1;
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(31px, 3.6vw, 47px); 
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 20px;
+    }
+
+    .modalite-item {
+      background: white; 
+      border-radius: 14px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden; 
+    }
+
+    .modalite-header {
+      background: var(--dark-green); 
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .modalite-icon {
+      font-size: 36px; 
+      color: var(--text-dark);
+    }
+
+    .modalite-header h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px; 
+      font-weight: 700;
+      color: var(--text-dark);
+      margin: 0;
+    }
+
+    .modalite-content {
+      padding: 28px 24px;
+    }
+
+    .modalite-content p {
+      font-size: 17px; 
+      line-height: 1.75;
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    /* ===== CITATION OPTION MENTHE À L'EAU ===== */
+    .citation-bloc {
+      background: #e2f0d9;
+      padding: 80px 40px;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .citation-text {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(23px, 3.1vw, 36px);
+      font-style: italic;
+      color: #0f2547;
+      max-width: 850px;
+      margin: 0 auto 20px;
+      line-height: 1.6;
+    }
+
+    .citation-author {
+      font-size: 17px;
+      font-family: 'Lato', sans-serif;
+      color: #1c365d;
+      letter-spacing: 1.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    /* ===== CTA ===== */
+    .cta-bloc {
+      background: var(--cream);
+      padding: 70px 40px;
+      text-align: center;
+    }
+
+    .cta-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(31px, 3.6vw, 50px);
+      color: var(--text-dark);
+      margin-bottom: 16px;
+    }
+
+    .cta-sub {
+      color: var(--text-muted);
+      font-size: 20px;
+      margin-bottom: 30px;
+      max-width: 650px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      background: var(--dark-green);
+      color: #1a365d;
+      text-decoration: none;
+      padding: 16px 48px;
+      border-radius: 35px;
+      font-size: 19px;
+      font-weight: 700;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .cta-btn:hover {
+      background: var(--mid-green);
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--dark-green);
+      color: var(--text-dark);
+      text-align: center;
+      padding: 20px;
+      font-size: 16px;
+    }
+
+    footer a {
+      color: var(--text-dark);
+      opacity: 0.8;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      opacity: 1;
+    }
+
+    /* ===== MOBILE ===== */
+    @media (max-width: 768px) {
+      nav { padding: 10px 20px; }
+      .nav-links { display: none; }
+      
+      .quick-cell { border-right: none; border-bottom: 1px solid rgba(0,0,0,0.08); }
+      .quick-cell:last-child { border-bottom: none; }
+      
+      .presentation-bloc { grid-template-columns: 1fr; }
+      .pres-content { padding: 40px 24px; }
+      
+      .modalites-left { grid-template-columns: 1fr; gap: 24px;}
+      .modalites-bloc { padding: 50px 20px; }
+      
+      .pres-image { min-height: 260px; }
+      .bienfaits-grid { grid-template-columns: 1fr; gap: 24px; } 
+      .publics-grid { grid-template-columns: 1fr; gap: 24px; } 
+      .bienfaits, .publics-section { padding: 50px 20px; }
+      .hero-logo-right { display: none; }
+    }
+</style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-brand">
+      <div class="nav-logo"><img src="logoferme.png" alt="La Ferme Bus'onnière" style="width:100%;height:100%;object-fit:contain;border-radius:8px;"></div>
+      <span class="nav-brand-name">la ferme bus'onnière &amp; [cie]</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html#accueil" class="active">Prestations</a></li>
+      <li><a href="index.html#nos-animaux">Nos animaux</a></li>
+      <li><a href="index.html#qui-suis-je">Qui suis-je</a></li>
+      <li><a href="index.html#temoignages">Témoignages</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-content-wrapper">
+      
+      <div class="hero-badge">La Ferme Bus'Onnière &amp; [cie] présente</div>
+      
+      <div style="display:flex;align-items:center;justify-content:center;gap:24px;flex-wrap:wrap;margin-bottom:10px;">
+        <img src="deambulo.png" alt="Logo Le Déambul'O" style="height:80px;object-fit:contain;filter:drop-shadow(0 2px 8px rgba(0,0,0,0.1));">
+        <h1>Le Déambul'O</h1>
+        <img class="hero-logo-right" src="deambulo.png" alt="Logo Le Déambul'O" style="height:80px;object-fit:contain;filter:drop-shadow(0 2px 8px rgba(0,0,0,0.1));transform:scaleX(-1);">
+      </div>
+      
+      <h2>Une Rencontre Animale à portée de tous</h2>
+      <p class="hero-sub">Notre intervenant se déplace directement au sein de votre structure avec un chariot de déambulation </p>
+ 	<p class="hero-sub"> plus de contraintes, la rencontre vient à vous.</p>
+
+
+
+      <div class="quick-info">
+        <div class="quick-cell">
+          <div class="quick-icon">🐾</div>
+          <div class="quick-label">Concept</div>
+          <div class="quick-value">Rencontre animale</div>
+          <div class="quick-sub">Privilégiée &amp; encadrée</div>
+        </div>
+        <div class="quick-cell">
+          <div class="quick-icon">♿</div>
+          <div class="quick-label">Accessibilité</div>
+          <div class="quick-value">Accessible à tous</div>
+          <div class="quick-sub">Adapté à chaque profil</div>
+        </div>
+        <div class="quick-cell">
+          <div class="quick-icon">📍</div>
+          <div class="quick-label">Déplacement</div>
+          <div class="quick-value">Chez vous</div>
+          <div class="quick-sub">Nous venons à vous</div>
+        </div>
+        <div class="quick-cell">
+          <div class="quick-icon">⏱</div>
+          <div class="quick-label">Durée</div>
+          <div class="quick-value">1h30 — 2h</div>
+          <div class="quick-sub">Selon votre rythme</div>
+        </div>
+        <div class="quick-cell">
+          <div class="quick-icon">🌿</div>
+          <div class="quick-label">Lieu</div>
+          <div class="quick-value">Intérieur / Ext.</div>
+          <div class="quick-sub">Abris ou plein air</div>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+
+  <div class="presentation-bloc">
+    <div class="pres-image">
+      <div class="carousel" id="presCarousel">
+        <div class="carousel-track" id="carouselTrack">
+          <div class="carousel-slide"><img src="deambulo1.jpg" alt="Le Déambul'O — photo 1"></div>
+          <div class="carousel-slide"><img src="deambulo2.jpg" alt="Le Déambul'O — photo 2"></div>
+          <div class="carousel-slide"><img src="deambulo3.jpg" alt="Le Déambul'O — photo 3"></div>
+        </div>
+        <button class="carousel-btn prev" id="carouselPrev">&#8249;</button>
+        <button class="carousel-btn next" id="carouselNext">&#8250;</button>
+        <div class="carousel-dots" id="carouselDots"></div>
+      </div>
+    </div>
+    <div class="pres-content">
+      <p class="section-label">L'animation</p>
+      <h2 class="section-title">Plus de contraintes,<br>la rencontre vient à vous</h2>
+      <p class="section-text">
+        Notre intervenant se rend directement au sein de votre structure. La présentation encadrée de petits animaux offre une rencontre animale privilégiée et interactive aux participants.
+      </p>
+      <p class="section-text">
+        Grâce au chariot de déambulation, plus de manque d'accessibilité ou de surface disponible. Adieu les contraintes météorologiques — la rencontre animale est à portée de roues et de pattes.
+      </p>
+      <p class="citation-inline">
+        Apaiser, stimuler, éveiller — une présence chaleureuse et relaxante pour favoriser un état de mieux-être global.
+      </p>
+    </div>
+  </div>
+
+  <div class="bienfaits">
+    <h2 class="bienfaits-title">Les bienfaits de la rencontre animale</h2>
+    <p class="bienfaits-sub">Une présence douce et bienveillante aux effets profonds</p>
+
+    <div class="bienfaits-grid">
+      <div class="bienfait-card">
+        <div class="bienfait-icon">🌸</div>
+        <h3 class="bienfait-title">Apaisement</h3>
+        <p class="bienfait-desc">La présence chaleureuse et relaxante des animaux favorise la détente, réduit le stress et crée un sentiment de sécurité.</p>
+      </div>
+      <div class="bienfait-card">
+        <div class="bienfait-icon">✨</div>
+        <h3 class="bienfait-title">Stimulation</h3>
+        <p class="bienfait-desc">Éveil des sens, de la curiosité et de la mémoire. Le contact avec l'animal ravive des souvenirs et stimule la motricité fine.</p>
+      </div>
+      <div class="bienfait-card">
+        <div class="bienfait-icon">💬</div>
+        <h3 class="bienfait-title">Lien &amp; expression</h3>
+        <p class="bienfait-desc">L'animal facilite la parole, l'expression des sentiments et le lien social. Il revalorise la personne et crée une action non verbale apaisante.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="publics-section">
+    <h2 class="publics-title">Pour qui ?</h2>
+    <p class="publics-subtitle">Le Déambul'O s'adapte à chaque public et chaque structure</p>
+
+    <div class="publics-grid">
+      <div class="public-card public-card--expandable" onclick="toggleExpand(this)">
+        <div class="public-icon">🍼</div>
+        <h3 class="public-title">Petite enfance</h3>
+        <p class="public-desc"> Crèches, multi-accueils, RPE (ex-RAM) : une approche douce et sensorielle, idéale pour les tout-petits. Les séances se déroulent en matinée afin de respect le rythme de l'enfant.  </p>
+        <div class="expand-trigger">
+          <span>Voir les bienfaits</span>
+          <em class="expand-arrow">▾</em>
+        </div>
+        <div class="scolaire-expand">
+          <div class="scolaire-expand-inner">
+            <p>Pourquoi inviter la ferme dans votre structure ?  </p>
+            <p>La présence de l'animal en crèche offre aux tout-petits une parenthèse d'éveil sensoriel unique.  Véritable médiateur, l'animal favorise l'apaisement, aide à la gestion des émotions et encourage les premiers échanges sociaux. </p>
+            <ul>
+              <li><strong>Éveil des sens :</strong> Un contact direct (poils, plumes, bruits) pour stimuler la curiosité et la motricité. </li>
+              <li><strong>Sécurisation affective :</strong> L'animal apaise, réduit le stress et offre un réconfort sans jugement. </li>
+              <li><strong>Apprentissage de l'autre :</strong> Découvrir le respect du vivant et les besoins de l'animal dès le plus jeune âge. </li>
+              <li><strong>Sérénité collective :</strong> Une animation calme qui favorise une atmosphère paisible dans les sections.  </li>
+            </ul>
+            <p>Le format itinérant permet aux enfants de rester dans leur environnement sécurisant, ce qui décuple les bienfaits de la rencontre. </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="public-card">
+        <div class="public-icon">🏫</div>
+        <h3 class="public-title">Enfants &amp; jeunes</h3>
+        <p class="public-desc">Cadre périscolaire, jeunes en difficulté. L'animal comme révélateur — il dédramatise les difficultés dans une action valorisante, apaisante et non verbale.</p>
+      </div>
+
+      <div class="public-card public-card--expandable" onclick="toggleExpand(this)">
+        <div class="public-icon">🧓</div>
+        <h3 class="public-title">Personnes âgées</h3>
+        <p class="public-desc">EHPAD, isolement social, Alzheimer. L'animal facilite la parole, fait ressurgir les souvenirs, stimule la mémoire et revalorise la personne.</p>
+        <div class="expand-trigger">
+          <span>Voir les détails</span>
+          <em class="expand-arrow">▾</em>
+        </div>
+        <div class="scolaire-expand">
+          <div class="scolaire-expand-inner">
+            <p>Une présence apaisante</p>
+            <p>Le contact avec les animaux apporte une douceur incomparable aux résidents. Une visite de la ferme, c'est un moment suspendu hors du quotidien — calme, sensoriel et profondément humain.</p>
+            <ul>
+              <li>Rencontre douce et bienveillante, à chacun son rythme</li>
+              <li>Stimulation mémorielle et sensorielle par le contact et l'observation</li>
+              <li>Favorise la communication et l'expression, y compris pour les personnes atteintes de troubles cognitifs</li>
+              <li>Apaisement émotionnel et bien-être durable</li>
+              <li>Animation adaptée aux personnes à mobilité réduite</li>
+              <li>Intervention coordonnée avec l'équipe soignante et d'animation</li>
+            </ul>
+            <p>Chaque visite est pensée pour s'adapter au rythme et aux besoins des résidents. Contactez-nous pour organiser une intervention sur mesure.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="public-card">
+        <div class="public-icon">♿</div>
+        <h3 class="public-title">Personnes en situation de handicap</h3>
+        <p class="public-desc">Handicap moteur, sensoriel, mental ou cognitif. L'animal aide à l'autonomie, à la dextérité et à la motricité fine.</p>
+      </div>
+
+      <div class="public-card public-card--expandable" onclick="toggleExpand(this)">
+        <div class="public-icon">🏥</div>
+        <h3 class="public-title">Structures médico-sociales</h3>
+        <p class="public-desc">IME, ESAT, MAS, FAM. Un médiateur puissant pour favoriser l'expression, la confiance en soi et le lien social.</p>
+        <div class="expand-trigger">
+          <span>Voir les bienfaits</span>
+          <em class="expand-arrow">▾</em>
+        </div>
+        <div class="scolaire-expand">
+          <div class="scolaire-expand-inner">
+            <p>La médiation par le cœur</p>
+            <p>Dans le secteur médico-social, l'animal agit comme un formidable catalyseur de communication et de mieux-être. Il offre un espace de liberté et de dignité, sans jugement ni attente de performance.</p>
+            <ul>
+              <li><strong>Expression et cognition :</strong> Il facilite l'expression des émotions et stimule les capacités cognitives et motrices de manière ludique.</li>
+              <li><strong>Lien social et valorisation :</strong> La médiation animale permet d'apaiser les tensions, de rompre l'isolement et de valoriser l'estime de soi à travers le soin apporté à l'autre.</li>
+              <li><strong>Sérénité partagée :</strong> Une véritable parenthèse sensorielle qui apporte joie et apaisement aux résidents comme aux soignants.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="public-card">
+        <div class="public-icon">🎉</div>
+        <h3 class="public-title">Particuliers &amp; événements</h3>
+        <p class="public-desc">Anniversaires d'enfants, mariages, et toute personne en ressentant le besoin ou l'envie. Une expérience magique pour petits et grands.</p>
+      </div>
+    </div>
+  </div>
+
+ <div class="modalites-bloc">
+    <div class="modalites-left">
+      <h2 class="modalites-title">Modalités pratiques</h2>
+
+      <div class="modalite-item">
+        <div class="modalite-header">
+          <div class="modalite-icon">⏱</div>
+          <h4>Durée adaptée</h4>
+        </div>
+        <div class="modalite-content">
+          <p>1h30 à 2h maximum pour respecter le temps d'attention des participants et le rythme biologique des animaux. Séances de 20 à 30 minutes possibles en rotation pour les groupes.</p>
+        </div>
+      </div>
+
+      <div class="modalite-item">
+        <div class="modalite-header">
+          <div class="modalite-icon">📍</div>
+          <h4>Lieux possibles</h4>
+        </div>
+        <div class="modalite-content">
+          <p>Salle dédiée, chambre, espace de vie, cour d'école, salle de motricité, ou tout espace extérieur abrité et ombragé. Visites en chambre possibles pour les résidents, accompagnées d'un professionnel.</p>
+        </div>
+      </div>
+
+      <div class="modalite-item">
+        <div class="modalite-header">
+          <div class="modalite-icon">🔧</div>
+          <h4>Confort acoustique</h4>
+        </div>
+        <div class="modalite-content">
+          <p>Un environnement calme est recommandé pour le bien-être des animaux et la qualité de la rencontre.</p>
+        </div>
+      </div>
+
+      <div class="modalite-item">
+        <div class="modalite-header">
+          <div class="modalite-icon">🍂</div>
+          <h4>Saisonnalité</h4>
+        </div>
+        <div class="modalite-content">
+          <p>Cette activité se déroule principalement en automne et en hiver, saisons propices au recueillement, à la chaleur du contact animal et à la stimulation sensorielle en intérieur.</p>
+        </div>
+      </div>
+
+      <div class="modalite-item">
+        <div class="modalite-header">
+          <div class="modalite-icon">🎯</div>
+          <h4>Projet</h4>
+        </div>
+        <div class="modalite-content">
+          <p>L'objectif est de placer cette activité au cœur d'un projet éducatif ou thérapeutique sur plusieurs séances, pour un engagement durable et des effets observables dans le temps.</p>
+        </div>
+      </div>
+
+      <div class="modalite-item">
+        <div class="modalite-header">
+          <div class="modalite-icon">📍</div>
+          <h4>Proximité</h4>
+        </div>
+        <div class="modalite-content">
+          <p>Intervention locale, dans un rayon adapté à votre structure. Privilégier la régularité et la relation de confiance entre les participants et l'intervenant.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="citation-bloc">
+    <p class="citation-text">"Un câlin, c'est détacher un petit bout de soi pour le donner à l'autre pour qu'il puisse continuer son chemin moins seul."</p>
+    <cite class="citation-author">— Pablo Neruda</cite>
+  </div>
+
+  <div class="cta-bloc">
+    <h2 class="cta-title">Organiser une Rencontre Animale</h2>
+    <p class="cta-sub">Contactez Cédric pour discuter de votre projet et obtenir un devis personnalisé adapté à votre structure.</p>
+    <a href="index.html#contact" class="cta-btn">📞 Nous contacter</a>
+  </div>
+
+  <footer>
+    <p>© 2024 La Ferme Bus'onnière &amp; [cie] — <a href="index.html" style="text-decoration:none;">Retour à l'accueil</a></p>
+  </footer>
+
+  <script>
+    /* Javascript pour la gestion des cartes déroulantes (accordéons) */
+    function toggleExpand(card) {
+      const isOpen = card.classList.contains('open');
+      document.querySelectorAll('.public-card--expandable').forEach(c => c.classList.remove('open'));
+      if (!isOpen) card.classList.add('open');
+    }
+  </script>
+
+  <script>
+    (function() {
+      const track = document.getElementById('carouselTrack');
+      const dotsContainer = document.getElementById('carouselDots');
+      const btnPrev = document.getElementById('carouselPrev');
+      const btnNext = document.getElementById('carouselNext');
+
+      if (!track) return;
+
+      const slides = Array.from(track.querySelectorAll('.carousel-slide'));
+      const validSlides = [];
+      let loadChecks = 0;
+
+      function init() {
+        const count = validSlides.length;
+        slides.forEach(s => { if (!validSlides.includes(s)) s.style.display = 'none'; });
+        if (count <= 1) { btnPrev.style.display = 'none'; btnNext.style.display = 'none'; return; }
+
+        validSlides.forEach((_, i) => {
+          const dot = document.createElement('button');
+          dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+          dot.addEventListener('click', () => goTo(i));
+          dotsContainer.appendChild(dot);
+        });
+
+        let current = 0;
+
+        function goTo(index) {
+          current = (index + count) % count;
+          const offset = validSlides[current].offsetLeft;
+          track.style.transform = `translateX(-${offset}px)`;
+          document.querySelectorAll('.carousel-dot').forEach((d, i) => {
+            d.classList.toggle('active', i === current);
+          });
+        }
+
+        btnPrev.addEventListener('click', () => goTo(current - 1));
+        btnNext.addEventListener('click', () => goTo(current + 1));
+        setInterval(() => goTo(current + 1), 4000);
+      }
+
+      slides.forEach(slide => {
+        const img = slide.querySelector('img');
+        const check = () => {
+          if (img.naturalWidth > 0) validSlides.push(slide);
+          loadChecks++;
+          if (loadChecks === slides.length) init();
+        };
+        if (img.complete) { check(); }
+        else { img.addEventListener('load', check); img.addEventListener('error', check); }
+      });
+    })();
+  </script>
+</body>
+</html>

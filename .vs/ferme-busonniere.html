@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>La Ferme Bus'onnière</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream: #f5f0e8;
+      --dark-green: #2d5a3d;
+      --mid-green: #3d7a52;
+      --teal: #4a8c6f;
+      --text-dark: #1a1a1a;
+      --text-body: #3a3a3a;
+      --text-muted: #666;
+      --accent-purple: #8b4c7e;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      background-color: var(--cream);
+      color: var(--text-body);
+      overflow-x: hidden;
+    }
+
+    /* ===== NAVBAR ===== */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--cream);
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 40px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text-dark);
+    }
+
+    .nav-logo {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #c8860a, #e8a020);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+    }
+
+    .nav-brand-name {
+      font-family: 'Lato', sans-serif;
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--text-dark);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 6px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-dark);
+      font-size: 14px;
+      font-weight: 400;
+      padding: 8px 18px;
+      border-radius: 20px;
+      border: 1px solid #ccc;
+      transition: all 0.25s ease;
+      letter-spacing: 0.3px;
+    }
+
+    .nav-links a:hover {
+      background: var(--dark-green);
+      color: white;
+      border-color: var(--dark-green);
+    }
+
+    /* ===== HERO ===== */
+    #accueil {
+      padding: 80px 40px 60px;
+      text-align: center;
+      background: var(--cream);
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(42px, 7vw, 88px);
+      font-weight: 400;
+      color: var(--text-dark);
+      line-height: 1.1;
+      letter-spacing: -1px;
+      margin-bottom: 60px;
+      animation: fadeUp 0.8s ease both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ===== GRILLE UNIFIÉE 4 BLOCS ===== */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 50px 60px;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 40px 70px;
+      animation: fadeUp 0.8s 0.2s ease both;
+    }
+
+    .service-card {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .service-icon {
+      width: 160px;
+      height: 160px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 80px;
+    }
+
+    .service-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .service-badge {
+      display: inline-block;
+      background: var(--dark-green);
+      color: white;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 10px 22px;
+      border-radius: 30px;
+      letter-spacing: 0.3px;
+      text-decoration: none;
+      transition: background 0.25s ease, transform 0.2s ease;
+    }
+
+    .service-badge:hover {
+      background: var(--mid-green);
+      transform: translateY(-2px);
+    }
+
+    .service-text {
+      font-size: 14px;
+      line-height: 1.75;
+      color: var(--text-body);
+      max-width: 300px;
+    }
+
+    /* ===== SECTION DIVIDER ===== */
+    .section-divider {
+      height: 2px;
+      background: linear-gradient(to right, transparent, var(--dark-green), transparent);
+      margin: 60px 40px;
+      opacity: 0.3;
+    }
+
+    /* ===== HERO IMAGE BAND ===== */
+    .hero-band {
+      width: 100%;
+      height: 280px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero-band img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
+    }
+
+    .hero-band-placeholder {
+      width: 100%;
+      height: 280px;
+      background: linear-gradient(135deg, #4a8c6f 0%, #2d5a3d 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.4);
+      font-size: 14px;
+      letter-spacing: 2px;
+    }
+
+    /* ===== NOS ANIMAUX ===== */
+    #nos-animaux {
+      padding: 80px 40px;
+      text-align: center;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(36px, 5vw, 60px);
+      font-weight: 400;
+      color: var(--text-dark);
+      margin-bottom: 10px;
+    }
+
+    .section-subtitle {
+      font-size: 16px;
+      color: var(--teal);
+      font-style: italic;
+      margin-bottom: 20px;
+    }
+
+    .section-desc {
+      font-size: 15px;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto 50px;
+      line-height: 1.7;
+    }
+
+    .animaux-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+      max-width: 900px;
+      margin: 0 auto 40px;
+    }
+
+    .animal-card {
+      text-align: center;
+    }
+
+    .animal-circle {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin: 0 auto 14px;
+      border: 3px solid rgba(0,0,0,0.06);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .animal-circle:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+
+    .animal-circle img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .animal-circle-placeholder {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin: 0 auto 14px;
+      background: #ddd;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 60px;
+      transition: transform 0.3s ease;
+    }
+
+    .animal-circle-placeholder:hover {
+      transform: scale(1.05);
+    }
+
+    .animal-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 400;
+      color: var(--text-dark);
+    }
+
+    /* ===== QUI SUIS-JE ===== */
+    #qui-suis-je {
+      padding: 80px 40px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .fermier-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 400;
+      font-style: italic;
+      text-align: center;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+    }
+
+    .fermier-divider {
+      width: 40px;
+      height: 2px;
+      background: var(--text-dark);
+      margin: 0 auto 40px;
+    }
+
+    .fermier-photo {
+      width: 100%;
+      max-width: 450px;
+      margin: 0 auto 30px;
+      display: block;
+      border-radius: 4px;
+    }
+
+    .fermier-quote {
+      color: var(--teal);
+      font-size: 14px;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .fermier-quote strong {
+      display: block;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-top: 6px;
+    }
+
+    .fermier-body {
+      font-size: 14px;
+      line-height: 1.8;
+      color: var(--text-body);
+      margin-bottom: 16px;
+      text-align: justify;
+    }
+
+    .fermier-body strong {
+      font-weight: 700;
+    }
+
+    /* ===== TÉMOIGNAGES ===== */
+    #temoignages {
+      padding: 80px 0;
+    }
+
+    .temoignages-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 400px;
+    }
+
+    .temoignages-left {
+      background: var(--cream);
+      padding: 60px 50px;
+    }
+
+    .temoignages-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 700;
+      line-height: 1.1;
+      color: var(--text-dark);
+      margin-bottom: 50px;
+    }
+
+    .testimonial-text {
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--text-body);
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+
+    .testimonial-author {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-dark);
+      letter-spacing: 0.5px;
+    }
+
+    .temoignages-right {
+      background: var(--dark-green);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 400px;
+    }
+
+    .temoignages-right-bg {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 0; left: 0;
+    }
+
+    .temoignages-sign {
+      position: relative;
+      z-index: 2;
+      padding: 30px;
+    }
+
+    .sign-board {
+      background: rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 30px 40px;
+      text-align: center;
+      backdrop-filter: blur(4px);
+    }
+
+    .sign-board h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      color: white;
+      margin-bottom: 10px;
+    }
+
+    .sign-board p {
+      color: rgba(255,255,255,0.85);
+      font-size: 16px;
+      font-style: italic;
+    }
+
+    /* ===== CONTACT ===== */
+    #contact {
+      padding: 0;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid rgba(0,0,0,0.08);
+    }
+
+    .contact-cell {
+      padding: 50px 20px;
+      text-align: center;
+      border-right: 1px solid rgba(0,0,0,0.08);
+      background: var(--cream);
+    }
+
+    .contact-cell:last-child {
+      border-right: none;
+    }
+
+    .contact-icon {
+      font-size: 28px;
+      margin-bottom: 16px;
+      color: var(--dark-green);
+    }
+
+    .contact-label {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 12px;
+    }
+
+    .contact-value {
+      font-size: 14px;
+      color: var(--teal);
+      line-height: 1.6;
+    }
+
+    .contact-value a {
+      color: var(--teal);
+      text-decoration: none;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      margin-top: 8px;
+    }
+
+    .social-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--text-dark);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      text-decoration: none;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .social-btn:hover {
+      transform: scale(1.1);
+      background: var(--dark-green);
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--dark-green);
+      color: rgba(255,255,255,0.7);
+      text-align: center;
+      padding: 20px;
+      font-size: 12px;
+    }
+
+    /* ===== MOBILE ===== */
+    @media (max-width: 768px) {
+      nav { padding: 10px 20px; }
+      .nav-links { display: none; }
+      .hero-title { font-size: 36px; }
+      .services-grid { grid-template-columns: 1fr; padding: 0 20px 50px; }
+      .animaux-grid { grid-template-columns: repeat(2, 1fr); }
+      .temoignages-inner { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: repeat(2, 1fr); }
+      #qui-suis-je, #accueil, #nos-animaux { padding: 50px 20px; }
+    }
+    /* duo-bloc remplacé par services-grid */
+
+    /* ===== CAROUSEL TÉMOIGNAGES ===== */
+    .temoignages-carousel {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .temoignages-track {
+      display: flex;
+      transition: transform 0.5s cubic-bezier(0.77, 0, 0.18, 1);
+    }
+
+    .temoignage-slide {
+      min-width: 100%;
+      padding-right: 10px;
+    }
+
+    .temoignage-slide blockquote {
+      border-left: 3px solid var(--dark-green);
+      padding-left: 20px;
+    }
+
+    .temoignages-nav {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 30px;
+    }
+
+    .temo-btn {
+      background: none;
+      border: 2px solid var(--dark-green);
+      color: var(--dark-green);
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      flex-shrink: 0;
+    }
+
+    .temo-btn:hover {
+      background: var(--dark-green);
+      color: white;
+    }
+
+    .temo-dots {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .temo-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #ccc;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      padding: 0;
+    }
+
+    .temo-dot.active {
+      background: var(--dark-green);
+      transform: scale(1.3);
+    }
+
+    /* ===== CAROUSEL ===== */
+    .carousel {
+      position: relative;
+      width: 100%;
+      height: 380px;
+      overflow: hidden;
+    }
+
+    .carousel-track {
+      display: flex;
+      height: 100%;
+      transition: transform 0.6s cubic-bezier(0.77, 0, 0.18, 1);
+    }
+
+    .carousel-slide {
+      min-width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+    }
+
+    .carousel-caption {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-style: italic;
+      color: white;
+      background: linear-gradient(to top, rgba(0,0,0,0.55), transparent);
+      width: 100%;
+      text-align: center;
+      padding: 40px 20px 20px;
+      letter-spacing: 0.5px;
+    }
+
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255,255,255,0.2);
+      backdrop-filter: blur(4px);
+      color: white;
+      border: 2px solid rgba(255,255,255,0.5);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      font-size: 18px;
+      cursor: pointer;
+      transition: background 0.25s ease, transform 0.2s ease;
+      z-index: 10;
+    }
+
+    .carousel-btn:hover {
+      background: rgba(255,255,255,0.4);
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    .carousel-btn.prev { left: 20px; }
+    .carousel-btn.next { right: 20px; }
+
+    .carousel-dots {
+      position: absolute;
+      bottom: 14px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 8px;
+      z-index: 10;
+    }
+
+    .carousel-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.5);
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
+      padding: 0;
+    }
+
+    .carousel-dot.active {
+      background: white;
+      transform: scale(1.25);
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#accueil" class="nav-brand">
+      <div class="nav-logo">🚌</div>
+      <span class="nav-brand-name">la ferme bus'onnière</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#prestations" onclick="scrollTo('prestations'); return false;">prestations</a></li>
+      <li><a href="#nos-animaux" onclick="scrollTo('nos-animaux'); return false;">nos animaux</a></li>
+      <li><a href="#qui-suis-je" onclick="scrollTo('qui-suis-je'); return false;">qui suis-je</a></li>
+      <li><a href="#temoignages" onclick="scrollTo('temoignages'); return false;">témoignages</a></li>
+      <li><a href="#contact" onclick="scrollTo('contact'); return false;">contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO / ACCUEIL -->
+  <section id="accueil">
+    <h1 class="hero-title">La Ferme Bus'onnière<br>S'invite Chez Vous</h1>
+
+    <!-- GRILLE UNIFIÉE 4 SERVICES -->
+    <div id="prestations" class="services-grid">
+
+      <div class="service-card">
+        <div class="service-icon">🏛️</div>
+        <a href="institutions.html" class="service-badge">institutions</a>
+        <p class="service-text">La ferme bus'onnière est une association qui souhaite remettre en contact les gens avec la nature et les animaux, offrant des services uniques de la crèche à l'ehpad. Notre objectif est d'améliorer le bien-être à travers des interactions positives avec les animaux.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🎉</div>
+        <a href="manifestations.html" class="service-badge">manifestation</a>
+        <p class="service-text">Lors des interventions grand public nous privilégions la rencontre, la discussion, et les plaisirs simple et calme. Nous participons aussi à des évènements médiévaux et culturels costumés ou non !</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <img src="logo_ferme_bus.png" alt="La Ferme Bus'onnière">
+        </div>
+        <a href="ferme-busonniere-presentation.html" class="service-badge">La Ferme Bus'onnière</a>
+        <p class="service-text">✏️ <em>Remplacez ce texte par votre présentation de la Ferme Bus'onnière — son histoire, ses valeurs, ce qui la rend unique.</em></p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <img src="deambulo.png" alt="Le Déambul'O">
+        </div>
+        <a href="deambulo.html" class="service-badge">Le Déambul'O</a>
+        <p class="service-text">Notre intervenant se déplace dans votre établissement avec un chariot de déambulation pour proposer une rencontre animale unique. Une séance de 1h30 à 2h, en intérieur ou extérieur, pour tous les publics — 150 € TTC.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CAROUSEL -->
+  <div class="carousel">
+    <div class="carousel-track">
+
+      <!-- ✏️ SLIDE 1 — remplace le style background par : background-image: url('ta-photo-1.jpg') -->
+      <div class="carousel-slide" style="background-image: url(caroussel1.jpg)">
+        <div class="carousel-caption">Nos animaux à votre rencontre</div>
+      </div>
+
+      <!-- ✏️ SLIDE 2 -->
+      <div class="carousel-slide" style="background: linear-gradient(135deg, #7a4a2d, #c8860a);">
+        <div class="carousel-caption">Interventions en établissements</div>
+      </div>
+
+      <!-- ✏️ SLIDE 3 -->
+      <div class="carousel-slide" style="background: linear-gradient(135deg, #2d5a5a, #4a8c8c);">
+        <div class="carousel-caption">Manifestations grand public</div>
+      </div>
+
+      <!-- ✏️ SLIDE 4 -->
+      <div class="carousel-slide" style="background: linear-gradient(135deg, #5a3d6e, #8c6aaf);">
+        <div class="carousel-caption">Événements privés inoubliables</div>
+      </div>
+
+    </div>
+
+    <!-- Flèches -->
+    <button class="carousel-btn prev" onclick="moveCarousel(-1)">&#8592;</button>
+    <button class="carousel-btn next" onclick="moveCarousel(1)">&#8594;</button>
+
+    <!-- Points de navigation -->
+    <div class="carousel-dots" id="carouselDots"></div>
+  </div>
+
+  <!-- NOS ANIMAUX -->
+  <section id="nos-animaux">
+    <h2 class="section-title">nos animaux</h2>
+    <p class="section-subtitle">calme , tendresse et bienveillance</p>
+    <p class="section-desc">une présentation de l'ensemble des animaux faisant le voyage et se déplaçant sur les animations pour votre plus grand bonheur</p>
+
+    <div class="animaux-grid">
+      <div class="animal-card">
+        <div class="animal-circle-placeholder">🐑</div>
+        <p class="animal-name">mouton</p>
+      </div>
+      <div class="animal-card">
+        <div class="animal-circle-placeholder">🦆</div>
+        <p class="animal-name">oie</p>
+      </div>
+      <div class="animal-card">
+        <div class="animal-circle-placeholder">🐇</div>
+        <p class="animal-name">lapin</p>
+      </div>
+      <div class="animal-card">
+        <div class="animal-circle-placeholder">🐐</div>
+        <p class="animal-name">chèvre</p>
+      </div>
+    </div>
+
+    <div class="animaux-grid">
+      <div class="animal-card">
+        <div class="animal-circle-placeholder">🐔</div>
+        <p class="animal-name">poule</p>
+      </div>
+      <div class="animal-card">
+        <div class="animal-circle-placeholder">🦆</div>
+        <p class="animal-name">canard</p>
+      </div>
+      <div class="animal-card">
+        <div class="animal-circle-placeholder">🐷</div>
+        <p class="animal-name">cochon</p>
+      </div>
+      <div class="animal-card">
+        <div class="animal-circle-placeholder">🐐</div>
+        <p class="animal-name">bouc</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUI SUIS-JE -->
+  <section id="qui-suis-je" style="background: var(--cream);">
+    <div style="max-width:780px;margin:0 auto;">
+      <h2 class="fermier-title">le fermier busonnier</h2>
+      <div class="fermier-divider"></div>
+
+      <!-- Photo placeholder -->
+      <div style="width:100%;max-width:450px;margin:0 auto 30px;background:linear-gradient(135deg,#8b6a4a,#c8860a);border-radius:4px;height:320px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.5);font-size:14px;letter-spacing:2px;">
+        [ photo du fermier ]
+      </div>
+
+      <p class="fermier-quote">
+        Dans une conjoncture sombre pour le monde agricole, un jeune homme a décidé de sortir la ferme de son enclos et d'aller à la rencontre du public. Un projet sinon fou, du moins original, sur lequel personne n'aurait osé parier un euro. Et pourtant, ça marche ! "
+        <strong>Le Magazine de la Touraine, par Sébastien Drouet - Trimestriel – Hiver 2012/2013</strong>
+      </p>
+
+      <p class="fermier-body">Un projet "fou" et "original", c'est vrai, mais c'est surtout le projet d'un animateur atypique qui a tout engagé dans cette aventure.</p>
+
+      <p class="fermier-body"><strong>En février 2005</strong>, Cédric, notre animateur, a créé l'entreprise « La Ferme Bus'Onnière ». Avec l'achat d'un camion négocié en salle des ventes et financé grâce à l'attribution d'un Prix "Défi jeunes" par la Direction Régionale de la Jeunesse et des Sports, « l'originale » compte bien prendre la route et au plus vite. Le reste du matériel, dont une bétaillère d'un autre temps, fut acquise sur ses fonds propres.</p>
+
+      <p class="fermier-body">Fort d'une étude de faisabilité réalisée à la chambre de métier de Tours, Cédric pousse les portes de l'ANPE (Pôle Emploi). L'objectif est de financer un permis E pour la conduite de cette remorque. Sous quelques jours, une convocation est arrivée et suite à un entretien plutôt élogieux, la réponse est tombée. Accepté !</p>
+
+      <p class="fermier-body"><em>Le projet itinérant devenait bien réel.</em></p>
+
+      <p class="fermier-body">Les revenues sont modestes mais les années d'activités passent. Les kilomètres sont nombreux et le matériel fatigue et fini par lâcher. Après une casse moteur, pas d'autre choix que de financer un nouveau camion annonçant aussi la fin des fonds propres.</p>
+
+      <p class="fermier-body">Puis ce fut le tour de la remorque bétaillère rapatriée de la Région Parisienne sur un plateau. Réparation effectuée, il faut reprendre l'activité au plus vite mais les difficultés financières s'accumulent.</p>
+
+      <p class="fermier-body">Halte au feu ! Il est temps d'arrêter l'hémorragie. La mort à l'âme, la décision est prise de déposer la cessation d'activité.</p>
+
+      <p class="fermier-body">Nous venons tous d'horizon différent, CPE, directeur de théâtre, aide soignante, animateur. Nous avons tous croisé la route de Cédric et sa Ferme Bus'Onnière.</p>
+
+      <p class="fermier-body">Cette formidable initiative pédagogique doit renaître sous une autre forme juridique. Nous nous mobilisons autour de notre futur animateur afin de le soutenir.</p>
+
+      <p class="fermier-body" style="margin-top:30px;font-weight:700;color:var(--dark-green);">Nous somme en 2017 et l'association La Ferme Bus'Onnière &amp; Cie vient de voir le jour.</p>
+    </div>
+  </section>
+
+  <!-- TÉMOIGNAGES -->
+  <section id="temoignages">
+    <div class="temoignages-inner">
+      <div class="temoignages-left">
+        <h2 class="temoignages-title">Témoignages<br>Clients</h2>
+
+        <!-- Carousel témoignages -->
+        <div class="temoignages-carousel">
+          <div class="temoignages-track" id="temoignagesTrack">
+
+            <!-- ✏️ Ajoutez / modifiez vos témoignages ici -->
+            <div class="temoignage-slide">
+              <blockquote>
+                <p class="testimonial-text">La ferme bus'onnière a été une expérience incroyable pour notre groupe d'élèves. Les animaux étaient adorables et l'interaction a été bénéfique pour tous.</p>
+                <cite class="testimonial-author">École Sainte-Marie</cite>
+              </blockquote>
+            </div>
+
+            <div class="temoignage-slide">
+              <blockquote>
+                <p class="testimonial-text">Une animation qui a ravi petits et grands lors de notre fête de village. Le contact avec les animaux était doux et bien encadré.</p>
+                <cite class="testimonial-author">Mairie de Pont-de-Ruan</cite>
+              </blockquote>
+            </div>
+
+            <div class="temoignage-slide">
+              <blockquote>
+                <p class="testimonial-text">Nous avons fait appel à la ferme pour l'anniversaire de notre fils et ce fut un moment magique et inoubliable pour tous les enfants.</p>
+                <cite class="testimonial-author">Famille Martin</cite>
+              </blockquote>
+            </div>
+
+            <div class="temoignage-slide">
+              <blockquote>
+                <p class="testimonial-text">Une visite à l'EHPAD qui a ému tout le personnel. Les résidents ont retrouvé des souvenirs d'enfance grâce aux animaux. Un grand merci à toute l'équipe.</p>
+                <cite class="testimonial-author">EHPAD Les Glycines</cite>
+              </blockquote>
+            </div>
+
+          </div>
+
+          <!-- Flèches -->
+          <div class="temoignages-nav">
+            <button class="temo-btn" onclick="moveTemoignage(-1)">&#8592;</button>
+            <div class="temo-dots" id="temoDots"></div>
+            <button class="temo-btn" onclick="moveTemoignage(1)">&#8594;</button>
+          </div>
+        </div>
+
+      </div>
+
+   <div class="temoignages-right">
+  <img src="temoignages.png" alt="La Ferme Bus'onnière" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;">
+</div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="contact-grid">
+      <div class="contact-cell">
+        <div class="contact-icon">📍</div>
+        <div class="contact-label">Adresse</div>
+        <div class="contact-value">Lieu-dit Vaugarni<br>37260 PONT DE RUAN</div>
+      </div>
+      <div class="contact-cell">
+        <div class="contact-icon">📞</div>
+        <div class="contact-label">Téléphone</div>
+        <div class="contact-value"><a href="tel:0662048142">06.62.04.81.42</a></div>
+      </div>
+      <div class="contact-cell">
+        <div class="contact-icon">✉️</div>
+        <div class="contact-label">E-mail</div>
+        <div class="contact-value"><a href="/cdn-cgi/l/email-protection#cda1acaba8bfa0a8afb8bea2a3a3a4a8bfa88daaa0aca4a1e3aea2a0"><span class="__cf_email__" data-cfemail="d3bfb2b5b6a1beb6b1a6a0bcbdbdbab6a1b693b4beb2babffdb0bcbe">[email&#160;protected]</span></a></div>
+      </div>
+      <div class="contact-cell">
+        <div class="contact-label" style="margin-top:8px;">Nous suivre</div>
+        <div class="social-links">
+          <a href="#" class="social-btn" title="Facebook">f</a>
+          <a href="#" class="social-btn" title="Instagram" style="background:#333;">📷</a>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2024 La Ferme Bus'onnière &amp; Cie — Association loi 1901</p>
+  </footer>
+
+  <script>
+    function scrollTo(id) {
+      const el = document.getElementById(id);
+      if (el) {
+        const navHeight = document.querySelector('nav').offsetHeight;
+        const top = el.getBoundingClientRect().top + window.pageYOffset - navHeight - 16;
+        window.scrollTo({ top: top, behavior: 'smooth' });
+      }
+    }
+
+    const sections = ['prestations', 'nos-animaux', 'qui-suis-je', 'temoignages', 'contact'];
+    window.addEventListener('scroll', () => {
+      const navHeight = document.querySelector('nav').offsetHeight;
+      let current = '';
+      sections.forEach(id => {
+        const el = document.getElementById(id);
+        if (el && el.getBoundingClientRect().top <= navHeight + 40) current = id;
+      });
+      document.querySelectorAll('.nav-links a').forEach(a => {
+        a.classList.remove('active');
+        if (a.getAttribute('href') === '#' + current) a.classList.add('active');
+      });
+    });
+
+    // ===== CAROUSEL =====
+    let currentSlide = 0;
+    const track = document.querySelector('.carousel-track');
+    const slides = document.querySelectorAll('.carousel-slide');
+    const dotsContainer = document.getElementById('carouselDots');
+    let autoplayInterval;
+
+    slides.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.classList.add('carousel-dot');
+      if (i === 0) dot.classList.add('active');
+      dot.onclick = () => goToSlide(i);
+      dotsContainer.appendChild(dot);
+    });
+
+    function goToSlide(index) {
+      currentSlide = (index + slides.length) % slides.length;
+      track.style.transform = `translateX(-${currentSlide * 100}%)`;
+      document.querySelectorAll('.carousel-dot').forEach((d, i) => {
+        d.classList.toggle('active', i === currentSlide);
+      });
+    }
+
+    function moveCarousel(dir) {
+      goToSlide(currentSlide + dir);
+      resetAutoplay();
+    }
+
+    function resetAutoplay() {
+      clearInterval(autoplayInterval);
+      autoplayInterval = setInterval(() => goToSlide(currentSlide + 1), 4000);
+    }
+
+    autoplayInterval = setInterval(() => goToSlide(currentSlide + 1), 4000);
+
+    let touchStartX = 0;
+    document.querySelector('.carousel').addEventListener('touchstart', e => {
+      touchStartX = e.touches[0].clientX;
+    });
+    document.querySelector('.carousel').addEventListener('touchend', e => {
+      const diff = touchStartX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 50) moveCarousel(diff > 0 ? 1 : -1);
+    });
+    // ===== CAROUSEL TÉMOIGNAGES =====
+    let currentTemo = 0;
+    const temoTrack = document.getElementById('temoignagesTrack');
+    const temoSlides = temoTrack.querySelectorAll('.temoignage-slide');
+    const temoDots = document.getElementById('temoDots');
+    let temoAutoplay;
+
+    temoSlides.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.classList.add('temo-dot');
+      if (i === 0) dot.classList.add('active');
+      dot.onclick = () => goToTemo(i);
+      temoDots.appendChild(dot);
+    });
+
+    function goToTemo(index) {
+      currentTemo = (index + temoSlides.length) % temoSlides.length;
+      temoTrack.style.transform = `translateX(-${currentTemo * 100}%)`;
+      temoDots.querySelectorAll('.temo-dot').forEach((d, i) => {
+        d.classList.toggle('active', i === currentTemo);
+      });
+    }
+
+    function moveTemoignage(dir) {
+      goToTemo(currentTemo + dir);
+      clearInterval(temoAutoplay);
+      temoAutoplay = setInterval(() => goToTemo(currentTemo + 1), 5000);
+    }
+
+    temoAutoplay = setInterval(() => goToTemo(currentTemo + 1), 5000);
+
+  </script>
+
+</body>
+</html>
